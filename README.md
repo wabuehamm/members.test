@@ -4,6 +4,10 @@
 
 This repository holds test suites for the [Robot Framework](https://robotframework.org), that test the overall functionality of the digital members area of the [Waldbühne Heessen](https://waldbuehne-heessen.de)
 
+## Requirements
+
+* [Python](https://python.org) 3
+
 ## Installation
 
 Start by creating a virtualenv inside the project directory
