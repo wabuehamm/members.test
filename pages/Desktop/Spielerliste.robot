@@ -15,6 +15,7 @@ Go to Page
     HomePage.Login  ${USERNAME}  ${PASSWORD}
     Go To Menu  Spielerliste
     I Am On  Spielerliste
+    Take Current Screenshot  spielerliste
 
 Check Search Feature
     Element Should Be Visible  member_query
@@ -25,7 +26,6 @@ Check Memberlist
     ${numberOfMembers} =            Get Text                css:.elgg-form-members-search p.elgg-text-help
     ${members} =                    Get Regexp Matches      ${numberOfMembers}      Gesamtzahl der Mitglieder: ([0-9]+)     1
     Should Be True                  ${members}[0] > 300
-
 
 Check Pagination
     Element Should Be Visible  class:elgg-pagination

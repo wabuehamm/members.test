@@ -10,6 +10,7 @@ Go to Page
     [Arguments]         ${URL}      ${BROWSER}
     Open Browser        ${URL}      ${BROWSER}
     I Am On  Homepage
+    Take Current Screenshot  login
 
 Login
     [Arguments]         ${USERNAME}     ${PASSWORD}

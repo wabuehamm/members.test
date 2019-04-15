@@ -11,7 +11,6 @@ Suite Teardown  Teardown Application
 
 Page Is Available
     Spielerliste.Go to Page  %{TEST_BASEURL}     %{TEST_BROWSER}    %{TEST_USERNAME}    %{TEST_PASSWORD}
-    Take Current Screenshot  spielerliste
 
 Features are Available
     Check Memberlist

@@ -36,3 +36,7 @@ Afterwards, run the test suites like this
     . venv/bin/activate
     . .env
     robot test/**/*.robot
+
+## Caveats
+
+* To test the ical export features, the test suite downloads the exported file and assumes, that the file is downloaded into the user's usual download directory (~/Downloads on macOS and common Linux distributions). To change this path, set the environment variable TEST_DOWNLOAD_DIR.

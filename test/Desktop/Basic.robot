@@ -12,7 +12,6 @@ Suite Teardown  Teardown Application
 
 Site Is Available
     HomePage.Go to Page  %{TEST_BASEURL}     %{TEST_BROWSER}    
-    Take Current Screenshot  login
 
 Login Is Possible
     Login             %{TEST_USERNAME}    %{TEST_PASSWORD}
