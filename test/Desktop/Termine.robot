@@ -4,6 +4,9 @@ Documentation   Calendar features (Desktop)
 
 Resource        ../../pages/Utils.robot
 Resource        ../../pages/desktop/Termine.robot
+Resource        ../../pages/desktop/Termine/Agenda.robot
+Resource        ../../pages/desktop/Termine/Full.robot
+Resource        ../../pages/desktop/Termine/Paged.robot
 
 Suite Teardown  Teardown Application
 
@@ -14,8 +17,8 @@ Page Is Available
     Termine.Go to Page  %{TEST_BASEURL}             %{TEST_BROWSER}    %{TEST_USERNAME}     %{TEST_PASSWORD}     ${downloadDir}
 
 Features are Available
-    Check Paged Features
-    Check Agenda Features
-    Check Full Features
+    Paged.Check Features
+    Agenda.Check Features
+    Full.Check Features
     Check Ical Export Feature
     Check Basic Calendar Features

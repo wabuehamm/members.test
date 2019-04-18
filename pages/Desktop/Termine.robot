@@ -7,6 +7,7 @@ Library         OperatingSystem
 Resource        PageIdentification.robot
 Resource        HomePage.robot
 Resource        BasicNavigation.robot
+Resource        Termine/Agenda.robot
 
 *** Variables ***
 
@@ -25,37 +26,6 @@ Go to Page
     Go To Menu                  Termine
     I Am On                     Termine
     Take Current Screenshot     termine
-
-Check Paged Features
-    Click Element               css:a[data-menu-item-name=format_paged]
-    I Am On                     Termine-Paged
-    Take Current Screenshot     termine-paged
-    Check Paged Calendar Entries
-
-Check Paged Calendar Entries
-    ${calendarEntries} =    Get Element Count  css:table.event_calendar_paged_table tr
-    Should Be True          ${calendarEntries} > ${EXPECTED_CALENDAR_ENTRIES}
-
-Check Agenda Features
-    Click Element               css:a[data-menu-item-name=format_agenda]
-    I Am On                     Termine-Agenda
-    Take Current Screenshot     termine-agenda
-    Check Agenda Calendar Entries
-
-Check Agenda Calendar Entries
-    ${calendarEntries} =    Get Element Count  css:div.event_calendar_agenda table
-    Should Be True          ${calendarEntries} > ${EXPECTED_CALENDAR_ENTRIES}
-
-Check Full Features
-    Click Element               css:a[data-menu-item-name=format_full]
-    I Am On                     Termine-Full
-    Take Current Screenshot     termine-full
-    Check Full Calendar Entries
-
-Check Full Calendar Entries
-    Wait Until Element Is Visible   css:a.fc-event
-    ${calendarEntries} =            Get Element Count                                   css:a.fc-event
-    Should Be True                  ${calendarEntries} > ${EXPECTED_CALENDAR_ENTRIES}
 
 Check Ical Export Feature
     Click Element               css:a[data-menu-item-name=ical_export]
