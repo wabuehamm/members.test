@@ -7,13 +7,11 @@ Library         OperatingSystem
 Resource        PageIdentification.robot
 Resource        HomePage.robot
 Resource        BasicNavigation.robot
-Resource        Termine/Agenda.robot
 
 *** Variables ***
 
 ${BASE_URL}
 ${DOWNLOAD_DIR}
-${EXPECTED_CALENDAR_ENTRIES}    10
 
 *** Keywords ***
 
