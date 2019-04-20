@@ -157,13 +157,49 @@ Check Edited Event
     Element Should Contain          css:div.mtm p                                               Just a test2
 
 Delete Event
-    Select Test Event               Testevent2                                                  2018-1-2
+    [Arguments]                     ${EVENTNAME}=Testevent2                                     ${DATE}=2018-1-2
+    Select Test Event               ${EVENTNAME}                                                ${DATE}
 
     Click Element                   css:a.elgg-object-menu-toggle
     Wait Until Element Is Visible   css:a[data-menu-item-name=delete]
     Click Element                   css:a[data-menu-item-name=delete]
     Alert Should Be Present         Bist Du sicher, dass Du diesen Eintrag löschen willst?
 
-    Go To                           ${BASE_URL}/event_calendar/list/2018-1-2/day/all
-    ${eventCount} =                 Get Element Count                                               jquery:td.event_calendar_paged_title a:contains(Testevent2)
+    Go To                           ${BASE_URL}/event_calendar/list/${DATE}/day/all
+    ${eventCount} =                 Get Element Count                                               jquery:td.event_calendar_paged_title a:contains(${EVENTNAME})
     Should Be Equal As Integers     ${eventCount}                                                   0
+
+Check Single Ical Export Feature
+    Create New Event
+    Select Test Event               Testevent                                                   2018-1-1
+    Export Event As Ical
+    Remove File                     ${DOWNLOAD_DIR}/Calendar.ics
+    Delete Event                    Testevent                                                   2018-1-1
+
+Export Event As Ical
+    Click Element                   css:a.elgg-object-menu-toggle
+    Wait Until Element Is Visible   css:div.elgg-object-menu-popup a[data-menu-item-name=ical_export]
+    Click Element                   css:div.elgg-object-menu-popup a[data-menu-item-name=ical_export]
+    Wait Until Created              ${DOWNLOAD_DIR}/Calendar.ics
+    Sleep                           10 seconds                                                           reason=Wait for the file to be downloaded
+    File Should Not Be Empty        ${DOWNLOAD_DIR}/Calendar.ics
+    ${export} =                     Get File                                                             ${DOWNLOAD_DIR}/Calendar.ics
+    Should Contain                  ${export}                                                            Testevent
+
+Check Ical Import Feature
+    Create New Event
+    Select Test Event               Testevent                                2018-1-1
+    Export Event As Ical
+    Delete Event                    Testevent                                2018-1-1
+    
+    Click Element                   css:a[data-menu-item-name=ical_import]
+
+    # Use Join Path to get the absolute path name, which only works with Input Text into a file selection
+    ${uploadPath} =                 Join Path                                ${DOWNLOAD_DIR}                Calendar.ics
+
+    Input Text                      name:ical_file                           ${uploadPath}
+    Submit Form                     class:elgg-form-event-calendar-import
+    Remove File                     ${DOWNLOAD_DIR}/Calendar.ics
+
+    Select Test Event               Testevent                                2018-1-1
+    Delete Event                    Testevent                                2018-1-1

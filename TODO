@@ -11,8 +11,8 @@ Termine:
         ✔ Navigate to other pages @done(19-04-21 00:33)
         ✔ Change display type @done(19-04-21 00:33)
         ✔ Filter by type, postponed because of existing bug in members area @done(19-04-20 21:44)
-    ☐ iCal-Export of Event
-    ☐ iCal-Import
+    ✔ iCal-Export of Event @done(19-04-21 00:46)
+    ✔ iCal-Import @done(19-04-21 01:06)
 Forum:
     ☐ Overview
     ☐ Create post

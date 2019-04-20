@@ -19,6 +19,8 @@ Page Is Available
 Features are Available
     #Paged.Check Features
     #Agenda.Check Features
-    Full.Check Features
+    #Full.Check Features
     #Check Ical Export Feature
     #Check Basic Calendar Features
+    #Check Single Ical Export Feature
+    Check Ical Import Feature
