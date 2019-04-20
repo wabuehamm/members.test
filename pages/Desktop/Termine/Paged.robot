@@ -13,6 +13,7 @@ Check Features
     Paged.Check Calendar Entries
     Check Pagination
     Add Event To Personal Calendar
+    Paged.Check Filter
 
 Check Calendar Entries
     ${calendarEntries} =    Get Element Count  css:table.event_calendar_paged_table tr
@@ -40,3 +41,9 @@ Add Event To Personal Calendar
     Should Be True                      ${entries} < ${entriesAfterAdd}
     Click Element                       jquery:table.event_calendar_paged_table tr td input.event_calendar_paged_checkbox:eq(0)
     Wait Until Element Is Visible       jquery:li.elgg-state-success:contains(Das Event wurde aus Deinem persönlichen Kalender entfernt.)
+
+Check Filter
+    ${entries}                          Get Element Count                           css:table.event_calendar_paged_table tr
+    Select From List By Value           id:event-calendar-region                    Arbeitseinsatz
+    ${filteredEntries}                  Get Element Count                           css:table.event_calendar_paged_table tr
+    Should Be True                      ${entries} > ${filteredEntries}
