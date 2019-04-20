@@ -11,7 +11,7 @@ Check Features
     I Am On                             Termine-Paged
     Take Current Screenshot             termine-paged
     Paged.Check Calendar Entries
-    Check Pagination
+    Paged.Check Pagination
     Add Event To Personal Calendar
     Paged.Check Filter
 
@@ -21,8 +21,8 @@ Check Calendar Entries
 
 Check Pagination
     ${pages} =              Get Element Count  css:ul.elgg-pagination li
-    Should Be True          ${pages} > ${MINIMUM_CALENDAR_PAGES}
-    Go To Next Page
+    Should Be True          ${pages} > 4
+    Paged.Go To Next Page
 
 Go To Next Page
     ${firstEventStartDate} =            Get Text                                jquery:table.event_calendar_paged_table tbody tr td.event_calendar_paged_date:eq(1)
