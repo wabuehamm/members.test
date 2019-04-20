@@ -35,7 +35,9 @@ Afterwards, run the test suites like this
 
     . venv/bin/activate
     . .env
-    robot test/**/*.robot
+    robot -P lib test/**/*.robot
+
+*Hint*: Use the -P flag to tell Robot, that lib holds additional libraries.
 
 ## Caveats
 

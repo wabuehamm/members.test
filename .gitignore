@@ -7,3 +7,4 @@ venv
 .pyenv.cfg
 .env
 *.log
+__pycache__

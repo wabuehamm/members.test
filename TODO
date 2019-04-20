@@ -8,9 +8,9 @@ Termine:
         ✔ Change display type, postponed because of existing bug in members area @done(19-04-20 21:34)
         ✔ Filter by type, postponed because of existing bug in members area @done(19-04-20 21:34)
     Full:
-        ☐ Navigate to other pages
-        ☐ Change display type
-        ☐ Filter by type
+        ✔ Navigate to other pages @done(19-04-21 00:33)
+        ✔ Change display type @done(19-04-21 00:33)
+        ✔ Filter by type, postponed because of existing bug in members area @done(19-04-20 21:44)
     ☐ iCal-Export of Event
     ☐ iCal-Import
 Forum:
