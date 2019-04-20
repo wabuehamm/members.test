@@ -5,8 +5,8 @@ Termine:
         ✔ Filter by type @done(19-04-20 16:00)
     Agenda:
         ✔ Navigate to other pages @done(19-04-20 16:07)
-        ☐ Change display type
-        ☐ Filter by type
+        ✔ Change display type, postponed because of existing bug in members area @done(19-04-20 21:34)
+        ✔ Filter by type, postponed because of existing bug in members area @done(19-04-20 21:34)
     Full:
         ☐ Navigate to other pages
         ☐ Change display type

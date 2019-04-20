@@ -12,6 +12,8 @@ Check Features
     Take Current Screenshot     termine-agenda
     Agenda.Check Calendar Entries
     Agenda.Check Pagination
+    Agenda.Switch Display Type
+    Agenda.Check Filter
 
 Check Calendar Entries
     ${calendarEntries} =    Get Element Count  css:div.event_calendar_agenda table
@@ -27,3 +29,9 @@ Go To Next Page
     Click Element                       jquery: ul.elgg-pagination li:last a
     ${firstEventStartDateNextPage} =    Get Text                                jquery:div.event_calendar_agenda_date_section div.event_calendar_agenda_date:eq(0)
     Should Be True                      '${firstEventStartDate}' != '${firstEventStartDateNextPage}'
+
+Switch Display Type
+    Log  Skipped because of existing bug to switch  level=WARN
+
+Check Filter
+    Log  Skipped because of existing bug to switch  level=WARN
