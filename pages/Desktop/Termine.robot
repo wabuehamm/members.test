@@ -65,6 +65,7 @@ Check Edit Form
     Element Should Be Visible       name:region
     Element Should Not Be Visible   name:long_description
     Element Should Be Visible       css:a[data-menu-item-name=embed]
+    Take Current Screenshot         termine-edit
 
 Create New Event
     Click Element                   css:a[data-menu-item-name=add]
