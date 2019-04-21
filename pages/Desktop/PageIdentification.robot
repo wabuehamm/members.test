@@ -15,6 +15,7 @@ I Am On
     Run Keyword If  '${PAGE}' == 'Termine-Agenda'           Check Termine Agenda
     Run Keyword If  '${PAGE}' == 'Termine-Full'             Element Text Should Be      css:h2.title                                Alle Events
     Run Keyword If  '${PAGE}' == 'Termine-ICal-Export'      Element Text Should Be      css:div.nav li.elgg-state-selected span     Exportieren
+    Run Keyword If  '${PAGE}' == 'Forum'                    Element Text Should Be      css:.elgg-layout-title .title               Forum
 
 Check Termine Agenda
     ${title} =          Get Text    css:h2.title
