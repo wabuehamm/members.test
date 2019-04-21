@@ -15,12 +15,13 @@ Termine:
     ✔ iCal-Import @done(19-04-21 01:06)
 Forum:
     ✔ Overview @done(19-04-21 02:04)
-    ☐ Create post
-    ☐ View post
+    ✔ Create post @done(19-04-21 19:48)
+    ☐ Check notifications
+    ✔ View post @done(19-04-21 19:48)
     ☐ Like post
     ☐ Comment post
-    ☐ Edit post
-    ☐ Delete post
+    ✔ Edit post @done(19-04-21 19:48)
+    ✔ Delete post @done(19-04-21 19:48)
 Umfragen:
     ☐ Create poll
     ☐ Edit poll
@@ -43,4 +44,4 @@ Einstellungen:
     ☐ Change E-Mailaddress
     ☐ View Profile
     ☐ Change Profile
-    
+☐ Screenshot - Comparison

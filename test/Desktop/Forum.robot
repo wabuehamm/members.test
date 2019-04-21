@@ -15,3 +15,6 @@ Page Is Available
 Features are Available
     Check Posts
     Check Pagination
+    Create New Post
+    Edit Post
+    Delete Post
