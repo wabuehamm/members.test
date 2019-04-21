@@ -95,11 +95,11 @@ Select Test Event
     ${eventCount} =                 Get Element Count                                               jquery:td.event_calendar_paged_title a:contains(${EVENTNAME})
     Should Be Equal As Numbers      ${eventCount}                                                   1
     Click Element                   jquery:td.event_calendar_paged_title a:contains(${EVENTNAME})
-    
 
 Check Created Event
     Select Test Event               Testevent                                                   2018-1-1
 
+    Take Current Screenshot         termine-event-created
     Element Should Contain          css:h3.title a span.elgg-anchor-label                       Testevent
     
     ${timeOfEvent} =                Get Element Count                                           jquery:div.mts:contains(Wann: 10:00 - 10:30, 1 Jan 2018)
@@ -143,6 +143,7 @@ Edit Event
 
 Check Edited Event
     Select Test Event               Testevent2                                                  2018-1-2
+    Take Current Screenshot         termine-event-edited
 
     Element Should Contain          css:h3.title a span.elgg-anchor-label                       Testevent2
     
