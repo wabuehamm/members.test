@@ -101,10 +101,24 @@ Like Post
 
     Click Element                   css:a[data-menu-item-name=likes]
     Wait Until Element Is Visible   css:li.elgg-state-success
-    Sleep                           1 Minute
     ${likesText} =                  Get Text                                css:li.elgg-menu-item-likes-count a         # The span is removed when the like button is clicked
     ${matches} =                    Get Regexp Matches                      ${likesText}                                ([0-9]+) gefällt        1
     Should Be True                  ${matches}[0] == ${likes} + 1
+
+Comment Post
+    Go To Menu                          Forum
+    ${comments} =                       Execute Javascript      $('a[data-menu-item-name=comments]', $('.title:contains(Testpost2))').parent().parent().parent()).length
+    Should Be Equal As Integers         ${comments}             0
+    
+    Select Test Post                    Testpost2
+    Execute Javascript                  $('textarea[name=description]').text('This is a Testcomment')
+    Submit Form                         class:elgg-form-discussion-reply-save
+
+    Element Should Be Visible           jquery:.elgg-comments li p:contains(This is a Testcomment)
+
+    Go To Menu                          Forum
+    ${comments} =                       Execute Javascript      $('a[data-menu-item-name=comments]', $('.title:contains(Testpost2))').parent().parent().parent()).length
+    Should Be Equal As Integers         ${comments}             1
 
 Delete Post
     Select Test Post                    Testpost2
