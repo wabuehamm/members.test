@@ -2,6 +2,7 @@
 
 Documentation   Bulletin board page features
 Library         SeleniumLibrary
+Library         String
 Resource        PageIdentification.robot
 Resource        HomePage.robot
 Resource        BasicNavigation.robot
@@ -90,6 +91,20 @@ Check Edited Post
     Element Text Should Be              css:h3.title a span                         Testpost2
     Element Text Should Be              css:div.elgg-listing-summary-body p         This is a Testpost2
     Element Text Should Be              css:div.elgg-tag a span                     test2
+
+Like Post
+    Select Test Post    Testpost2
+    ${likesText} =      Get Text                                css:li.elgg-menu-item-likes-count a span
+    ${matches} =        Get Regexp Matches                      ${likesText}                                ([0-9]+) gefällt        1
+    ${likes} =          Set Variable                            ${matches}[0]
+    
+
+    Click Element                   css:a[data-menu-item-name=likes]
+    Wait Until Element Is Visible   css:li.elgg-state-success
+    Sleep                           1 Minute
+    ${likesText} =                  Get Text                                css:li.elgg-menu-item-likes-count a         # The span is removed when the like button is clicked
+    ${matches} =                    Get Regexp Matches                      ${likesText}                                ([0-9]+) gefällt        1
+    Should Be True                  ${matches}[0] == ${likes} + 1
 
 Delete Post
     Select Test Post                    Testpost2

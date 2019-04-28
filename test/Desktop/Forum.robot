@@ -17,4 +17,5 @@ Features are Available
     Check Pagination
     Create New Post
     Edit Post
+    Like Post
     Delete Post
