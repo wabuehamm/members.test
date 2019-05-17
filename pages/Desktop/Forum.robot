@@ -3,17 +3,25 @@
 Documentation   Bulletin board page features
 Library         SeleniumLibrary
 Library         String
+Library         OperatingSystem
 Resource        PageIdentification.robot
 Resource        HomePage.robot
 Resource        BasicNavigation.robot
 Resource        ../Constants.robot
 
+*** Variables ***
+
+${NOTIFICATION_PATHS}       ""
+${BASE_URL}                 ""
+
 *** Keywords ***
 
 Go to Page
-    [Arguments]                 ${URL}          ${BROWSER}      ${USERNAME}     ${PASSWORD}
-    HomePage.Go to Page         ${URL}          ${BROWSER}
-    HomePage.Login              ${USERNAME}     ${PASSWORD}
+    [Arguments]                 ${URL}                  ${BROWSER}      ${USERNAME}     ${PASSWORD}     ${P_NOTIFICATION_PATHS}
+    Set Suite Variable          ${NOTIFICATION_PATHS}   ${P_NOTIFICATION_PATHS}
+    Set Suite Variable          ${BASE_URL}             ${URL}
+    HomePage.Go to Page         ${URL}                  ${BROWSER}
+    HomePage.Login              ${USERNAME}             ${PASSWORD}
     Go To Menu                  Forum
     I Am On                     Forum
     Take Current Screenshot     forum
@@ -36,6 +44,7 @@ Check Pagination
     Should Be True                      '${topPostTitle}' != '${topPostTitleNext}'
 
 Create New Post
+    Clean Notifications
     Click Element                       css:a[data-menu-item-name=add]
     Check Edit Form
     Input Text                          name:title                                                  Testpost
@@ -46,6 +55,7 @@ Create New Post
     Input Text                          name:tags                                                   test
     Submit Form                         class:elgg-form-discussion-save
     Check Created Post
+    Notifications Should Exist
 
 Check Edit Form
     Element Should Be Visible           name:title
@@ -106,6 +116,7 @@ Like Post
     Should Be True                  ${matches}[0] == ${likes} + 1
 
 Comment Post
+    Clean Notifications
     Go To Menu                          Forum
     ${comments} =                       Execute Javascript      $('a[data-menu-item-name=comments]', $('.title:contains(Testpost2))').parent().parent().parent()).length
     Should Be Equal As Integers         ${comments}             0
@@ -120,6 +131,8 @@ Comment Post
     ${comments} =                       Execute Javascript      $('a[data-menu-item-name=comments]', $('.title:contains(Testpost2))').parent().parent().parent()).length
     Should Be Equal As Integers         ${comments}             1
 
+    Notifications Should Exist
+
 Delete Post
     Select Test Post                    Testpost2
     Click Element                       css:a[data-menu-item-name=delete]
@@ -127,4 +140,15 @@ Delete Post
 
     Go To Menu                          Termine
     Page Should Not Contain Element     jquery:h3.title a:contains(Testpost2)
-    
+
+Clean Notifications
+    ${CURRENT_URL} =    Get Location  
+    Go To               ${BASE_URL}/cron/minute
+    Remove File         ${NOTIFICATION_PATHS}/*.txt
+    Go To               ${CURRENT_URL}
+
+Notifications Should Exist
+    ${CURRENT_URL} =    Get Location  
+    Go To               ${BASE_URL}/cron/minute
+    File Should Exist   ${NOTIFICATION_PATHS}/*.txt
+    Go To               ${CURRENT_URL}

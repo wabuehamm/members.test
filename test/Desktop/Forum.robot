@@ -10,7 +10,7 @@ Suite Teardown  Teardown Application
 *** Test Cases ***
 
 Page Is Available
-    Forum.Go to Page  %{TEST_BASEURL}     %{TEST_BROWSER}    %{TEST_USERNAME}    %{TEST_PASSWORD}
+    Forum.Go to Page  %{TEST_BASEURL}     %{TEST_BROWSER}    %{TEST_USERNAME}    %{TEST_PASSWORD}   %{TEST_NOTIFICATIONS_PATH}
 
 Features are Available
     Check Posts
