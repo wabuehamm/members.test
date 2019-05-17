@@ -17,6 +17,7 @@ I Am On
     Run Keyword If  '${PAGE}' == 'Termine-ICal-Export'      Element Text Should Be      css:div.nav li.elgg-state-selected span                 Exportieren
     Run Keyword If  '${PAGE}' == 'Forum'                    Element Text Should Be      css:.elgg-layout-title .title                           Forum
     Run Keyword If  '${PAGE}' == 'Umfragen'                 Element Should Be Visible   jquery:a.is-active  span:contains(Gruppen-Umfragen)
+    Run Keyword If  '${PAGE}' == 'Handbuch'                 Element Text Should Be      css:h3.title a span                                     Handbuch zum Mitgliederbereich
 
 Check Termine Agenda
     ${title} =          Get Text    css:h2.title
