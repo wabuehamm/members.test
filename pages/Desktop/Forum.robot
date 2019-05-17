@@ -43,6 +43,8 @@ Check Pagination
 
     Should Be True                      '${topPostTitle}' != '${topPostTitleNext}'
 
+    Take Current Screenshot             forum-nextpage
+
 Create New Post
     Clean Notifications
     Click Element                       css:a[data-menu-item-name=add]
@@ -114,6 +116,8 @@ Like Post
     ${likesText} =                  Get Text                                css:li.elgg-menu-item-likes-count a         # The span is removed when the like button is clicked
     ${matches} =                    Get Regexp Matches                      ${likesText}                                ([0-9]+) gefällt        1
     Should Be True                  ${matches}[0] == ${likes} + 1
+    
+    Take Current Screenshot         forum-liked-posts
 
 Comment Post
     Clean Notifications
@@ -132,6 +136,8 @@ Comment Post
     Should Be Equal As Integers         ${comments}             1
 
     Notifications Should Exist
+
+    Take Current Screenshot             forum-commentedpost
 
 Delete Post
     Select Test Post                    Testpost2
