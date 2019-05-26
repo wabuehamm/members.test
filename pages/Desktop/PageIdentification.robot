@@ -19,6 +19,7 @@ I Am On
     Run Keyword If  '${PAGE}' == 'Umfragen'                 Element Should Be Visible   jquery:a.is-active  span:contains(Gruppen-Umfragen)
     Run Keyword If  '${PAGE}' == 'Handbuch'                 Element Text Should Be      css:h3.title a span                                     Handbuch zum Mitgliederbereich
     Run Keyword If  '${PAGE}' == 'Aktivitaeten'             Element Text Should Be      css:h2.title                                            Alle Aktivitäten
+    Run Keyword If  '${PAGE}' == 'Private-Nachrichten'      Element Should Be Visible   class:elgg-form-messages-process
 
 Check Termine Agenda
     ${title} =          Get Text    css:h2.title
