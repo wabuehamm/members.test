@@ -35,7 +35,7 @@ Check Filter
 
 Check Controls
     # Month
-    ${titleDate} =              Get Current Date                result_format=%B %Y
+    ${titleDate} =              Current Month
     Element Text Should Be      css:span.fc-header-title h2     ${titleDate}
 
     Click Element               css:span.fc-button-prev

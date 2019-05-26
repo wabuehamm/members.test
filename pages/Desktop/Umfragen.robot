@@ -25,8 +25,8 @@ Go To Umfragen
     Click Element               jquery:span:contains(Gruppen-Umfragen)
 
 Check Polls
-    ${posts} =                      Get Element Count   class:elgg-item
-    Should Be Equal As Integers     ${posts}            ${EXPECTED_POLL_POSTS}
+    ${posts} =                  Get Element Count                   class:elgg-item
+    Should Be True              ${posts} >= ${EXPECTED_POLL_POSTS}
 
 Create New Poll
     Click Element                       css:a[data-menu-item-name=add]
@@ -93,7 +93,9 @@ Edit Poll
     Input Text                          name:tags                                                      test2
 
     ${TODAY} =                          Get Current Date
-    ${TOMORROW} =                       Add Time To Date                                            ${TODAY}            1 day
+    ${TOMORROW} =                       Add Time To Date                                            ${TODAY}            1 day       %Y-%m-%d
+    
+    Clear Element Text                  id:close_date
     Input Text                          id:close_date                                               ${TOMORROW}
 
     Input Text                          name:choice_text_0                                          First Choice2

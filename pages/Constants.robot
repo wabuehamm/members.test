@@ -6,7 +6,7 @@ ${EXPECTED_CALENDAR_ENTRIES}        10
 # Expected forum posts per page
 ${EXPECTED_FORUM_POSTS}             20
 
-# Expected polls
+# Expected minimum polls
 ${EXPECTED_POLL_POSTS}              3
 
 # Expected activity stream items
