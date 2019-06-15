@@ -11,6 +11,7 @@ Menu Should Exist
 
 Go To Menu
     [Arguments]  ${MENUNAME}
+    Click Element               jquery:a[data-menu-item-name="global"]
     Click Element               jquery:.elgg-page-topbar a.elgg-menu-content span:contains(${MENUNAME})
 
 Search Is Available

@@ -20,6 +20,7 @@ I Am On
     Run Keyword If  '${PAGE}' == 'Handbuch'                 Element Text Should Be      css:h3.title a span                                     Handbuch zum Mitgliederbereich
     Run Keyword If  '${PAGE}' == 'Aktivitaeten'             Element Text Should Be      css:h2.title                                            Alle Aktivitäten
     Run Keyword If  '${PAGE}' == 'Private-Nachrichten'      Element Should Be Visible   class:elgg-form-messages-process
+    Run Keyword If  '${PAGE}' == 'Einstellungen'            Element Should Be Visible   class:elgg-page-context-settings
 
 Check Termine Agenda
     ${title} =          Get Text    css:h2.title

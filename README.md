@@ -12,7 +12,7 @@ This repository holds test suites for the [Robot Framework](https://robotframewo
 
 Start by creating a virtualenv inside the project directory
 
-    python3 -m venv venv
+    python3 -m venv --copies venv
 
 Then install the required dependencies
 
