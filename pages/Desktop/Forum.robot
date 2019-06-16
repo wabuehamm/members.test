@@ -55,6 +55,27 @@ Create New Post
     Execute Javascript                  $('textarea[name=description]').text('This is a Testpost')
 
     Input Text                          name:tags                                                   test
+    
+    # Test embed feature
+    Click Element  css:a[data-menu-item-name=embed]
+    Wait Until Element Is Visible  jquery:span:contains("Datei hochladen")
+    Click Element  jquery:span:contains("Datei hochladen")
+    Wait Until Element Is Visible  css:input[value="embed_file"]    
+    Click Element  css:input[value="embed_file"]
+    Input Text  name:upload  %{TEST_EMBED_IMAGE}
+    Input Text  css:#cboxWrapper input[name="title"]  Testimage
+    Submit Form  class:elgg-form-embed
+
+    Wait Until Element Is Visible  name:query
+    Input Text  name:query  Testimage
+    Submit Form  class:elgg-form-sortable-list
+    
+    Click Element  jquery:#cboxWrapper a[data-menu-item-name=embed]:first 
+    Wait Until Element Is Not Visible  css:#cboxWrapper
+    Select Frame  css:.mce-edit-area iframe
+    Wait Until Element Is Visible  css:img[alt="Testimage"]
+    Unselect Frame
+    
     Submit Form                         class:elgg-form-discussion-save
     Check Created Post
     Utils.Notifications Should Exist    ${BASE_URL}                                                 ${NOTIFICATION_PATHS}
@@ -80,6 +101,7 @@ Check Created Post
     Element Text Should Be              css:h3.title a span                         Testpost
     Element Text Should Be              css:div.elgg-listing-summary-body p         This is a Testpost
     Element Text Should Be              css:div.elgg-tag a span                     test
+    Element Should Be Visible           css:img[alt=Testimage]  
 
 Edit Post
     Select Test Post                    Testpost
