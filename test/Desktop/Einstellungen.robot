@@ -16,3 +16,6 @@ Page Is Available
 Features are Available
   Einstellungen.Check Change Password
   Einstellungen.Check E-Mailadress
+  Einstellungen.Check Profile
+  Einstellungen.Check Other Profile
+  Einstellungen.Change Profile
