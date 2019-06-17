@@ -1,19 +1,19 @@
 *** Settings ***
 
-Documentation   Direct message features (Desktop)
+Documentation  Direct message features (Desktop)
 
-Resource        ../../pages/Utils.robot
-Resource        ../../pages/desktop/PrivateNachrichten.robot
+Resource  ../../pages/Utils.robot
+Resource  ../../pages/desktop/PrivateNachrichten.robot
 
 Suite Teardown  Teardown Application
-Suite Setup     Tearup Application
+Suite Setup  Tearup Application
 
 *** Test Cases ***
 
 Page Is Available
-    PrivateNachrichten.Go to Page
+  PrivateNachrichten.Go to Page
 
 Features are Available
-    Send Direct Message
-    Receive Reply
-    Delete Direct Message
+  Send Direct Message
+  Receive Reply
+  Delete Direct Message
