@@ -6,11 +6,12 @@ Resource        ../../pages/Utils.robot
 Resource        ../../pages/desktop/Einstellungen.robot
 
 Suite Teardown  Teardown Application
+Suite Setup     Tearup Application
 
 *** Test Cases ***
 
 Page Is Available
-    Einstellungen.Go to Page  %{TEST_BASEURL}     %{TEST_BROWSER}    %{TEST_USERNAME}    %{TEST_PASSWORD}   %{TEST_NOTIFICATIONS_PATH}
+    Einstellungen.Go to Page
 
 Features are Available
     Einstellungen.Check Change Password

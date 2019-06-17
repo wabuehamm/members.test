@@ -6,11 +6,12 @@ Resource        ../../pages/Utils.robot
 Resource        ../../pages/desktop/Forum.robot
 
 Suite Teardown  Teardown Application
+Suite Setup     Tearup Application
 
 *** Test Cases ***
 
 Page Is Available
-    Forum.Go to Page  %{TEST_BASEURL}     %{TEST_BROWSER}    %{TEST_USERNAME}    %{TEST_PASSWORD}   %{TEST_NOTIFICATIONS_PATH}
+    Forum.Go to Page
 
 Features are Available
     Check Posts

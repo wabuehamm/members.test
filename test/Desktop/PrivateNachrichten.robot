@@ -6,11 +6,12 @@ Resource        ../../pages/Utils.robot
 Resource        ../../pages/desktop/PrivateNachrichten.robot
 
 Suite Teardown  Teardown Application
+Suite Setup     Tearup Application
 
 *** Test Cases ***
 
 Page Is Available
-    PrivateNachrichten.Go to Page  %{TEST_BASEURL}     %{TEST_BROWSER}    %{TEST_USERNAME}    %{TEST_PASSWORD}      %{TEST_SECOND_USER}     %{TEST_SECOND_PASSWORD}     %{TEST_SECOND_USER_DISPLAYNAME}
+    PrivateNachrichten.Go to Page
 
 Features are Available
     Send Direct Message

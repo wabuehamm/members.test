@@ -10,9 +10,8 @@ Resource        BasicNavigation.robot
 *** Keywords ***
 
 Go to Page
-    [Arguments]         ${URL}      ${BROWSER}      ${USERNAME}     ${PASSWORD}
-    HomePage.Go to Page  ${URL}  ${BROWSER}
-    HomePage.Login  ${USERNAME}  ${PASSWORD}
+    HomePage.Go to Page         %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
+    HomePage.Login              %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
     Go To Menu  Spielerliste
     I Am On  Spielerliste
     Take Current Screenshot  spielerliste

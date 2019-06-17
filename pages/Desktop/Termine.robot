@@ -8,19 +8,11 @@ Resource        PageIdentification.robot
 Resource        HomePage.robot
 Resource        BasicNavigation.robot
 
-*** Variables ***
-
-${BASE_URL}
-${DOWNLOAD_DIR}
-
 *** Keywords ***
 
 Go to Page
-    [Arguments]         ${URL}      ${BROWSER}      ${USERNAME}     ${PASSWORD}     ${P_DOWNLOAD_DIR}
-    Set Suite Variable          ${BASE_URL}         ${URL}
-    Set Suite Variable          ${DOWNLOAD_DIR}     ${P_DOWNLOAD_DIR}
-    HomePage.Go to Page         ${URL}              ${BROWSER}
-    HomePage.Login              ${USERNAME}         ${PASSWORD}
+    HomePage.Go to Page         %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
+    HomePage.Login              %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
     Go To Menu                  Termine
     I Am On                     Termine
     Take Current Screenshot     termine
@@ -35,12 +27,12 @@ Check Ical Export Feature
     Clear Element Text          name:end_date
     Press Keys                  name:end_date                           2018-12-31
     Submit Form                 class:elgg-form-event-calendar-export
-    Wait Until Created          ${DOWNLOAD_DIR}/Calendar.ics
+    Wait Until Created          %{MEMBERS_TEST_DOWNLOAD_DIR}/Calendar.ics
     Sleep                       10 seconds                              reason=Wait for the file to be downloaded
-    File Should Not Be Empty    ${DOWNLOAD_DIR}/Calendar.ics
-    ${export} =                 Get File                                ${DOWNLOAD_DIR}/Calendar.ics
+    File Should Not Be Empty    %{MEMBERS_TEST_DOWNLOAD_DIR}/Calendar.ics
+    ${export} =                 Get File                                %{MEMBERS_TEST_DOWNLOAD_DIR}/Calendar.ics
     Should Contain              ${export}                               Abschlussfahrt
-    Remove File                 ${DOWNLOAD_DIR}/Calendar.ics
+    Remove File                 %{MEMBERS_TEST_DOWNLOAD_DIR}/Calendar.ics
     Go To Menu  Termine
     I Am On  Termine
 
@@ -87,11 +79,11 @@ Create New Event
     # Use Javascript to work around tinymce editor
     Execute Javascript              $('textarea[name=long_description]').text('Just a test')
 
-    Submit Form                     name:event_calendar_edit
+    Click Element  name:submit
 
 Select Test Event
     [Arguments]                     ${EVENTNAME}                                                    ${DATE}
-    Go To                           ${BASE_URL}/event_calendar/list/${DATE}/day/all
+    Go To                           %{MEMBERS_TEST_BASEURL}/event_calendar/list/${DATE}/day/all
     ${eventCount} =                 Get Element Count                                               jquery:td.event_calendar_paged_title a:contains(${EVENTNAME})
     Should Be Equal As Numbers      ${eventCount}                                                   1
     Click Element                   jquery:td.event_calendar_paged_title a:contains(${EVENTNAME})
@@ -139,7 +131,7 @@ Edit Event
     # Use Javascript to work around tinymce editor
     Execute Javascript              $('textarea[name=long_description]').text('Just a test2')
 
-    Submit Form                     name:event_calendar_edit
+    Click Element  name:submit
 
 Check Edited Event
     Select Test Event               Testevent2                                                  2018-1-2
@@ -167,7 +159,7 @@ Delete Event
     Click Element                   css:a[data-menu-item-name=delete]
     Alert Should Be Present         Bist Du sicher, dass Du diesen Eintrag löschen willst?
 
-    Go To                           ${BASE_URL}/event_calendar/list/${DATE}/day/all
+    Go To                           %{MEMBERS_TEST_BASEURL}/event_calendar/list/${DATE}/day/all
     ${eventCount} =                 Get Element Count                                               jquery:td.event_calendar_paged_title a:contains(${EVENTNAME})
     Should Be Equal As Integers     ${eventCount}                                                   0
 
@@ -175,17 +167,17 @@ Check Single Ical Export Feature
     Create New Event
     Select Test Event               Testevent                                                   2018-1-1
     Export Event As Ical
-    Remove File                     ${DOWNLOAD_DIR}/Calendar.ics
+    Remove File                     %{MEMBERS_TEST_DOWNLOAD_DIR}/Calendar.ics
     Delete Event                    Testevent                                                   2018-1-1
 
 Export Event As Ical
     Click Element                   css:a.elgg-object-menu-toggle
     Wait Until Element Is Visible   css:div.elgg-object-menu-popup a[data-menu-item-name=ical_export]
     Click Element                   css:div.elgg-object-menu-popup a[data-menu-item-name=ical_export]
-    Wait Until Created              ${DOWNLOAD_DIR}/Calendar.ics
+    Wait Until Created              %{MEMBERS_TEST_DOWNLOAD_DIR}/Calendar.ics
     Sleep                           10 seconds                                                           reason=Wait for the file to be downloaded
-    File Should Not Be Empty        ${DOWNLOAD_DIR}/Calendar.ics
-    ${export} =                     Get File                                                             ${DOWNLOAD_DIR}/Calendar.ics
+    File Should Not Be Empty        %{MEMBERS_TEST_DOWNLOAD_DIR}/Calendar.ics
+    ${export} =                     Get File                                                             %{MEMBERS_TEST_DOWNLOAD_DIR}/Calendar.ics
     Should Contain                  ${export}                                                            Testevent
 
 Check Ical Import Feature
@@ -197,11 +189,11 @@ Check Ical Import Feature
     Click Element                   css:a[data-menu-item-name=ical_import]
 
     # Use Join Path to get the absolute path name, which only works with Input Text into a file selection
-    ${uploadPath} =                 Join Path                                ${DOWNLOAD_DIR}                Calendar.ics
+    ${uploadPath} =                 Join Path                                %{MEMBERS_TEST_DOWNLOAD_DIR}                Calendar.ics
 
     Input Text                      name:ical_file                           ${uploadPath}
     Submit Form                     class:elgg-form-event-calendar-import
-    Remove File                     ${DOWNLOAD_DIR}/Calendar.ics
+    Remove File                     %{MEMBERS_TEST_DOWNLOAD_DIR}/Calendar.ics
 
     Select Test Event               Testevent                                2018-1-1
     Delete Event                    Testevent                                2018-1-1

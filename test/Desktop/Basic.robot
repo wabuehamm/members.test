@@ -7,14 +7,15 @@ Resource        ../../pages/desktop/HomePage.robot
 Resource        ../../pages/desktop/BasicNavigation.robot
 
 Suite Teardown  Teardown Application
+Suite Setup     Tearup Application
 
 *** Test Cases ***
 
 Site Is Available
-    HomePage.Go to Page  %{TEST_BASEURL}     %{TEST_BROWSER}    
+    HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
 
 Login Is Possible
-    Login             %{TEST_USERNAME}    %{TEST_PASSWORD}
+    HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
 
 Menu Is Complete
     Menu Should Exist  Spielerliste

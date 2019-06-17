@@ -5,6 +5,21 @@ Library         OperatingSystem
 
 ** Keywords **
 
+Check Environment
+    Environment Variable Should Be Set  MEMBERS_TEST_BASEURL
+    Environment Variable Should Be Set  MEMBERS_TEST_BROWSER
+    Environment Variable Should Be Set  MEMBERS_TEST_USERNAME
+    Environment Variable Should Be Set  MEMBERS_TEST_PASSWORD
+    Environment Variable Should Be Set  MEMBERS_TEST_NOTIFICATION_PATH
+    Environment Variable Should Be Set  MEMBERS_TEST_SECOND_USERNAME
+    Environment Variable Should Be Set  MEMBERS_TEST_SECOND_PASSWORD
+    Environment Variable Should Be Set  MEMBERS_TEST_SECOND_USER_DISPLAYNAME
+    Environment Variable Should Be Set  MEMBERS_TEST_DOWNLOAD_DIR
+    Environment Variable Should Be Set  MEMBERS_TEST_EMBED_IMAGE
+
+Tearup Application
+    Check Environment
+
 Teardown Application
     Close All Browsers
 

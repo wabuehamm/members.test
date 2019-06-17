@@ -9,19 +9,11 @@ Resource        BasicNavigation.robot
 Resource        ../Constants.robot
 Resource        ../Utils.robot
 
-*** Variables ***
-
-${NOTIFICATION_PATHS}       ""
-${BASE_URL}                 ""
-
 *** Keywords ***
 
 Go to Page
-    [Arguments]                 ${URL}                  ${BROWSER}      ${USERNAME}     ${PASSWORD}     ${P_NOTIFICATION_PATHS}
-    Set Suite Variable          ${NOTIFICATION_PATHS}   ${P_NOTIFICATION_PATHS}
-    Set Suite Variable          ${BASE_URL}             ${URL}
-    HomePage.Go to Page         ${URL}                  ${BROWSER}
-    HomePage.Login              ${USERNAME}             ${PASSWORD}
+    HomePage.Go to Page         %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
+    HomePage.Login              %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
     Go To Menu                  Forum
     I Am On                     Forum
     Take Current Screenshot     forum
@@ -46,7 +38,7 @@ Check Pagination
     Take Current Screenshot             forum-nextpage
 
 Create New Post
-    Utils.Clean Notifications           ${BASE_URL}                                                 ${NOTIFICATION_PATHS}
+    Utils.Clean Notifications           %{MEMBERS_TEST_BASEURL}                                                 %{MEMBERS_TEST_NOTIFICATION_PATH}
     Click Element                       css:a[data-menu-item-name=add]
     Check Edit Form
     Input Text                          name:title                                                  Testpost
@@ -62,7 +54,7 @@ Create New Post
     Click Element  jquery:span:contains("Datei hochladen")
     Wait Until Element Is Visible  css:input[value="embed_file"]    
     Click Element  css:input[value="embed_file"]
-    Input Text  name:upload  %{TEST_EMBED_IMAGE}
+    Input Text  name:upload  %{MEMBERS_TEST_EMBED_IMAGE}
     Input Text  css:#cboxWrapper input[name="title"]  Testimage
     Submit Form  class:elgg-form-embed
 
@@ -78,7 +70,7 @@ Create New Post
     
     Submit Form                         class:elgg-form-discussion-save
     Check Created Post
-    Utils.Notifications Should Exist    ${BASE_URL}                                                 ${NOTIFICATION_PATHS}
+    Utils.Notifications Should Exist    %{MEMBERS_TEST_BASEURL}                                                 %{MEMBERS_TEST_NOTIFICATION_PATH}
 
 Check Edit Form
     Element Should Be Visible           name:title
@@ -142,7 +134,7 @@ Like Post
     Take Current Screenshot         forum-liked-posts
 
 Comment Post
-    Utils.Clean Notifications           ${BASE_URL}             ${NOTIFICATION_PATHS}
+    Utils.Clean Notifications           %{MEMBERS_TEST_BASEURL}             %{MEMBERS_TEST_NOTIFICATION_PATH}
     Go To Menu                          Forum
     ${comments} =                       Execute Javascript      $('a[data-menu-item-name=comments]', $('.title:contains(Testpost2))').parent().parent().parent()).length
     Should Be Equal As Integers         ${comments}             0
@@ -157,7 +149,7 @@ Comment Post
     ${comments} =                       Execute Javascript      $('a[data-menu-item-name=comments]', $('.title:contains(Testpost2))').parent().parent().parent()).length
     Should Be Equal As Integers         ${comments}             1
 
-    Utils.Notifications Should Exist    ${BASE_URL}             ${NOTIFICATION_PATHS}
+    Utils.Notifications Should Exist    %{MEMBERS_TEST_BASEURL}             %{MEMBERS_TEST_NOTIFICATION_PATH}
 
     Take Current Screenshot             forum-commentedpost
 

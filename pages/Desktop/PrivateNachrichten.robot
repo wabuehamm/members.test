@@ -10,25 +10,11 @@ Resource        HomePage.robot
 Resource        BasicNavigation.robot
 Resource        ../Constants.robot
 
-*** Variables ***
-
-${SECOND_USERNAME} =            ""
-${SECOND_PASSWORD} =            ""
-${SECOND_USER_DISPLAYNAME} =    ""
-${FIRST_USERNAME} =             ""
-${FIRST_PASSWORD} =             ""
-
 *** Keywords ***
 
 Go to Page
-    [Arguments]                 ${URL}                          ${BROWSER}      ${USERNAME}     ${PASSWORD}     ${P_SECOND_USERNAME}      ${P_SECOND_PASSWORD}      ${P_SECOND_USER_DISPLAYNAME}
-    Set Suite Variable          ${SECOND_USERNAME}              ${P_SECOND_USERNAME}
-    Set Suite Variable          ${SECOND_PASSWORD}              ${P_SECOND_PASSWORD}
-    Set Suite Variable          ${SECOND_USER_DISPLAYNAME}      ${P_SECOND_USER_DISPLAYNAME}
-    Set Suite Variable          ${FIRST_USERNAME}               ${USERNAME}
-    Set Suite Variable          ${FIRST_PASSWORD}               ${PASSWORD}
-    HomePage.Go to Page         ${URL}                          ${BROWSER}
-    HomePage.Login              ${USERNAME}                     ${PASSWORD}
+    HomePage.Go to Page         %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
+    HomePage.Login              %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
     Go To Private Nachrichten
     I Am On                     Private-Nachrichten
     Take Current Screenshot     private-nachrichten
@@ -39,7 +25,7 @@ Go To Private Nachrichten
 Send Direct Message
     Click Element                   css:a[data-menu-item-name="add"]
     Check Edit Form
-    Input Text                      css:div[data-name="recipients"] input                               ${SECOND_USER_DISPLAYNAME}
+    Input Text                      css:div[data-name="recipients"] input                               %{MEMBERS_TEST_SECOND_USER_DISPLAYNAME}
     Wait Until Element Is Visible   css:ul.ui-autocomplete > li
 
     Press Keys                      css:div[data-name="recipients"] input                               DOWN                        TAB
@@ -52,18 +38,18 @@ Send Direct Message
     Submit Form                     class:elgg-form-messages-send
 
     Homepage.Logout
-    HomePage.Login                  ${SECOND_USERNAME}                                                  ${SECOND_PASSWORD}
+    HomePage.Login                  %{MEMBERS_TEST_SECOND_USERNAME}                                                  %{MEMBERS_TEST_SECOND_PASSWORD}
 
     Go To Private Nachrichten
 
     Element Should Be Visible       jquery:.messages-container .elgg-item h3.title:contains(Testdm)
 
     HomePage.Logout
-    HomePage.Login                  ${FIRST_USERNAME}                                                               ${FIRST_PASSWORD}
+    HomePage.Login                  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
 
 Receive Reply
     HomePage.Logout
-    HomePage.Login                  ${SECOND_USERNAME}                                                              ${SECOND_PASSWORD}
+    HomePage.Login                  %{MEMBERS_TEST_SECOND_USERNAME}                                                              %{MEMBERS_TEST_SECOND_PASSWORD}
 
     Go To Private Nachrichten
 
@@ -75,7 +61,7 @@ Receive Reply
     Submit Form                     id:messages-reply-form
 
     HomePage.Logout
-    HomePage.Login                  ${FIRST_USERNAME}                                                               ${FIRST_PASSWORD}
+    HomePage.Login                  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
 
     Go To Private Nachrichten
 
@@ -88,7 +74,7 @@ Delete Direct Message
     Alert Should Be Present         Bist Du sicher, dass Du diesen Eintrag löschen willst?
 
     HomePage.Logout
-    HomePage.Login                  ${SECOND_USERNAME}                                                              ${SECOND_PASSWORD}
+    HomePage.Login                  %{MEMBERS_TEST_SECOND_USERNAME}                                                              %{MEMBERS_TEST_SECOND_PASSWORD}
 
     Go To Private Nachrichten
     Click Element                   jquery:h3.title:contains("Testdm") a
@@ -96,7 +82,7 @@ Delete Direct Message
     Alert Should Be Present         Bist Du sicher, dass Du diesen Eintrag löschen willst?
 
     HomePage.Logout
-    HomePage.Login                  ${FIRST_USERNAME}                                                               ${FIRST_PASSWORD}
+    HomePage.Login                  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
 
 Check Edit Form
     Element Should Be Visible       css:div[data-name="recipients"]

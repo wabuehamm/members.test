@@ -9,12 +9,12 @@ Resource        ../../pages/desktop/Termine/Full.robot
 Resource        ../../pages/desktop/Termine/Paged.robot
 
 Suite Teardown  Teardown Application
+Suite Setup     Tearup Application
 
 *** Test Cases ***
 
 Page Is Available
-    ${downloadDir} =    Get Environment Variable    TEST_DOWNLOAD_DIR  default=~/Downloads
-    Termine.Go to Page  %{TEST_BASEURL}             %{TEST_BROWSER}    %{TEST_USERNAME}     %{TEST_PASSWORD}     ${downloadDir}
+    Termine.Go to Page
 
 Features are Available
     Paged.Check Features

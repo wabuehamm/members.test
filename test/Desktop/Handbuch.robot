@@ -6,9 +6,10 @@ Resource        ../../pages/Utils.robot
 Resource        ../../pages/desktop/Handbuch.robot
 
 Suite Teardown  Teardown Application
+Suite Setup     Tearup Application
 
 *** Test Cases ***
 
 Page Is Available
-    Handbuch.Go to Page  %{TEST_BASEURL}     %{TEST_BROWSER}    %{TEST_USERNAME}    %{TEST_PASSWORD}
+    Handbuch.Go to Page
     

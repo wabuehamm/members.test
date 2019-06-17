@@ -26,8 +26,6 @@ Login
     Handle Messages
 
 Logout
-    ${messages} =                       Get Element Count                                       class:elgg-message
-    Run Keyword If                      ${messages} > 0                                         Click Element           class:elgg-message 
     Handle Messages
     Click Element                       css:.elgg-page-topbar a[data-menu-item-name="global"]
     Click Element                       css:.elgg-page-topbar a[data-menu-item-name="logout"]

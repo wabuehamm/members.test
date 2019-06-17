@@ -20,6 +20,8 @@ Check Calendar Entries
     Should Be True          ${calendarEntries} > ${EXPECTED_CALENDAR_ENTRIES}
 
 Check Pagination
+    Select From List By Value  class:ui-datepicker-month  0
+    Select From List By Value  class:ui-datepicker-year  2019
     ${pages} =              Get Element Count  css:ul.elgg-pagination li
     Should Be True          ${pages} > 2
     Agenda.Go To Next Page

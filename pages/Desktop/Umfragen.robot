@@ -13,9 +13,8 @@ Resource        ../Constants.robot
 *** Keywords ***
 
 Go to Page
-    [Arguments]                 ${URL}                  ${BROWSER}      ${USERNAME}     ${PASSWORD}
-    HomePage.Go to Page         ${URL}                  ${BROWSER}
-    HomePage.Login              ${USERNAME}             ${PASSWORD}
+    HomePage.Go to Page         %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
+    HomePage.Login              %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
     Go To Umfragen
     I Am On                     Umfragen
     Take Current Screenshot     umfragen
@@ -45,13 +44,13 @@ Create New Poll
     Input Text                          name:choice_text_0                                          First Choice
     Click Element                       id:add-choice
     Input Text                          name:choice_text_1                                          Second Choice
-
-    Submit Form                         id:poll-edit-form
+    
+    Click Element  name:submit
     Check Created Poll
 
 Check Edit Form
     Element Should Be Visible           name:question
-    Element Should Be Visible           tag:iframe
+    Wait Until Element Is Visible  tag:iframe
     Page Should Contain Element         name:description
     Element Should Be Visible           name:tags
     Element Should Be Visible           id:close_date
@@ -102,7 +101,7 @@ Edit Poll
     Input Text                          name:choice_text_1                                          Second Choice2
     Click Element                       id:add-choice
     Input Text                          name:choice_text_2                                          Third Choice
-    Submit Form                         id:poll-edit-form
+    Click Element  name:submit
     
     Check Edited Post
 
