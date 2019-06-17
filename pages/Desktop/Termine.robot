@@ -11,6 +11,7 @@ Resource  BasicNavigation.robot
 *** Keywords ***
 
 Go to Page
+  [Documentation]  Check availability of the page
   HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
   HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
   Go To Menu  Termine
@@ -18,6 +19,7 @@ Go to Page
   Take Current Screenshot  termine
 
 Check Ical Export Feature
+  [Documentation]  Check the workflow for exporting events via iCal
   Click Element  css:a[data-menu-item-name=ical_export]
   I Am On  Termine-ICal-Export
   Take Current Screenshot  termine-ical-export
@@ -37,6 +39,7 @@ Check Ical Export Feature
   I Am On  Termine
 
 Check Basic Calendar Features
+  [Documentation]  Check the basic calendar workflow
   Create New Event
   Check Created Event
   Edit Event
@@ -44,6 +47,7 @@ Check Basic Calendar Features
   Delete Event
 
 Check Edit Form
+  [Documentation]  Check the edit form for validity
   Element Should Be Visible  name:title
   Element Should Be Visible  name:venue
   Element Should Be Visible  name:tags
@@ -60,6 +64,7 @@ Check Edit Form
   Take Current Screenshot  termine-edit
 
 Create New Event
+  [Documentation]  Check the workflow for creating a new event
   Click Element  css:a[data-menu-item-name=add]
   Check Edit Form
   Press Keys  name:title  Testevent
@@ -82,6 +87,7 @@ Create New Event
   Click Element  name:submit
 
 Select Test Event
+  [Documentation]  Go to an event we're testing with
   [Arguments]  ${EVENTNAME}  ${DATE}
   Go To  %{MEMBERS_TEST_BASEURL}/event_calendar/list/${DATE}/day/all
   ${eventCount} =  Get Element Count  jquery:td.event_calendar_paged_title a:contains(${EVENTNAME})
@@ -89,6 +95,7 @@ Select Test Event
   Click Element  jquery:td.event_calendar_paged_title a:contains(${EVENTNAME})
 
 Check Created Event
+  [Documentation]  Check the created event for validity
   Select Test Event  Testevent  2018-1-1
 
   Take Current Screenshot  termine-event-created
@@ -106,6 +113,7 @@ Check Created Event
   Element Should Contain  css:div.mtm p  Just a test
 
 Edit Event
+  [Documentation]  Test the workflow for editing an event
   Select Test Event  Testevent  2018-1-1
 
   Click Element  css:a.elgg-object-menu-toggle
@@ -134,6 +142,7 @@ Edit Event
   Click Element  name:submit
 
 Check Edited Event
+  [Documentation]  Check the edited event for validity
   Select Test Event  Testevent2  2018-1-2
   Take Current Screenshot  termine-event-edited
 
@@ -151,6 +160,7 @@ Check Edited Event
   Element Should Contain  css:div.mtm p  Just a test2
 
 Delete Event
+  [Documentation]  Check deleting an event
   [Arguments]  ${EVENTNAME}=Testevent2  ${DATE}=2018-1-2
   Select Test Event  ${EVENTNAME}  ${DATE}
 
@@ -164,6 +174,7 @@ Delete Event
   Should Be Equal As Integers  ${eventCount}  0
 
 Check Single Ical Export Feature
+  [Documentation]  Check the feature for exporting a single event via iCal
   Create New Event
   Select Test Event  Testevent  2018-1-1
   Export Event As Ical
@@ -171,6 +182,7 @@ Check Single Ical Export Feature
   Delete Event  Testevent  2018-1-1
 
 Export Event As Ical
+  [Documentation]  Export a single event as an iCal file
   Click Element  css:a.elgg-object-menu-toggle
   Wait Until Element Is Visible  css:div.elgg-object-menu-popup a[data-menu-item-name=ical_export]
   Click Element  css:div.elgg-object-menu-popup a[data-menu-item-name=ical_export]
@@ -181,6 +193,7 @@ Export Event As Ical
   Should Contain  ${export}  Testevent
 
 Check Ical Import Feature
+  [Documentation]  Check the feature for importing iCal files
   Create New Event
   Select Test Event  Testevent  2018-1-1
   Export Event As Ical

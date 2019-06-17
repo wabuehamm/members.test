@@ -9,6 +9,7 @@ Library  TermineUtils
 ** Keywords **
 
 Check Features
+  [Documentation]  Check the full view features
   Click Element  css:a[data-menu-item-name=format_full]
   I Am On  Termine-Full
   Take Current Screenshot  termine-full
@@ -18,11 +19,13 @@ Check Features
   Check Controls
 
 Check Calendar Entries
+  [Documentation]  Check the existing calendar entries
   Wait Until Element Is Visible  css:a.fc-event
   ${calendarEntries} =  Get Element Count  css:a.fc-event
   Should Be True  ${calendarEntries} > ${EXPECTED_CALENDAR_ENTRIES}
 
 Check Full Layout
+  [Documentation]  Check the full view layout
   Element Should Be Visible  css: span.fc-button-prev
   Element Should Be Visible  css: span.fc-button-next
   Element Should Be Visible  css: span.fc-button-today
@@ -31,9 +34,11 @@ Check Full Layout
   Element Should Be Visible  css: span.fc-button-agendaDay
 
 Check Filter
+  [Documentation]  Check using a filter
   Log  Skipped because of existing bug to switch  level=WARN
 
 Check Controls
+  [Documentation]  Check using the date selector
   # Month
   ${titleDate} =  Current Month
   Element Text Should Be  css:span.fc-header-title h2  ${titleDate}
@@ -72,6 +77,3 @@ Check Controls
 
   Click Element  css:span.fc-button-next
   Element Text Should Be  css:span.fc-header-title h2  ${titleDateDay}
-
-
-

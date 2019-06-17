@@ -12,6 +12,7 @@ Resource  ../Utils.robot
 *** Keywords ***
 
 Go to Page
+  [Documentation]  Check availability of the page
   HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
   HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
   Go To Menu  Forum
@@ -19,10 +20,12 @@ Go to Page
   Take Current Screenshot  forum
 
 Check Posts
+  [Documentation]  Check the list of posts
   ${posts} =  Get Element Count  class:elgg-item
   Should Be Equal As Integers  ${posts}  ${EXPECTED_FORUM_POSTS}
 
 Check Pagination
+  [Documentation]  Check the pagination features
   ${pages} =  Get Element Count  css:ul.elgg-pagination li
   Should Be True  ${pages} > 4
   
@@ -38,6 +41,7 @@ Check Pagination
   Take Current Screenshot  forum-nextpage
 
 Create New Post
+  [Documentation]  Check creating a new post
   Utils.Clean Notifications  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_NOTIFICATION_PATH}
   Click Element  css:a[data-menu-item-name=add]
   Check Edit Form
@@ -73,6 +77,7 @@ Create New Post
   Utils.Notifications Should Exist  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_NOTIFICATION_PATH}
 
 Check Edit Form
+  [Documentation]  Check editing a post
   Element Should Be Visible  name:title
   Element Should Be Visible  tag:iframe
   Page Should Contain Element  name:description
@@ -82,11 +87,13 @@ Check Edit Form
   Take Current Screenshot  forum-edit
 
 Select Test Post
+  [Documentation]  Go to one of the posts we're testing with
   [Arguments]  ${TITLE}
   Go To Menu  Forum
   Click Element  jquery:h3.title a:contains(${TITLE})
 
 Check Created Post
+  [Documentation]  Check the created post for validity
   Select Test Post  Testpost
   Take Current Screenshot  forum-post-created
 
@@ -96,6 +103,7 @@ Check Created Post
   Element Should Be Visible  css:img[alt=Testimage]  
 
 Edit Post
+  [Documentation]  Check the workflow for editing a post
   Select Test Post  Testpost
 
   Click Element  css:a[data-menu-item-name=edit]
@@ -110,6 +118,7 @@ Edit Post
   Check Edited Post
 
 Check Edited Post
+  [Documentation]  Check the edited post for validity
   Select Test Post  Testpost2
 
   Take Current Screenshot  forum-post-edited
@@ -119,6 +128,7 @@ Check Edited Post
   Element Text Should Be  css:div.elgg-tag a span  test2
 
 Like Post
+  [Documentation]  Check the workflow for liking a post
   Select Test Post  Testpost2
   ${likesText} =  Get Text  css:li.elgg-menu-item-likes-count a span
   ${matches} =  Get Regexp Matches  ${likesText}  ([0-9]+) gefällt  1
@@ -134,9 +144,11 @@ Like Post
   Take Current Screenshot  forum-liked-posts
 
 Comment Post
+  [Documentation]  Check commenting a post
   Utils.Clean Notifications  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_NOTIFICATION_PATH}
   Go To Menu  Forum
-  ${comments} =  Execute Javascript  $('a[data-menu-item-name=comments]', $('.title:contains(Testpost2))').parent().parent().parent()).length
+  ${comments} =  Execute Javascript  
+  ...  $('a[data-menu-item-name=comments]', $('.title:contains(Testpost2))').parent().parent().parent()).length
   Should Be Equal As Integers  ${comments}  0
   
   Select Test Post  Testpost2
@@ -146,7 +158,8 @@ Comment Post
   Element Should Be Visible  jquery:.elgg-comments li p:contains(This is a Testcomment)
 
   Go To Menu  Forum
-  ${comments} =  Execute Javascript  $('a[data-menu-item-name=comments]', $('.title:contains(Testpost2))').parent().parent().parent()).length
+  ${comments} =  Execute Javascript  
+  ...  $('a[data-menu-item-name=comments]', $('.title:contains(Testpost2))').parent().parent().parent()).length
   Should Be Equal As Integers  ${comments}  1
 
   Utils.Notifications Should Exist  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_NOTIFICATION_PATH}
@@ -154,6 +167,7 @@ Comment Post
   Take Current Screenshot  forum-commentedpost
 
 Delete Post
+  [Documentation]  Check deleting a post
   Select Test Post  Testpost2
   Click Element  css:a[data-menu-item-name=delete]
   Alert Should Be Present  Bist Du sicher, dass Du diesen Eintrag löschen willst?

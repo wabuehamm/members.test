@@ -13,6 +13,7 @@ Resource  ../Constants.robot
 *** Keywords ***
 
 Go to Page
+  [Documentation]  Check availability of the page
   HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
   HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
   Go To  %{MEMBERS_TEST_BASEURL}/activity
@@ -20,6 +21,7 @@ Go to Page
   Take Current Screenshot  aktivitaeten
 
 Check Items
+  [Documentation]  Check item layout in the "river" aka activity stream
   ${ITEMS} =  Get Element Count  css:div.elgg-inner>div.elgg-list-container>ul.elgg-list>li.elgg-item
 
   Should Be Equal As Integers  ${ITEMS}  ${EXPECTED_ACTIVITY_STREAM_ITEMS}

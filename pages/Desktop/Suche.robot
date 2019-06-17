@@ -7,11 +7,12 @@ Resource  HomePage.robot
 *** Keywords ***
 
 Go to Page
+  [Documentation]  Check availability of the page
   HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
   HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
 
 Search For Events
-
+  [Documentation]  Check for searching for events
   Input Text  jquery:.elgg-page-topbar .elgg-menu-item-search input[name=q]  Rollenverteilung
   Submit Form  css:.elgg-page-topbar .elgg-menu-item-search form
 
@@ -22,7 +23,7 @@ Search For Events
   Should Be True  ${events} >= 1
 
 Search For Forum Posts
-
+  [Documentation]  Check for searching for forum posts
   Input Text  jquery:.elgg-page-topbar .elgg-menu-item-search input[name=q]  Rollenverteilung
   Submit Form  css:.elgg-page-topbar .elgg-menu-item-search form
 
@@ -33,7 +34,7 @@ Search For Forum Posts
   Should Be True  ${events} >= 1
 
 Search For People
-
+  [Documentation]  Check for searching for people
   Input Text  jquery:.elgg-page-topbar .elgg-menu-item-search input[name=q]  Hesse
   Submit Form  css:.elgg-page-topbar .elgg-menu-item-search form
 

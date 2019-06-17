@@ -11,6 +11,7 @@ Resource  ../Utils.robot
 *** Keywords ***
 
 Go to Page
+  [Documentation]  Check availability of the page
   HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
   HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
   Go To Menu  Einstellungen
@@ -18,6 +19,7 @@ Go to Page
   Take Current Screenshot  einstellungen
 
 Check Change Password
+  [Documentation]  Check the workflow of changing a password
   Go To Menu  Einstellungen
   Input Text  name:current_password  %{MEMBERS_TEST_PASSWORD}
   Input Text  name:password  test12345
@@ -41,6 +43,7 @@ Check Change Password
   HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
 
 Check E-Mailadress
+  [Documentation]  Check the workflow of changing the E-Mailaddress
   Go To Menu  Einstellungen
   ${EMAILADRESS} =  Get Value  name:email
 

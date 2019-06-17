@@ -1,0 +1,5 @@
+--ignore TooFewKeywordSteps
+--ignore RequireTestDocumentation
+--ignore TooFewTestSteps
+--configure LineTooLong:140
+--recursive

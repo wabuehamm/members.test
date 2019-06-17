@@ -6,6 +6,7 @@ Library  SeleniumLibrary
 *** Keywords ***
 
 I Am On
+  [Documentation]  A standardized way of checking if we're on an expected page
   [Arguments]  ${PAGE}
   Run Keyword If  '${PAGE}' == 'Homepage'  Element Should Be Visible  css:.elgg-page-body input[name="username"]
   Run Keyword If  '${PAGE}' == 'Startpage'  Element Should Be Visible  css:a[data-menu-item-name="profile"]
@@ -23,5 +24,6 @@ I Am On
   Run Keyword If  '${PAGE}' == 'Einstellungen'  Element Should Be Visible  class:elgg-page-context-settings
 
 Check Termine Agenda
+  [Documentation]  Special keyword for checking wether we're on the Agenda page
   ${title} =  Get Text  css:h2.title
   Should Start With  ${title}  Alle Events (

@@ -13,6 +13,7 @@ Resource  ../Constants.robot
 *** Keywords ***
 
 Go to Page
+  [Documentation]  Check availability of the page
   HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
   HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
   Go To Private Nachrichten
@@ -20,9 +21,11 @@ Go to Page
   Take Current Screenshot  private-nachrichten
 
 Go To Private Nachrichten
+  [Documentation]  Go to the direct message feature
   Click Element  css:a[data-menu-item-name="messages"]
 
 Send Direct Message
+  [Documentation]  Check the workflow for sending a direct message
   Click Element  css:a[data-menu-item-name="add"]
   Check Edit Form
   Input Text  css:div[data-name="recipients"] input  %{MEMBERS_TEST_SECOND_USER_DISPLAYNAME}
@@ -48,6 +51,7 @@ Send Direct Message
   HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
 
 Receive Reply
+  [Documentation]  Check the workflow for sending and receiving a reply
   HomePage.Logout
   HomePage.Login  %{MEMBERS_TEST_SECOND_USERNAME}  %{MEMBERS_TEST_SECOND_PASSWORD}
 
@@ -68,6 +72,7 @@ Receive Reply
   Element Should Be Visible  jquery:.elgg-listing-summary-inline-content:contains("This is a test reply")
 
 Delete Direct Message
+  [Documentation]  Delete a direct message
   Go To Private Nachrichten
   Click Element  jquery:h3.title:contains("RE: Testdm") a
   Click Element  css:a[data-menu-item-name="delete"]
@@ -85,11 +90,10 @@ Delete Direct Message
   HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
 
 Check Edit Form
+  [Documentation]  Check the edit form for validity
   Element Should Be Visible  css:div[data-name="recipients"]
   Element Should Be Visible  name:match_on
   Element Should Be Visible  name:subject
   Page Should Contain Element  name:body
   Element Should Be Visible  class:elgg-button-submit
   Take Current Screenshot  private-nachrichten-edit
-
-

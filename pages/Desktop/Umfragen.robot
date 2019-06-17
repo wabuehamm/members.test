@@ -13,6 +13,7 @@ Resource  ../Constants.robot
 *** Keywords ***
 
 Go to Page
+  [Documentation]  Check availability of the page
   HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
   HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
   Go To Umfragen
@@ -20,14 +21,17 @@ Go to Page
   Take Current Screenshot  umfragen
 
 Go To Umfragen
+  [Documentation]  Go to the poll features
   Go To Menu  Forum
   Click Element  jquery:span:contains(Gruppen-Umfragen)
 
 Check Polls
+  [Documentation]  Check the existing polls
   ${posts} =  Get Element Count  class:elgg-item
   Should Be True  ${posts} >= ${EXPECTED_POLL_POSTS}
 
 Create New Poll
+  [Documentation]  Create a new poll
   Click Element  css:a[data-menu-item-name=add]
   Check Edit Form
   Input Text  name:question  Testpoll
@@ -49,6 +53,7 @@ Create New Poll
   Check Created Poll
 
 Check Edit Form
+  [Documentation]  Check the edit form for validity
   Element Should Be Visible  name:question
   Wait Until Element Is Visible  tag:iframe
   Page Should Contain Element  name:description
@@ -59,11 +64,13 @@ Check Edit Form
   Take Current Screenshot  umfragen-edit
 
 Select Test Poll
+  [Documentation]  Select a poll we're testing with
   [Arguments]  ${TITLE}
   Go To Umfragen
   Click Element  jquery:h3.title a:contains(${TITLE})
 
 Check Created Poll
+  [Documentation]  Check the created poll for validity
   Select Test Poll  Testpoll
   Take Current Screenshot  umfragen-poll-created
 
@@ -77,6 +84,7 @@ Check Created Poll
   Element Should Be Visible  css:a.poll-show-link
 
 Edit Poll
+  [Documentation]  Check the workflow for editing a poll
   Select Test Poll  Testpoll
 
   Click Element  css:a.elgg-object-menu-toggle
@@ -103,9 +111,10 @@ Edit Poll
   Input Text  name:choice_text_2  Third Choice
   Click Element  name:submit
   
-  Check Edited Post
+  Check Edited Poll
 
-Check Edited Post
+Check Edited Poll
+  [Documentation]  Check the edited poll for validity
   Select Test Poll  Testpoll2
 
   Take Current Screenshot  umfragen-poll-edited
@@ -122,6 +131,7 @@ Check Edited Post
   Element Should Be Visible  css:a.poll-show-link
 
 Vote
+  [Documentation]  Check the workflow for voting for a poll
   Select Test Poll  Testpoll2
   Click Element  css:input[value="First Choice2"]
   Submit Form  class:elgg-form-poll-vote
@@ -132,6 +142,7 @@ Vote
   Element Should Be Visible  jquery:.poll_post p:contains("Gesamtzahl der abgegebenen Stimmen: 1")
 
 Delete Poll
+  [Documentation]  Check deleting a poll
   Select Test Poll  Testpoll2
 
   Click Element  css:a.elgg-object-menu-toggle
