@@ -29,7 +29,7 @@ To start the test suites, copy the env.template file to .env and adjust it to yo
     cp env.template .env
     ${EDITOR} .env
 
-For screenshot comparison features, download the current screenshot collection from the members area. (This is an internal process and not published)
+For screenshot comparison features, download the current screenshot collection from the google drive into the directory screenshots-baseline. (This is an internal process and not published)
 
 Afterwards, run the test suites like this
 
@@ -38,6 +38,13 @@ Afterwards, run the test suites like this
     robot -P lib test/**/*.robot
 
 *Hint*: Use the -P flag to tell Robot, that lib holds additional libraries.
+
+Finally, compare the images:
+
+    . venv/bin/activate
+    bash diffimages.sh
+
+Check the difference output and the diff images inside the screenshots-diff folder.
 
 ## Caveats
 

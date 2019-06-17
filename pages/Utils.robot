@@ -29,8 +29,8 @@ Teardown Application
 Take Current Screenshot
   [Documentation]  A standardized way of taking a current labeled screenshot
   [Arguments]  ${PAGE}
-  Set Screenshot Directory  screenshots
-  Capture Page Screenshot  filename=page-${PAGE}-current.png
+  Set Screenshot Directory  screenshots-current
+  Capture Page Screenshot  filename=page-${PAGE}.png
 
 Clean Notifications
   [Documentation]  Purge the file notifications directory prior notification tests

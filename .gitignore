@@ -1,7 +1,7 @@
 log.html
 output.xml
 report.html
-screenshots
+screenshots-*
 .vscode
 venv
 .pyenv.cfg
