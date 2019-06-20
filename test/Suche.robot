@@ -1,6 +1,6 @@
 *** Settings ***
 
-Documentation  Search features (Desktop)
+Documentation  Search features
 
 Resource  ../../pages/Utils.robot
 Resource  ../../pages/Suche.robot

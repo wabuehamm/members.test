@@ -1,6 +1,6 @@
 *** Settings ***
 
-Documentation  Member list features (Desktop)
+Documentation  Member list features
 
 Resource  ../../pages/Utils.robot
 Resource  ../../pages/Spielerliste.robot

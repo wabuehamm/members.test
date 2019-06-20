@@ -1,6 +1,6 @@
 *** Settings ***
 
-Documentation  Settings features (Desktop)
+Documentation  Settings features
 
 Resource  ../../pages/Utils.robot
 Resource  ../../pages/Einstellungen.robot

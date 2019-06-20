@@ -1,6 +1,6 @@
 *** Settings ***
 
-Documentation  Direct message features (Desktop)
+Documentation  Direct message features
 
 Resource  ../../pages/Utils.robot
 Resource  ../../pages/PrivateNachrichten.robot

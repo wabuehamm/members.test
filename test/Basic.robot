@@ -1,6 +1,6 @@
 *** Settings ***
 
-Documentation  Basic site features (Desktop)
+Documentation  Basic site features
 
 Resource  ../../pages/Utils.robot
 Resource  ../../pages/HomePage.robot

@@ -1,6 +1,6 @@
 *** Settings ***
 
-Documentation  Poll features (Desktop)
+Documentation  Poll features
 
 Resource  ../../pages/Utils.robot
 Resource  ../../pages/Handbuch.robot

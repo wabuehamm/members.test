@@ -1,6 +1,6 @@
 *** Settings ***
 
-Documentation  Activity stream features (Desktop)
+Documentation  Activity stream features
 
 Resource  ../../pages/Utils.robot
 Resource  ../../pages/Aktivitaeten.robot

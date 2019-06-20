@@ -1,6 +1,6 @@
 *** Settings ***
 
-Documentation  Calendar features (Desktop)
+Documentation  Calendar features
 
 Resource  ../../pages/Utils.robot
 Resource  ../../pages/Termine.robot
