@@ -3,7 +3,7 @@
 Documentation  Activity stream features (Desktop)
 
 Resource  ../../pages/Utils.robot
-Resource  ../../pages/desktop/Aktivitaeten.robot
+Resource  ../../pages/Aktivitaeten.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

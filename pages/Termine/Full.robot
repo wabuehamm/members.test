@@ -1,7 +1,7 @@
 ** Settings **
 
 Documentation  The site calendar in full view
-Resource  ../../Constants.robot
+Resource  ../Constants.robot
 Library  SeleniumLibrary
 Library  DateTime
 Library  TermineUtils

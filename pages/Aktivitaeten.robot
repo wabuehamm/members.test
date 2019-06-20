@@ -8,7 +8,7 @@ Library  DateTime
 Resource  PageIdentification.robot
 Resource  HomePage.robot
 Resource  BasicNavigation.robot
-Resource  ../Constants.robot
+Resource  Constants.robot
 
 *** Keywords ***
 

@@ -3,7 +3,7 @@
 Documentation  Search features (Desktop)
 
 Resource  ../../pages/Utils.robot
-Resource  ../../pages/desktop/Suche.robot
+Resource  ../../pages/Suche.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

@@ -3,7 +3,7 @@
 Documentation  Settings features (Desktop)
 
 Resource  ../../pages/Utils.robot
-Resource  ../../pages/desktop/Einstellungen.robot
+Resource  ../../pages/Einstellungen.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

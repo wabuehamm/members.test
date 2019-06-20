@@ -3,8 +3,8 @@
 Documentation  Basic site features (Desktop)
 
 Resource  ../../pages/Utils.robot
-Resource  ../../pages/desktop/HomePage.robot
-Resource  ../../pages/desktop/BasicNavigation.robot
+Resource  ../../pages/HomePage.robot
+Resource  ../../pages/BasicNavigation.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

@@ -31,20 +31,15 @@ To start the test suites, copy the env.template file to .env and adjust it to yo
 
 For screenshot comparison features, download the current screenshot collection from the google drive into the directory screenshots-baseline. (This is an internal process and not published)
 
-Afterwards, run the test suites like this
+Afterwards, run the test suites using
 
-    . venv/bin/activate
-    . .env
-    robot -P lib test/**/*.robot
+    bash mkdocs.sh
 
-*Hint*: Use the -P flag to tell Robot, that lib holds additional libraries.
+All output is saved into a directory output.
 
-Finally, compare the images:
-
-    . venv/bin/activate
-    bash diffimages.sh
-
-Check the difference output and the diff images inside the screenshots-diff folder.
+    output/imagediff.txt => Difference output between the baseline and the current screenshots
+    output/desktop/report.html => Desktop Test report
+    output/mobile/report.html => Mobile Test report
 
 ## Caveats
 

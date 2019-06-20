@@ -3,7 +3,7 @@
 Documentation  Direct message features (Desktop)
 
 Resource  ../../pages/Utils.robot
-Resource  ../../pages/desktop/PrivateNachrichten.robot
+Resource  ../../pages/PrivateNachrichten.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

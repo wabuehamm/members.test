@@ -6,8 +6,8 @@ Library  String
 Resource  PageIdentification.robot
 Resource  HomePage.robot
 Resource  BasicNavigation.robot
-Resource  ../Constants.robot
-Resource  ../Utils.robot
+Resource  Constants.robot
+Resource  Utils.robot
 
 *** Keywords ***
 

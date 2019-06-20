@@ -3,7 +3,7 @@
 Documentation  Poll features (Desktop)
 
 Resource  ../../pages/Utils.robot
-Resource  ../../pages/desktop/Umfragen.robot
+Resource  ../../pages/Umfragen.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

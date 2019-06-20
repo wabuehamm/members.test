@@ -41,4 +41,4 @@ Logout
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
   Click Element  css:${parentBar} a[data-menu-item-name="logout"]
   I Am On  Homepage
-
+  

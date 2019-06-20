@@ -3,7 +3,7 @@
 Documentation  Member list features (Desktop)
 
 Resource  ../../pages/Utils.robot
-Resource  ../../pages/desktop/Spielerliste.robot
+Resource  ../../pages/Forum.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application
@@ -11,9 +11,12 @@ Suite Setup  Tearup Application
 *** Test Cases ***
 
 Page Is Available
-  Spielerliste.Go to Page
+  Forum.Go to Page
 
 Features are Available
-  Check Memberlist
+  Check Posts
   Check Pagination
-  Check Search Feature
+  Create New Post
+  Edit Post
+  Like Post
+  Delete Post

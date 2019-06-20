@@ -1,7 +1,7 @@
 ** Settings **
 
 Documentation  The site calendar in paged view
-Resource  ../../Constants.robot
+Resource  ../Constants.robot
 Library  SeleniumLibrary
 
 ** Keywords **
