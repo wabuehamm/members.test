@@ -31,7 +31,7 @@ Send Direct Message
   Click Element  css:a[data-menu-item-name="add"]
   Check Edit Form
   Input Text  css:div[data-name="recipients"] input  %{MEMBERS_TEST_SECOND_USER_DISPLAYNAME}
-  Wait Until Element Is Visible  css:ul.ui-autocomplete > li  timeout=10s
+  Wait Until Element Is Visible  css:ul.ui-autocomplete > li  timeout=60s
 
   Press Keys  css:div[data-name="recipients"] input  DOWN  TAB
 
