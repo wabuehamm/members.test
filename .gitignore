@@ -6,3 +6,6 @@ venv
 *.log
 __pycache__
 output
+log.html
+output.xml
+report.html
