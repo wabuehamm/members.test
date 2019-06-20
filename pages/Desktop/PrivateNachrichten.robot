@@ -22,7 +22,9 @@ Go to Page
 
 Go To Private Nachrichten
   [Documentation]  Go to the direct message feature
-  Click Element  css:a[data-menu-item-name="messages"]
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Click Element  css:${parentBar} a[data-menu-item-name="messages"]
 
 Send Direct Message
   [Documentation]  Check the workflow for sending a direct message

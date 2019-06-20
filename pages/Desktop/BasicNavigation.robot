@@ -8,17 +8,23 @@ Library  SeleniumLibrary
 Menu Should Exist
   [Documentation]  A standardized way to check wether a menu is available
   [Arguments]  ${MENUNAME}
-  Element Should Be Visible  jquery:.elgg-page-topbar a.elgg-menu-content span:contains(${MENUNAME})
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Element Should Be Visible  jquery:${parentBar} a.elgg-menu-content span:contains(${MENUNAME})
 
 Go To Menu
   [Documentation]  Select a specific menu item
   [Arguments]  ${MENUNAME}
-  Click Element  jquery:a[data-menu-item-name="global"]
-  Click Element  jquery:.elgg-page-topbar a.elgg-menu-content span:contains(${MENUNAME})
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Click Element  jquery:a[data-menu-item-name="global"]
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Click Element  jquery:${parentBar} a.elgg-menu-content span:contains(${MENUNAME})
 
 Search Is Available
   [Documentation]  Check, wether the search feature is available
-  Element Should Be Visible  css:.elgg-page-topbar input[name="q"]  
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Element Should Be Visible  css:${parentBar} input[name="q"]  
 
 Settings Are Available
   [Documentation]  Check, wether the settings menu is available

@@ -13,8 +13,11 @@ Go to Page
 
 Search For Events
   [Documentation]  Check for searching for events
-  Input Text  jquery:.elgg-page-topbar .elgg-menu-item-search input[name=q]  Rollenverteilung
-  Submit Form  css:.elgg-page-topbar .elgg-menu-item-search form
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+
+  Input Text  jquery:${parentBar} .elgg-menu-item-search input[name=q]  Rollenverteilung
+  Submit Form  css:${parentBar} .elgg-menu-item-search form
 
   Take Current Screenshot  suche-termin
 
@@ -24,8 +27,11 @@ Search For Events
 
 Search For Forum Posts
   [Documentation]  Check for searching for forum posts
-  Input Text  jquery:.elgg-page-topbar .elgg-menu-item-search input[name=q]  Rollenverteilung
-  Submit Form  css:.elgg-page-topbar .elgg-menu-item-search form
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  
+  Input Text  jquery:${parentBar} .elgg-menu-item-search input[name=q]  Rollenverteilung
+  Submit Form  css:${parentBar} .elgg-menu-item-search form
 
   Take Current Screenshot  suche-forum
 
@@ -35,8 +41,11 @@ Search For Forum Posts
 
 Search For People
   [Documentation]  Check for searching for people
-  Input Text  jquery:.elgg-page-topbar .elgg-menu-item-search input[name=q]  Hesse
-  Submit Form  css:.elgg-page-topbar .elgg-menu-item-search form
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  
+  Input Text  jquery:${parentBar} .elgg-menu-item-search input[name=q]  Hesse
+  Submit Form  css:${parentBar} .elgg-menu-item-search form
 
   Take Current Screenshot  suche-mitglieder
 

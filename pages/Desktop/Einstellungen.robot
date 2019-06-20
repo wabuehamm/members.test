@@ -59,7 +59,9 @@ Check E-Mailadress
 
 Check Profile
   [Documentation]  Check the user's profile
-  Click Element  css:a[data-menu-item-name=profile] 
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Click Element  css:${parentBar} a[data-menu-item-name=profile] 
 
   Take Current Screenshot  user-profile
 
@@ -81,10 +83,14 @@ Check Other Profile
   HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
   HomePage.Login  %{MEMBERS_TEST_SECOND_USERNAME}  %{MEMBERS_TEST_SECOND_PASSWORD}
 
-  Click Element  css:a[data-menu-item-name=profile]
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Click Element  css:${parentBar} a[data-menu-item-name=profile]
 
-  Input Text  jquery:.elgg-page-topbar .elgg-menu-item-search input[name=q]  Max Mustermann
-  Submit Form  css:.elgg-page-topbar .elgg-menu-item-search form
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Input Text  jquery:${parentBar} .elgg-menu-item-search input[name=q]  Max Mustermann
+  Submit Form  css:${parentBar} .elgg-menu-item-search form
 
   Click Element  css:.elgg-item a.elgg-anchor
 
@@ -99,6 +105,11 @@ Check Other Profile
   Element Should Contain  css:div#custom_fields_userdetails  Hat keine E-Mail: nein
   Element Should Contain  css:div#custom_fields_userdetails  Mitglied seit: 2018
   Element Should Contain  css:div#profile-email  E-Mail: test@test.com
+
+  HomePage.Logout
+  Close All Browsers  
+  HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
+  HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
 
 Change Profile
   [Documentation]  Check the workflow of changing the profile
@@ -116,7 +127,9 @@ Change Profile
 
   Submit Form  class:elgg-form-profile-edit
 
-  Click Element  css:a[data-menu-item-name=profile] 
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Click Element  css:${parentBar} a[data-menu-item-name=profile] 
 
   Element Should Be Visible  css:#profile-details h2
   Element Should Contain  css:div#custom_fields_userdetails  Geburtstag: 1970-01-01

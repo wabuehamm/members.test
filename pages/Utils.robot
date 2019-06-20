@@ -17,10 +17,13 @@ Check Environment
   Environment Variable Should Be Set  MEMBERS_TEST_SECOND_USER_DISPLAYNAME
   Environment Variable Should Be Set  MEMBERS_TEST_DOWNLOAD_DIR
   Environment Variable Should Be Set  MEMBERS_TEST_EMBED_IMAGE
+  Environment Variable Should Be Set  MEMBERS_TEST_VIEW_TYPE
 
 Tearup Application
   [Documentation]  Tasks when starting the tests
   Check Environment
+  Set Suite Variable  ${parentBar}  .elgg-page-topbar
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Set Suite Variable  ${parentBar}  .elgg-page-navbar
 
 Teardown Application
   [Documentation]  Tasks when stopping the tests
@@ -30,7 +33,7 @@ Take Current Screenshot
   [Documentation]  A standardized way of taking a current labeled screenshot
   [Arguments]  ${PAGE}
   Set Screenshot Directory  screenshots-current
-  Capture Page Screenshot  filename=page-${PAGE}.png
+  Capture Page Screenshot  filename=page-${PAGE}-%{MEMBERS_TEST_VIEW_TYPE}.png
 
 Clean Notifications
   [Documentation]  Purge the file notifications directory prior notification tests
