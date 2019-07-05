@@ -1,6 +1,6 @@
 *** Settings ***
 
-Documentation  Member list features
+Documentation  Forum features
 
 Resource  ../../pages/Utils.robot
 Resource  ../../pages/Forum.robot

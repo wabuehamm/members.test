@@ -30,7 +30,11 @@ Send Direct Message
   [Documentation]  Check the workflow for sending a direct message
   Click Element  css:a[data-menu-item-name="add"]
   Check Edit Form
-  Input Text  css:div[data-name="recipients"] input  %{MEMBERS_TEST_SECOND_USER_DISPLAYNAME}
+  ${firstCharacters} =  Get Substring  %{MEMBERS_TEST_SECOND_USER_DISPLAYNAME}  0  -1
+  ${lastCharacter} =  Get Substring  %{MEMBERS_TEST_SECOND_USER_DISPLAYNAME}  -1
+  Input Text  css:div[data-name="recipients"] input  ${firstCharacters} 
+  Sleep  2s  reason=Give autocomplete some time to react
+  Press Keys  css:div[data-name="recipients"] input  ${lastCharacter}
   Wait Until Element Is Visible  css:ul.ui-autocomplete > li  timeout=60s
 
   Press Keys  css:div[data-name="recipients"] input  DOWN  TAB

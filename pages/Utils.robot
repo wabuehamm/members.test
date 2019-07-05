@@ -10,6 +10,7 @@ Check Environment
   Environment Variable Should Be Set  MEMBERS_TEST_BASEURL
   Environment Variable Should Be Set  MEMBERS_TEST_BROWSER
   Environment Variable Should Be Set  MEMBERS_TEST_USERNAME
+  Environment Variable Should Be Set  MEMBERS_TEST_USER_DISPLAYNAME
   Environment Variable Should Be Set  MEMBERS_TEST_PASSWORD
   Environment Variable Should Be Set  MEMBERS_TEST_NOTIFICATION_PATH
   Environment Variable Should Be Set  MEMBERS_TEST_SECOND_USERNAME

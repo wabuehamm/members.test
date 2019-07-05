@@ -49,6 +49,8 @@ Create New Poll
   Click Element  id:add-choice
   Input Text  name:choice_text_1  Second Choice
   
+  Wait Until Element Is Not Visible  class:ui-datepicker
+
   Click Element  name:submit
   Check Created Poll
 
@@ -109,6 +111,8 @@ Edit Poll
   Input Text  name:choice_text_1  Second Choice2
   Click Element  id:add-choice
   Input Text  name:choice_text_2  Third Choice
+
+  Wait Until Element Is Not Visible  class:ui-datepicker
   Click Element  name:submit
   
   Check Edited Poll

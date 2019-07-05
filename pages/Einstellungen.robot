@@ -47,15 +47,15 @@ Check E-Mailadress
   Go To Menu  Einstellungen
   ${EMAILADRESS} =  Get Value  name:email
 
-  Input Text  name:email  test@test.com
+  Input Text  name:email  testaddress3@waldbuehne-heessen.de
   Submit Form  class:elgg-form-usersettings-save
 
-  Element Attribute Value Should Be  name:email  value  test@test.com
+  Element Attribute Value Should Be  name:email  value  testaddress3@waldbuehne-heessen.de
 
   Input Text  name:email  ${EMAILADRESS}
   Submit Form  class:elgg-form-usersettings-save
 
-  Element Attribute Value Should Be  name:email  value  ${EMAILADRESS}
+  Element Attribute Value Should Be  name:email  value  testaddress1@waldbuehne-heessen.de
 
 Check Profile
   [Documentation]  Check the user's profile
@@ -73,7 +73,7 @@ Check Profile
   Element Should Contain  css:div#custom_fields_userdetails  Ort: Hamm
   Element Should Contain  css:div#custom_fields_userdetails  Hat keine E-Mail: nein
   Element Should Contain  css:div#custom_fields_userdetails  Mitglied seit: 2018
-  Element Should Contain  css:div#profile-email  E-Mail: test@test.com
+  Element Should Contain  css:div#profile-email  E-Mail: testaddress1@waldbuehne-heessen.de
 
 Check Other Profile
   [Documentation]  Check the profile of another user
@@ -83,16 +83,7 @@ Check Other Profile
   HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  %{MEMBERS_TEST_BROWSER}
   HomePage.Login  %{MEMBERS_TEST_SECOND_USERNAME}  %{MEMBERS_TEST_SECOND_PASSWORD}
 
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
-  Click Element  css:${parentBar} a[data-menu-item-name=profile]
-
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
-  Input Text  jquery:${parentBar} .elgg-menu-item-search input[name=q]  Max Mustermann
-  Submit Form  css:${parentBar} .elgg-menu-item-search form
-
-  Click Element  css:.elgg-item a.elgg-anchor
+  Go To  %{MEMBERS_TEST_BASEURL}/profile/%{MEMBERS_TEST_USERNAME}
 
   Take Current Screenshot  user-other-profile
 
@@ -104,7 +95,7 @@ Check Other Profile
   Element Should Not Contain  css:div#custom_fields_userdetails  Ort: Hamm
   Element Should Contain  css:div#custom_fields_userdetails  Hat keine E-Mail: nein
   Element Should Contain  css:div#custom_fields_userdetails  Mitglied seit: 2018
-  Element Should Contain  css:div#profile-email  E-Mail: test@test.com
+  Element Should Contain  css:div#profile-email  E-Mail: testaddress1@waldbuehne-heessen.de
 
   HomePage.Logout
   Close All Browsers  
