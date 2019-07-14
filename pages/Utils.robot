@@ -25,6 +25,7 @@ Tearup Application
   Check Environment
   Set Suite Variable  ${parentBar}  .elgg-page-topbar
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Set Suite Variable  ${parentBar}  .elgg-page-navbar
+  Run Keyword If  "%{MEMBERS_TEST_TIMEOUT}" != ""  Set Selenium Timeout  %{MEMBERS_TEST_TIMEOUT}
 
 Teardown Application
   [Documentation]  Tasks when stopping the tests
