@@ -3,7 +3,6 @@
 Documentation  Login page features
 Library  SeleniumLibrary
 Library  MobileUtils
-Library  DesktopUtils
 Resource  PageIdentification.robot
 
 *** Keywords ***
@@ -11,10 +10,9 @@ Resource  PageIdentification.robot
 Go to Page
   [Documentation]  Check availability of the page
   [Arguments]  ${URL}  ${BROWSER}
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Open Emulated Mobile Browser  Galaxy S5
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Go To  ${URL}
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Open Desktop Browser  ${BROWSER}
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Go To   ${URL}
+  ${capa} =   Get Emulated Mobile Capabilities  Galaxy S5
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Open Browser   ${URL}  browser=chrome  desired_capabilities=${capa}  remote_url=%{MEMBERS_TEST_SELENIUM_URL}  
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Open Browser   ${URL}  browser=chrome  remote_url=%{MEMBERS_TEST_SELENIUM_URL}
   Set Window Size  1024  768
   
   I Am On  Homepage
