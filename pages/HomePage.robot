@@ -3,6 +3,7 @@
 Documentation  Login page features
 Library  SeleniumLibrary
 Library  MobileUtils
+Library  DesktopUtils
 Resource  PageIdentification.robot
 
 *** Keywords ***
@@ -12,7 +13,8 @@ Go to Page
   [Arguments]  ${URL}  ${BROWSER}
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Open Emulated Mobile Browser  Galaxy S5
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Go To  ${URL}
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Open Browser  ${URL}  ${BROWSER}
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Open Desktop Browser  ${BROWSER}
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Go To   ${URL}
   Set Window Size  1024  768
   
   I Am On  Homepage
