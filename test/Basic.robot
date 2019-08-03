@@ -2,9 +2,9 @@
 
 Documentation  Basic site features
 
-Resource  ../../pages/Utils.robot
-Resource  ../../pages/HomePage.robot
-Resource  ../../pages/BasicNavigation.robot
+Resource  ../pages/Utils.robot
+Resource  ../pages/HomePage.robot
+Resource  ../pages/BasicNavigation.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

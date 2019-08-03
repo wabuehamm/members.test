@@ -2,8 +2,8 @@
 
 Documentation  Forum features
 
-Resource  ../../pages/Utils.robot
-Resource  ../../pages/Forum.robot
+Resource  ../pages/Utils.robot
+Resource  ../pages/Forum.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

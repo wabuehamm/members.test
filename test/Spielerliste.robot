@@ -2,8 +2,8 @@
 
 Documentation  Member list features
 
-Resource  ../../pages/Utils.robot
-Resource  ../../pages/Spielerliste.robot
+Resource  ../pages/Utils.robot
+Resource  ../pages/Spielerliste.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

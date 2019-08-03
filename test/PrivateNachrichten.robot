@@ -2,8 +2,8 @@
 
 Documentation  Direct message features
 
-Resource  ../../pages/Utils.robot
-Resource  ../../pages/PrivateNachrichten.robot
+Resource  ../pages/Utils.robot
+Resource  ../pages/PrivateNachrichten.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

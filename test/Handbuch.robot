@@ -2,8 +2,8 @@
 
 Documentation  Poll features
 
-Resource  ../../pages/Utils.robot
-Resource  ../../pages/Handbuch.robot
+Resource  ../pages/Utils.robot
+Resource  ../pages/Handbuch.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

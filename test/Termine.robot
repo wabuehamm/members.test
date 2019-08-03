@@ -2,11 +2,11 @@
 
 Documentation  Calendar features
 
-Resource  ../../pages/Utils.robot
-Resource  ../../pages/Termine.robot
-Resource  ../../pages/Termine/Agenda.robot
-Resource  ../../pages/Termine/Full.robot
-Resource  ../../pages/Termine/Paged.robot
+Resource  ../pages/Utils.robot
+Resource  ../pages/Termine.robot
+Resource  ../pages/Termine/Agenda.robot
+Resource  ../pages/Termine/Full.robot
+Resource  ../pages/Termine/Paged.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

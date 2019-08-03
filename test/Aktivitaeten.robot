@@ -2,8 +2,8 @@
 
 Documentation  Activity stream features
 
-Resource  ../../pages/Utils.robot
-Resource  ../../pages/Aktivitaeten.robot
+Resource  ../pages/Utils.robot
+Resource  ../pages/Aktivitaeten.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application

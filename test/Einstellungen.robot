@@ -2,8 +2,8 @@
 
 Documentation  Settings features
 
-Resource  ../../pages/Utils.robot
-Resource  ../../pages/Einstellungen.robot
+Resource  ../pages/Utils.robot
+Resource  ../pages/Einstellungen.robot
 
 Suite Teardown  Teardown Application
 Suite Setup  Tearup Application
