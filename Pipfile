@@ -1,0 +1,45 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+appdirs = "*"
+arrow = "*"
+astroid = "*"
+beautifulsoup4 = "*"
+certifi = "*"
+chardet = "*"
+click = "*"
+diffimg = "*"
+idna = "*"
+isort = "*"
+itsdangerous = "*"
+lazy-object-proxy = "*"
+mccabe = "*"
+pylint = "*"
+python-dateutil = "*"
+requests = "*"
+robotframework = "*"
+robotframework-eyes = "*"
+robotframework-lint = "*"
+robotframework-selenium2library = "*"
+robotframework-seleniumlibrary = "*"
+selenium = "*"
+six = "*"
+soupsieve = "*"
+tqdm = "*"
+typed-ast = "*"
+urllib3 = "*"
+webdrivermanager = "*"
+wrapt = "*"
+Flask = "*"
+Jinja2 = "*"
+MarkupSafe = "*"
+Pillow = "*"
+Werkzeug = "*"
+
+[requires]
+python_version = "3.7"
