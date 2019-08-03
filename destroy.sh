@@ -13,9 +13,8 @@ export MEMBERS_TEST_ADMIN_USERNAME
 export MEMBERS_TEST_ADMIN_PASSWORD
 
 . .env
-. venv/bin/activate
 
-env MEMBERS_TEST_VIEW_TYPE=desktop robot -P lib tasks/Destroy.robot
+env MEMBERS_TEST_VIEW_TYPE=desktop pipenv run robot -P lib tasks/Destroy.robot
 
 if [ $? -eq 0 ] 
 then
