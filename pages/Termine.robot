@@ -20,7 +20,7 @@ Go to Page
 
 Check Ical Export Feature
   [Documentation]  Check the workflow for exporting events via iCal
-  Click Element  css:a[data-menu-item-name=ical_export]
+  Click Element  css:li[data-menu-item=ical_export]
   I Am On  Termine-ICal-Export
   Take Current Screenshot  termine-ical-export
   Select From List By Value  name:filter  all
@@ -60,12 +60,12 @@ Check Edit Form
   Element Should Be Visible  name:end_time_minute
   Element Should Be Visible  name:region
   Element Should Not Be Visible  name:long_description
-  Element Should Be Visible  css:a[data-menu-item-name=embed]
+  Element Should Be Visible  css:li[data-menu-item=embed]
   Take Current Screenshot  termine-edit
 
 Create New Event
   [Documentation]  Check the workflow for creating a new event
-  Click Element  css:a[data-menu-item-name=add]
+  Click Element  css:li[data-menu-item=add]
   Check Edit Form
   Press Keys  name:title  Testevent
   Press Keys  name:venue  Bühne
@@ -117,8 +117,8 @@ Edit Event
   Select Test Event  Testevent  2018-1-1
 
   Click Element  css:a.elgg-object-menu-toggle
-  Wait Until Element Is Visible  css:a[data-menu-item-name=edit]
-  Click Element  css:a[data-menu-item-name=edit]
+  Wait Until Element Is Visible  css:li[data-menu-item=edit]
+  Click Element  css:li[data-menu-item=edit]
 
   Check Edit Form
 
@@ -165,8 +165,8 @@ Delete Event
   Select Test Event  ${EVENTNAME}  ${DATE}
 
   Click Element  css:a.elgg-object-menu-toggle
-  Wait Until Element Is Visible  css:a[data-menu-item-name=delete]
-  Click Element  css:a[data-menu-item-name=delete]
+  Wait Until Element Is Visible  css:li[data-menu-item=delete]
+  Click Element  css:li[data-menu-item=delete]
   Alert Should Be Present  Bist Du sicher, dass Du diesen Eintrag löschen willst?
 
   Go To  %{MEMBERS_TEST_BASEURL}/event_calendar/list/${DATE}/day/all
@@ -184,8 +184,8 @@ Check Single Ical Export Feature
 Export Event As Ical
   [Documentation]  Export a single event as an iCal file
   Click Element  css:a.elgg-object-menu-toggle
-  Wait Until Element Is Visible  css:div.elgg-object-menu-popup a[data-menu-item-name=ical_export]
-  Click Element  css:div.elgg-object-menu-popup a[data-menu-item-name=ical_export]
+  Wait Until Element Is Visible  css:div.elgg-object-menu-popup li[data-menu-item=ical_export]
+  Click Element  css:div.elgg-object-menu-popup li[data-menu-item=ical_export]
   Wait Until Created  %{MEMBERS_TEST_DOWNLOAD_DIR}/Calendar.ics
   Sleep  10 seconds  reason=Wait for the file to be downloaded
   File Should Not Be Empty  %{MEMBERS_TEST_DOWNLOAD_DIR}/Calendar.ics
@@ -199,7 +199,7 @@ Check Ical Import Feature
   Export Event As Ical
   Delete Event  Testevent  2018-1-1
   
-  Click Element  css:a[data-menu-item-name=ical_import]
+  Click Element  css:li[data-menu-item=ical_import]
 
   # Use Join Path to get the absolute path name, which only works with Input Text into a file selection
   ${uploadPath} =  Join Path  %{MEMBERS_TEST_DOWNLOAD_DIR}  Calendar.ics

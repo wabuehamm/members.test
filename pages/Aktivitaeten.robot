@@ -22,12 +22,12 @@ Go to Page
 
 Check Items
   [Documentation]  Check item layout in the "river" aka activity stream
-  ${ITEMS} =  Get Element Count  css:div.elgg-inner>div.elgg-list-container>ul.elgg-list>li.elgg-item
+  ${ITEMS} =  Get Element Count  css:li.elgg-item-river
 
   Should Be Equal As Integers  ${ITEMS}  ${EXPECTED_ACTIVITY_STREAM_ITEMS}
-  Click Element  css:a.elgg-after
-  Wait Until Element Is Not Visible  class:elgg-spinner
-  
-  ${ITEMS_20} =  Get Element Count  css:div.elgg-inner>div.elgg-list-container>ul.elgg-list>li.elgg-item
 
-  Should Be Equal As Integers  ${ITEMS + 20}  ${ITEMS_20}
+  Element Should Be Visible  jquery:li.elgg-state-selected:contains(1)
+  
+  Click Element  jquery:a.elgg-anchor:contains(Weiter)
+  
+  Element Should Be Visible  jquery:li.elgg-state-selected:contains(2)

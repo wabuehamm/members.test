@@ -8,7 +8,7 @@ Library  SeleniumLibrary
 
 Check Features
   [Documentation]  Check features of the agenda view
-  Click Element  css:li[data-menu-item=format_agenda]
+  Click Element  css:li[data-menu-item-name=format_agenda]
   I Am On  Termine-Agenda
   Take Current Screenshot  termine-agenda
   Agenda.Check Calendar Entries

@@ -13,9 +13,9 @@ Create First User
   HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  chrome
   Login  %{MEMBERS_TEST_ADMIN_USERNAME}  %{MEMBERS_TEST_ADMIN_PASSWORD}
   Go To Menu  Admin
-  Click Element  css:a[data-menu-item-name=users]
-  Wait Until Element Is Visible  css:a[data-menu-item-name="users:add"]
-  Click Element  css:a[data-menu-item-name="users:add"]
+  Click Element  css:li[data-menu-item=users]
+  Wait Until Element Is Visible  css:li[data-menu-item="users:add"]
+  Click Element  css:li[data-menu-item="users:add"]
 
   Input Text  name:name  %{MEMBERS_TEST_USER_DISPLAYNAME}
   Input Text  name:username  %{MEMBERS_TEST_USERNAME}
@@ -46,9 +46,9 @@ Create Second User
   HomePage.Go to Page  %{MEMBERS_TEST_BASEURL}  chrome
   Login  %{MEMBERS_TEST_ADMIN_USERNAME}  %{MEMBERS_TEST_ADMIN_PASSWORD}
   Go To Menu  Admin
-  Click Element  css:a[data-menu-item-name=users]
-  Wait Until Element Is Visible  css:a[data-menu-item-name="users:add"]
-  Click Element  css:a[data-menu-item-name="users:add"]
+  Click Element  css:li[data-menu-item=users]
+  Wait Until Element Is Visible  css:li[data-menu-item="users:add"]
+  Click Element  css:li[data-menu-item="users:add"]
 
   Input Text  name:name  %{MEMBERS_TEST_SECOND_USER_DISPLAYNAME}
   Input Text  name:username  %{MEMBERS_TEST_SECOND_USERNAME}

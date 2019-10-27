@@ -10,7 +10,7 @@ Library  TermineUtils
 
 Check Features
   [Documentation]  Check the full view features
-  Click Element  css:li[data-menu-item=format_full]
+  Click Element  css:li[data-menu-item-name=format_full]
   I Am On  Termine-Full
   Take Current Screenshot  termine-full
   Full.Check Calendar Entries

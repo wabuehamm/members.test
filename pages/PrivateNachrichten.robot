@@ -24,11 +24,11 @@ Go To Private Nachrichten
   [Documentation]  Go to the direct message feature
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
-  Click Element  css:${parentBar} a[data-menu-item-name="messages"]
+  Click Element  css:${parentBar} li[data-menu-item="messages"]
 
 Send Direct Message
   [Documentation]  Check the workflow for sending a direct message
-  Click Element  css:a[data-menu-item-name="add"]
+  Click Element  css:li[data-menu-item="add"]
   Check Edit Form
   Input Text  css:div[data-name="recipients"] input  %{MEMBERS_TEST_SECOND_USER_DISPLAYNAME} 
   Wait Until Element Is Visible  css:ul.ui-autocomplete > li  timeout=60s
@@ -77,7 +77,7 @@ Delete Direct Message
   [Documentation]  Delete a direct message
   Go To Private Nachrichten
   Click Element  jquery:h3.title:contains("RE: Testdm") a
-  Click Element  css:a[data-menu-item-name="delete"]
+  Click Element  css:li[data-menu-item="delete"]
   Alert Should Be Present  Bist Du sicher, dass Du diesen Eintrag löschen willst?
 
   HomePage.Logout
@@ -85,7 +85,7 @@ Delete Direct Message
 
   Go To Private Nachrichten
   Click Element  jquery:h3.title:contains("Testdm") a
-  Click Element  css:a[data-menu-item-name="delete"]
+  Click Element  css:li[data-menu-item="delete"]
   Alert Should Be Present  Bist Du sicher, dass Du diesen Eintrag löschen willst?
 
   HomePage.Logout

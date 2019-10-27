@@ -32,7 +32,7 @@ Check Polls
 
 Create New Poll
   [Documentation]  Create a new poll
-  Click Element  css:a[data-menu-item-name=add]
+  Click Element  css:li[data-menu-item=add]
   Check Edit Form
   Input Text  name:question  Testpoll
 
@@ -90,9 +90,9 @@ Edit Poll
   Select Test Poll  Testpoll
 
   Click Element  css:a.elgg-object-menu-toggle
-  Wait Until Element Is Visible  css:a[data-menu-item-name=edit]
+  Wait Until Element Is Visible  css:li[data-menu-item=edit]
 
-  Click Element  css:a[data-menu-item-name=edit]
+  Click Element  css:li[data-menu-item=edit]
   
   Input Text  name:question  Testpoll2
 
@@ -150,9 +150,9 @@ Delete Poll
   Select Test Poll  Testpoll2
 
   Click Element  css:a.elgg-object-menu-toggle
-  Wait Until Element Is Visible  css:a[data-menu-item-name=delete]
+  Wait Until Element Is Visible  css:li[data-menu-item=delete]
 
-  Click Element  css:a[data-menu-item-name=delete]
+  Click Element  css:li[data-menu-item=delete]
   Alert Should Be Present  Bist Du sicher, dass Du diesen Eintrag löschen willst?
 
   Go To Umfragen

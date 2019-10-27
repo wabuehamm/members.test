@@ -14,9 +14,10 @@ Page Is Available
   Forum.Go to Page
 
 Features are Available
-  Check Posts
-  Check Pagination
-  Create New Post
-  Edit Post
-  Like Post
+  #Check Posts
+  #Check Pagination
+  #Create New Post
+  #Edit Post
+  #Comment Post
+  #Like Post
   Delete Post

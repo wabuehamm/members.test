@@ -17,11 +17,11 @@ Menu Should Exist
 Go To Menu
   [Documentation]  Select a specific menu item
   [Arguments]  ${MENUNAME}
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Click Element  jquery:a[data-menu-item-name="global"]
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Mouse Over  css:li[data-menu-item=account]
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  class:.elgg-nav-collapse
   Click Element  jquery:${parentBar} a.elgg-menu-content span:contains(${MENUNAME})
-
+  
 Search Is Available
   [Documentation]  Check, wether the search feature is available
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
@@ -32,8 +32,8 @@ Search Is Available
 
 Settings Are Available
   [Documentation]  Check, wether the settings menu is available
-  Page Should Contain Element  css:a[data-menu-item-name="usersettings"]
+  Page Should Contain Element  css:li[data-menu-item="usersettings"]
 
 Homepage Link Is Available
   [Documentation]  Check, wether the homepage link is available
-  Element Should Be Visible  css:div.elgg-topbar-logo
+  Element Should Be Visible  css:h1.elgg-heading-site a

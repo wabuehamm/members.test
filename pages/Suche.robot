@@ -21,7 +21,7 @@ Search For Events
 
   Take Current Screenshot  suche-termin
 
-  Click Element  css:a[data-menu-item-name="item:object:event_calendar"]
+  Click Element  css:li[data-menu-item="item:object:event_calendar"]
   ${events} =  Get Element Count  css:.search-list li
   Should Be True  ${events} >= 1
 
@@ -35,7 +35,7 @@ Search For Forum Posts
 
   Take Current Screenshot  suche-forum
 
-  Click Element  css:a[data-menu-item-name="item:object:discussion"]
+  Click Element  css:li[data-menu-item="item:object:discussion"]
   ${events} =  Get Element Count  css:.search-list li
   Should Be True  ${events} >= 1
 
@@ -49,6 +49,6 @@ Search For People
 
   Take Current Screenshot  suche-mitglieder
 
-  Click Element  css:a[data-menu-item-name="item:user"]
+  Click Element  css:li[data-menu-item="item:user"]
   ${events} =  Get Element Count  css:.search-list li
   Should Be True  ${events} >= 1

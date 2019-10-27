@@ -8,7 +8,7 @@ Library  SeleniumLibrary
 
 Check Features
   [Documentation]  Check the paged view features
-  Click Element  css:li[data-menu-item=format_paged]
+  Click Element  css:li[data-menu-item-name=format_paged]
   I Am On  Termine-Paged
   Take Current Screenshot  termine-paged
   Paged.Check Calendar Entries
