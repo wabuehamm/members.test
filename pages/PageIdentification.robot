@@ -29,7 +29,7 @@ I Am On Desktop
   Run Keyword If  '${PAGE}' == 'Termine-ICal-Export'  Element Text Should Be  css:div.nav li.elgg-state-selected span  Exportieren
   Run Keyword If  '${PAGE}' == 'Forum'  Element Text Should Be  class:elgg-heading-main  Diskussionen
   Run Keyword If  '${PAGE}' == 'Umfragen'  Element Should Be Visible  jquery:a.is-active  span:contains(Gruppen-Umfragen)
-  Run Keyword If  '${PAGE}' == 'Handbuch'  Element Text Should Be  css:h3.title a span  Handbuch zum Mitgliederbereich
+  Run Keyword If  '${PAGE}' == 'Handbuch'  Element Text Should Be  css:h2.elgg-heading-main  Handbuch zum Mitgliederbereich
   Run Keyword If  '${PAGE}' == 'Aktivitaeten'  Element Text Should Be  css:h2.elgg-heading-main  Alle Aktivitäten
   Run Keyword If  '${PAGE}' == 'Private-Nachrichten'  Element Should Be Visible  class:elgg-form-messages-process
   Run Keyword If  '${PAGE}' == 'Einstellungen'  Element Should Be Visible  class:elgg-form-usersettings-save
@@ -48,7 +48,7 @@ I Am On Mobile
   Run Keyword If  '${PAGE}' == 'Termine-ICal-Export'  Element Text Should Be  css:div.nav li.elgg-state-selected span  Exportieren
   Run Keyword If  '${PAGE}' == 'Forum'  Element Text Should Be  class:elgg-heading-main  Diskussionen
   Run Keyword If  '${PAGE}' == 'Umfragen'  Element Should Be Visible  jquery:a.is-active  span:contains(Gruppen-Umfragen)
-  Run Keyword If  '${PAGE}' == 'Handbuch'  Element Text Should Be  css:h3.title a span  Handbuch zum Mitgliederbereich
+  Run Keyword If  '${PAGE}' == 'Handbuch'  Element Text Should Be  css:h2.elgg-heading-main  Handbuch zum Mitgliederbereich
   Run Keyword If  '${PAGE}' == 'Aktivitaeten'  Element Text Should Be  css:h2.elgg-heading-main  Alle Aktivitäten
   Run Keyword If  '${PAGE}' == 'Private-Nachrichten'  Element Should Be Visible  class:elgg-form-messages-process
   Run Keyword If  '${PAGE}' == 'Einstellungen'  Element Should Be Visible  class:elgg-form-usersettings-save
