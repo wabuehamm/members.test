@@ -36,9 +36,15 @@ Send Direct Message
   Press Keys  css:div[data-name="recipients"] input  DOWN  TAB
 
   Input Text  name:subject  Testdm
+
+  Wait Until Element Is Visible  tag:iframe
+
+  Select Frame  tag:iframe
+  Wait Until Element Is Visible  css:body.cke_editable
+  Unselect Frame
   
-  # Use Javascript to work around tinymce editor
-  Execute Javascript  $('textarea[name=body]').text('This is a test direct message')
+  # Use Javascript to work around ckeditor
+  Execute Javascript  CKEDITOR.instances[Object.keys(CKEDITOR.instances)[0]].insertText('This is a test direct message')
 
   Submit Form  class:elgg-form-messages-send
 
@@ -47,7 +53,7 @@ Send Direct Message
 
   Go To Private Nachrichten
 
-  Element Should Be Visible  jquery:.messages-container .elgg-item h3.title:contains(Testdm)
+  Element Should Be Visible  jquery:.messages-container .elgg-item h3.elgg-listing-summary-title:contains(Testdm)
 
   HomePage.Logout
   HomePage.Login  %{MEMBERS_TEST_USERNAME}  %{MEMBERS_TEST_PASSWORD}
@@ -59,10 +65,17 @@ Receive Reply
 
   Go To Private Nachrichten
 
-  Click Element  jquery:.messages-container .elgg-item h3.title:contains(Testdm) a
+  Click Element  jquery:.messages-container .elgg-item h3.elgg-listing-summary-title:contains(Testdm) a
+  Click Element  css:li[data-menu-item=reply]
 
-  # Use Javascript to work around tinymce editor
-  Execute Javascript  $('textarea[name=body]').text('This is a test reply')
+  Wait Until Element Is Visible  tag:iframe
+
+  Select Frame  tag:iframe
+  Wait Until Element Is Visible  css:body.cke_editable
+  Unselect Frame
+
+  # Use Javascript to work around ckeditor
+  Execute Javascript  CKEDITOR.instances[Object.keys(CKEDITOR.instances)[0]].insertText('This is a test reply')
 
   Submit Form  id:messages-reply-form
 
@@ -71,12 +84,15 @@ Receive Reply
 
   Go To Private Nachrichten
 
-  Element Should Be Visible  jquery:.elgg-listing-summary-inline-content:contains("This is a test reply")
+  Element Should Be Visible  jquery:.elgg-listing-summary-content:contains("This is a test reply")
 
 Delete Direct Message
   [Documentation]  Delete a direct message
   Go To Private Nachrichten
-  Click Element  jquery:h3.title:contains("RE: Testdm") a
+  Click Element  jquery:.messages-container .elgg-item h3.elgg-listing-summary-title:contains("RE: Testdm") a
+
+  Click Element  css:.elgg-listing-full-header li[data-menu-item=entity-menu-toggle]
+  Wait Until Element Is Visible  css:#ui-id-1 li[data-menu-item=delete]
   Click Element  css:li[data-menu-item="delete"]
   Alert Should Be Present  Bist Du sicher, dass Du diesen Eintrag löschen willst?
 
@@ -84,7 +100,10 @@ Delete Direct Message
   HomePage.Login  %{MEMBERS_TEST_SECOND_USERNAME}  %{MEMBERS_TEST_SECOND_PASSWORD}
 
   Go To Private Nachrichten
-  Click Element  jquery:h3.title:contains("Testdm") a
+  Click Element  jquery:.messages-container .elgg-item h3.elgg-listing-summary-title:contains(Testdm) a
+
+  Click Element  css:.elgg-listing-full-header li[data-menu-item=entity-menu-toggle]
+  Wait Until Element Is Visible  css:#ui-id-1 li[data-menu-item=delete]
   Click Element  css:li[data-menu-item="delete"]
   Alert Should Be Present  Bist Du sicher, dass Du diesen Eintrag löschen willst?
 
@@ -94,8 +113,13 @@ Delete Direct Message
 Check Edit Form
   [Documentation]  Check the edit form for validity
   Element Should Be Visible  css:div[data-name="recipients"]
-  Element Should Be Visible  name:match_on
+  Page Should Contain Element  name:match_on
   Element Should Be Visible  name:subject
-  Page Should Contain Element  name:body
+
+  Wait Until Element Is Visible  tag:iframe
+  Select Frame  tag:iframe
+  Wait Until Element Is Visible  css:body.cke_editable
+  Unselect Frame  
+
   Element Should Be Visible  class:elgg-button-submit
   Take Current Screenshot  private-nachrichten-edit
