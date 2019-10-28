@@ -21,11 +21,11 @@ I Am On Desktop
   
   Run Keyword If  '${PAGE}' == 'Homepage'  Element Should Be Visible  css:.elgg-page-body input[name="username"]
   Run Keyword If  '${PAGE}' == 'Startpage'  Element Should Be Visible  css:div.elgg-nav-logo
-  Run Keyword If  '${PAGE}' == 'Spielerliste'  Element Text Should Be  css:h2.title  Alle Mitglieder  
-  Run Keyword If  '${PAGE}' == 'Termine'  Element Text Should Be  css:h2.title  Alle bevorstehenden Events
-  Run Keyword If  '${PAGE}' == 'Termine-Paged'  Element Text Should Be  css:h2.title  Alle bevorstehenden Events
+  Run Keyword If  '${PAGE}' == 'Spielerliste'  Element Text Should Be  css:h2.elgg-heading-main  Alle Mitglieder  
+  Run Keyword If  '${PAGE}' == 'Termine'  Element Text Should Be  css:h2.elgg-heading-main  Alle bevorstehenden Events
+  Run Keyword If  '${PAGE}' == 'Termine-Paged'  Element Text Should Be  css:h2.elgg-heading-main  Alle bevorstehenden Events
   Run Keyword If  '${PAGE}' == 'Termine-Agenda'  Check Termine Agenda  
-  Run Keyword If  '${PAGE}' == 'Termine-Full'  Element Text Should Be  css:h2.title  Alle Events
+  Run Keyword If  '${PAGE}' == 'Termine-Full'  Element Text Should Be  css:h2.elgg-heading-main  Alle Events
   Run Keyword If  '${PAGE}' == 'Termine-ICal-Export'  Element Text Should Be  css:div.nav li.elgg-state-selected span  Exportieren
   Run Keyword If  '${PAGE}' == 'Forum'  Element Text Should Be  class:elgg-heading-main  Diskussionen
   Run Keyword If  '${PAGE}' == 'Umfragen'  Element Should Be Visible  jquery:a.is-active  span:contains(Gruppen-Umfragen)
@@ -40,11 +40,11 @@ I Am On Mobile
 
   Run Keyword If  '${PAGE}' == 'Homepage'  Element Should Be Visible  css:.elgg-page-body input[name="username"]
   Run Keyword If  '${PAGE}' == 'Startpage'  Element Should Be Visible  css:div.elgg-nav-logo
-  Run Keyword If  '${PAGE}' == 'Spielerliste'  Element Text Should Be  css:h2.title  Alle Mitglieder  
-  Run Keyword If  '${PAGE}' == 'Termine'  Element Text Should Be  css:h2.title  Alle bevorstehenden Events
-  Run Keyword If  '${PAGE}' == 'Termine-Paged'  Element Text Should Be  css:h2.title  Alle bevorstehenden Events
+  Run Keyword If  '${PAGE}' == 'Spielerliste'  Element Text Should Be  css:h2.elgg-heading-main  Alle Mitglieder  
+  Run Keyword If  '${PAGE}' == 'Termine'  Element Text Should Be  css:h2.elgg-heading-main  Alle bevorstehenden Events
+  Run Keyword If  '${PAGE}' == 'Termine-Paged'  Element Text Should Be  css:h2.elgg-heading-main  Alle bevorstehenden Events
   Run Keyword If  '${PAGE}' == 'Termine-Agenda'  Check Termine Agenda  
-  Run Keyword If  '${PAGE}' == 'Termine-Full'  Element Text Should Be  css:h2.title  Alle Events
+  Run Keyword If  '${PAGE}' == 'Termine-Full'  Element Text Should Be  css:h2.elgg-heading-main  Alle Events
   Run Keyword If  '${PAGE}' == 'Termine-ICal-Export'  Element Text Should Be  css:div.nav li.elgg-state-selected span  Exportieren
   Run Keyword If  '${PAGE}' == 'Forum'  Element Text Should Be  class:elgg-heading-main  Diskussionen
   Run Keyword If  '${PAGE}' == 'Umfragen'  Element Should Be Visible  jquery:a.is-active  span:contains(Gruppen-Umfragen)
@@ -55,5 +55,5 @@ I Am On Mobile
 
 Check Termine Agenda
   [Documentation]  Special keyword for checking wether we're on the Agenda page
-  ${title} =  Get Text  css:h2.title
-  Should Start With  ${title}  Alle Events (
+  ${elgg-heading-main} =  Get Text  css:h2.elgg-heading-main
+  Should Start With  ${elgg-heading-main}  Alle Events (
