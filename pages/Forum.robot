@@ -45,7 +45,7 @@ Create New Post
   Check Edit Form
   Input Text  name:title  Testpost
 
-  # Use Javascript to work around tinymce editor
+  # Use Javascript to work around ckeditor
   Execute Javascript  CKEDITOR.instances[Object.keys(CKEDITOR.instances)[0]].insertText('This is a Testpost')
 
   Input Text  name:tags  test
