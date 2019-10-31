@@ -22,8 +22,8 @@ Go to Page
 
 Go To Private Nachrichten
   [Documentation]  Go to the direct message feature
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  css:${parentBar} li[data-menu-item="messages"]
   Click Element  css:${parentBar} li[data-menu-item="messages"]
 
 Send Direct Message
@@ -121,5 +121,5 @@ Check Edit Form
   Wait Until Element Is Visible  css:body.cke_editable
   Unselect Frame  
 
-  Element Should Be Visible  class:elgg-button-submit
+  Element Should Be Visible  css:.elgg-layout-content .elgg-button-submit
   Take Current Screenshot  private-nachrichten-edit

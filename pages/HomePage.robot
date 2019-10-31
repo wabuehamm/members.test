@@ -38,7 +38,7 @@ Logout
   Handle Messages
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Mouse Over  css:li[data-menu-item=account]
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  class:.elgg-nav-collapse
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  css:${parentBar} li[data-menu-item="logout"]
   Click Element  css:${parentBar} li[data-menu-item="logout"]
   I Am On  Homepage
   

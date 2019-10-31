@@ -8,10 +8,10 @@ Library  SeleniumLibrary
 Menu Should Exist
   [Documentation]  A standardized way to check wether a menu is available
   [Arguments]  ${MENUNAME}
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
   Element Should Be Visible  jquery:${parentBar} a.elgg-menu-content span:contains(${MENUNAME})
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Not Visible  class:elgg-page-navbar
 
 Go To Menu
@@ -19,15 +19,15 @@ Go To Menu
   [Arguments]  ${MENUNAME}
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Mouse Over  css:li[data-menu-item=account]
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  class:.elgg-nav-collapse
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(${MENUNAME})
   Click Element  jquery:${parentBar} a.elgg-menu-content span:contains(${MENUNAME})
   
 Search Is Available
   [Documentation]  Check, wether the search feature is available
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
   Element Should Be Visible  css:${parentBar} input[name="q"]  
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Not Visible  class:elgg-page-navbar
 
 Settings Are Available

@@ -67,7 +67,7 @@ Check Profile
   [Documentation]  Check the user's profile
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Mouse Over  css:li[data-menu-item=account]
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  class:.elgg-nav-collapse
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  css:${parentBar} li[data-menu-item=profile] 
   Click Element  css:${parentBar} li[data-menu-item=profile] 
 
   Take Current Screenshot  user-profile
@@ -129,7 +129,7 @@ Change Profile
 
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "desktop"  Mouse Over  css:li[data-menu-item=account]
   Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  class:.elgg-nav-collapse
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  css:${parentBar} li[data-menu-item=profile]
   Click Element  css:${parentBar} li[data-menu-item=profile] 
 
   Element Should Contain  css:h2.elgg-heading-main  %{MEMBERS_TEST_USER_DISPLAYNAME}

@@ -82,7 +82,7 @@ Check Edit Form
   Page Should Contain Element  name:description
   Element Should Be Visible  name:tags
   Element Should Be Visible  name:status
-  Element Should Be Visible  css:button.elgg-button-submit
+  Element Should Be Visible  css:.elgg-layout-content .elgg-button-submit
   Take Current Screenshot  forum-edit
 
 Select Test Post

@@ -80,7 +80,7 @@ Check Created Poll
 
   Element Should Be Visible  jquery:label:contains("First Choice")
   Element Should Be Visible  jquery:label:contains("Second Choice")
-  Element Should Be Visible  class:elgg-button-submit
+  Element Should Be Visible  css:.elgg-layout-content .elgg-button-submit
 
 Edit Poll
   [Documentation]  Check the workflow for editing a poll
@@ -130,7 +130,7 @@ Check Edited Poll
   Element Should Be Visible  jquery:label:contains("First Choice2")
   Element Should Be Visible  jquery:label:contains("Second Choice2")
   Element Should Be Visible  jquery:label:contains("Third Choice")
-  Element Should Be Visible  class:elgg-button-submit
+  Element Should Be Visible  css:.elgg-layout-content .elgg-button-submit
 
 Vote
   [Documentation]  Check the workflow for voting for a poll

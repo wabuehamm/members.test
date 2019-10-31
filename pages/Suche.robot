@@ -15,8 +15,8 @@ Search For Events
   [Documentation]  Check for searching for events
   Click Element  css:h1.elgg-heading-site a
 
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  css:${parentBar} li[data-menu-item="menu_name_1520854143"]
 
   Input Text  jquery:${parentBar} .search-input  Rollenverteilung
   Submit Form  css:${parentBar} .elgg-search
@@ -31,8 +31,8 @@ Search For Forum Posts
   [Documentation]  Check for searching for forum posts
   Click Element  css:h1.elgg-heading-site a
 
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  css:${parentBar} li[data-menu-item="menu_name_1520854143"]
   
   Input Text  jquery:${parentBar} .search-input  Rollenverteilung
   Submit Form  css:${parentBar} .elgg-search
@@ -47,8 +47,8 @@ Search For People
   [Documentation]  Check for searching for people
   Click Element  css:h1.elgg-heading-site a
 
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:nav-toggle
-  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  jquery:${parentBar} a.elgg-menu-content span:contains(Handbuch)
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Click Element  class:elgg-nav-button
+  Run Keyword If  "%{MEMBERS_TEST_VIEW_TYPE}" == "mobile"  Wait Until Element Is Visible  css:${parentBar} li[data-menu-item="menu_name_1520854143"]
   
   Input Text  jquery:${parentBar} .search-input  Hesse
   Submit Form  css:${parentBar} .elgg-search
