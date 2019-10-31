@@ -28,6 +28,7 @@ Check Memberlist
   ${numberOfMembers} =  Get Text  css:.elgg-form-members-search p.elgg-text-help
   ${members} =  Get Regexp Matches  ${numberOfMembers}  Gesamtzahl der Mitglieder: ([0-9]+)  1
   Should Be True  ${members}[0] > 300
+  Page Should Not Contain  Beliebt
 
 Check Pagination
   [Documentation]  Check the pagination features
