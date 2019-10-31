@@ -26,7 +26,7 @@ I Am On Desktop
   Run Keyword If  '${PAGE}' == 'Termine-Paged'  Element Text Should Be  css:h2.elgg-heading-main  Alle bevorstehenden Events
   Run Keyword If  '${PAGE}' == 'Termine-Agenda'  Check Termine Agenda  
   Run Keyword If  '${PAGE}' == 'Termine-Full'  Element Text Should Be  css:h2.elgg-heading-main  Alle Events
-  Run Keyword If  '${PAGE}' == 'Termine-ICal-Export'  Element Text Should Be  css:div.nav li.elgg-state-selected span  Exportieren
+  Run Keyword If  '${PAGE}' == 'Termine-ICal-Export'  Element Text Should Be  css:li.elgg-state-selected span  Exportieren
   Run Keyword If  '${PAGE}' == 'Forum'  Element Text Should Be  class:elgg-heading-main  Diskussionen
   Run Keyword If  '${PAGE}' == 'Umfragen'  Element Should Be Visible  jquery:a.is-active  span:contains(Gruppen-Umfragen)
   Run Keyword If  '${PAGE}' == 'Handbuch'  Element Text Should Be  css:h2.elgg-heading-main  Handbuch zum Mitgliederbereich
@@ -45,7 +45,7 @@ I Am On Mobile
   Run Keyword If  '${PAGE}' == 'Termine-Paged'  Element Text Should Be  css:h2.elgg-heading-main  Alle bevorstehenden Events
   Run Keyword If  '${PAGE}' == 'Termine-Agenda'  Check Termine Agenda  
   Run Keyword If  '${PAGE}' == 'Termine-Full'  Element Text Should Be  css:h2.elgg-heading-main  Alle Events
-  Run Keyword If  '${PAGE}' == 'Termine-ICal-Export'  Element Text Should Be  css:div.nav li.elgg-state-selected span  Exportieren
+  Run Keyword If  '${PAGE}' == 'Termine-ICal-Export'  Element Text Should Be  css:li.elgg-state-selected span  Exportieren
   Run Keyword If  '${PAGE}' == 'Forum'  Element Text Should Be  class:elgg-heading-main  Diskussionen
   Run Keyword If  '${PAGE}' == 'Umfragen'  Element Should Be Visible  jquery:a.is-active  span:contains(Gruppen-Umfragen)
   Run Keyword If  '${PAGE}' == 'Handbuch'  Element Text Should Be  css:h2.elgg-heading-main  Handbuch zum Mitgliederbereich
