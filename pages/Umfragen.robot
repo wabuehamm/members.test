@@ -99,8 +99,7 @@ Edit Poll
   Unselect Frame  
 
   # Use Javascript to work around ckeditor
-  Execute Javascript  CKEDITOR.instances[Object.keys(CKEDITOR.instances)[0]].setData('')
-  Execute Javascript  CKEDITOR.instances[Object.keys(CKEDITOR.instances)[0]].insertText('This is a Testpoll2')
+  Execute Javascript  CKEDITOR.instances[Object.keys(CKEDITOR.instances)[0]].setData('This is a Testpoll2')
 
   Input Text  name:tags  test2
 
