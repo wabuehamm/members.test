@@ -1,0 +1,12 @@
+{
+    "activityStream": {
+        "minEntries": 5,
+        "minPages": 5
+    },
+    "members": {
+        "minEntries": 5,
+        "minPages": 5,
+        "searchResults": 2,
+        "minMembers": 300
+    }
+}

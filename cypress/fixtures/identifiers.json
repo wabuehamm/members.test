@@ -1,0 +1,11 @@
+{
+    "activityStream": {
+        "title": "Alle Aktivitäten"
+    },
+    "members": {
+        "title": "Alle Mitglieder",
+        "popularTabLabel": "Beliebt",
+        "searchKeyword": "Hesse",
+        "totalMembersRegexp": "Gesamtzahl der Mitglieder: ([0-9]+)"
+    }
+}
