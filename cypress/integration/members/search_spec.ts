@@ -1,9 +1,10 @@
-beforeEach(() => {
-  cy.login()
-  cy.visit('/members/alpha')
-})
-
 describe('The search on the list of members', function () {
+  beforeEach(() => {
+    cy.fixCypressSpec('/cypress/integration/members/search_spec.ts')
+    cy.login()
+    cy.visit('/members/alpha')
+  })
+
   it('should exist', () => {
     cy.get('[name=member_query]').should('be.visible')
   })

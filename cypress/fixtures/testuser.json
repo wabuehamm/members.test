@@ -1,0 +1,32 @@
+[
+    {
+        "username": "test.user1",
+        "password": "secretsecret",
+        "password2": "secretsecret",
+        "name": "Test User 1",
+        "email": "testaddress1@waldbuehne-heessen.de",
+        "custom_profile_fields[birthday]": "2018-08-11",
+        "custom_profile_fields[telephone]": "+492381123456",
+        "custom_profile_fields[street]": "Musterstraße 25",
+        "custom_profile_fields[zip]": "59073",
+        "custom_profile_fields[city]": "Hamm",
+        "custom_profile_fields[no_mail]": "nein",
+        "custom_profile_fields[member_since]": "2018",
+        "custom_profile_fields[away_years]": "0"
+    },
+    {
+        "username": "test.user2",
+        "password": "secretsecret",
+        "password2": "secretsecret",
+        "name": "Test User 2",
+        "email": "testaddress2@waldbuehne-heessen.de",
+        "custom_profile_fields[birthday]": "2018-08-11",
+        "custom_profile_fields[telephone]": "+492381123456",
+        "custom_profile_fields[street]": "Musterstraße 25",
+        "custom_profile_fields[zip]": "59073",
+        "custom_profile_fields[city]": "Hamm",
+        "custom_profile_fields[no_mail]": "nein",
+        "custom_profile_fields[member_since]": "2018",
+        "custom_profile_fields[away_years]": "0"
+    }
+]

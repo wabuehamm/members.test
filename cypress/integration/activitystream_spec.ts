@@ -1,12 +1,18 @@
-beforeEach(() => {
-  cy.login()
-  cy.visit('/activity')
-})
-
 describe('The activity stream', function () {
+  beforeEach(() => {
+    cy.fixCypressSpec('/cypress/integration/activitystream_spec.ts')
+    cy.login()
+    cy.visit('/activity')
+  })
+
   it('is reachable', function() {
     cy.contains(this.identifiers.activityStream.title)
-    cy.compareSnapshot('activityStream')
+    cy.document().toMatchImageSnapshot({
+      name: 'activityStream',
+      blackout: [
+        '.elgg-list'
+      ]
+    })
   })
   it('contains enough entries', function () {
     cy.get('.elgg-item').should('have.length.of.at.least', this.counts.activityStream.minEntries)

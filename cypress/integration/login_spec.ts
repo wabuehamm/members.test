@@ -1,9 +1,15 @@
 describe('When logging in into the membership area', () => {
+  beforeEach(() => {
+    cy.fixCypressSpec('/cypress/integration/login_spec.ts')
+  })
+
   it('the login form is reachable', () => {
     cy.visit('/')
     cy.get('input[name=username]').should('be.visible')
     cy.get('input[name=password]').should('be.visible')
-    cy.compareSnapshot('login')
+    cy.document().toMatchImageSnapshot({
+      name: 'login'
+    })
   })
   it('a login is possible', () => {
     cy.login()

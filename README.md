@@ -16,3 +16,15 @@ from `vendor/elgg/elgg/engine/classes/Elgg/ActionsService.php`:
 ```
 
 (_line numbers taken from Elgg 3.2.2_)
+
+## Usage
+
+To run the test suite you have to set the following 
+[environment variables](https://docs.cypress.io/guides/guides/environment-variables.html):
+
+* admin_username: The username of a membership admin
+* admin_password: THe password of a membership admin
+
+```
+npx cypress run
+```

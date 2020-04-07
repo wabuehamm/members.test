@@ -17,7 +17,6 @@
 import './commands'
 import 'cypress-plugin-snapshots/commands';
 
-
 // Alternatively you can use CommonJS syntax:
 //require('./commands')
 
@@ -32,5 +31,7 @@ beforeEach(() => {
 before(function (){
     cy.fixture('identifiers').as('identifiers')
     cy.fixture('counts').as('counts')
-})
+    cy.fixture('testuser').as('testuser')
 
+    cy.prepare()
+})

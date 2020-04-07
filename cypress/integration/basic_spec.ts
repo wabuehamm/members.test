@@ -1,20 +1,24 @@
-beforeEach(() => {
-  cy.login()
-})
-
 describe('The membership area', () => {
-  it('displays the required items', () => {
+  beforeEach(() => {
+    cy.fixCypressSpec('/cypress/integration/basic_spec.ts')
+    cy.login()
     cy.visit('/')
+  })
 
+  it('displays the required items', () => {
     cy.get('div.elgg-nav-logo').should('be.visible')
     cy.get('div.elgg-nav-search').should('be.visible')
     cy.get('[data-menu-item=account]').should('be.visible')
-    cy.compareSnapshot('basic')
+
+    cy.document().toMatchImageSnapshot({
+      name: 'basic',
+      blackout: [
+        '.elgg-page-body'
+      ]
+    })
   })
 
   it('contains all required menu items in the account menu', () => {
-    cy.visit('/')
-
     cy.get('[data-menu-item=account] ul').invoke('show').should('be.visible')
     cy.get('[data-menu-item=profile').should('be.visible')
     cy.get('[data-menu-item=usersettings').should('be.visible')

@@ -1,9 +1,10 @@
-beforeEach(() => {
-  cy.login()
-  cy.visit('/members/alpha')
-})
-
 describe('The list of members', function () {
+  beforeEach(() => {
+    cy.fixCypressSpec('/cypress/integration/members/members_spec.ts')
+    cy.login()
+    cy.visit('/members/alpha')
+  })
+
   it('is reachable', function () {
     cy.contains(this.identifiers.members.title)
     // make screenshot, but blackout member list, pagination and count of members (in the search form footer)
