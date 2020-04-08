@@ -8,5 +8,11 @@
         "minPages": 5,
         "searchResults": 2,
         "minMembers": 300
+    },
+    "appointments": {
+        "minEntries": 5,
+        "paged": {
+            "minPages": 5
+        }
     }
 }

@@ -1,6 +1,6 @@
 describe('The list of members', function () {
   beforeEach(() => {
-    cy.fixCypressSpec('/cypress/integration/members/members_spec.ts')
+    cy.fixCypressSpec('/cypress/integration/members_spec.ts')
     cy.login()
     cy.visit('/members/alpha')
   })

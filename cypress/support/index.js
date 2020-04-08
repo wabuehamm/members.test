@@ -15,7 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import 'cypress-plugin-snapshots/commands';
+import 'cypress-plugin-snapshots/commands'
 
 // Alternatively you can use CommonJS syntax:
 //require('./commands')
@@ -28,10 +28,19 @@ beforeEach(() => {
     }
 })
 
-before(function (){
+before(function () {
     cy.fixture('identifiers').as('identifiers')
     cy.fixture('counts').as('counts')
-    cy.fixture('testuser').as('testuser')
+    cy.fixture('testdata').as('testdata')
+    cy.fixture('errors').as('errors')
 
     cy.prepare()
+})
+
+Cypress.on('uncaught:exception', function (err, runnable) {
+    for (const errorMessage of this.knownErrors) {
+        if (err.message.match(new RegExp(errorMessage))) {
+            return false
+        }
+    }
 })

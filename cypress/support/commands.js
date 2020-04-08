@@ -1,10 +1,10 @@
 Cypress.Commands.add('login', function (username, password) {
     if (!username) {
-        username = this.testuser[0].username
+        username = this.testdata.users[0].username
     }
 
     if (!password) {
-        password = this.testuser[0].password
+        password = this.testdata.users[0].password
     }
 
     cy.request({
@@ -30,7 +30,7 @@ Cypress.Commands.add('prepare', function () {
 
     cy.login(Cypress.env('admin_username'), Cypress.env('admin_password'))
 
-    for (const testUser of this.testuser) {
+    for (const testUser of this.testdata.users) {
         cy.request({
             method: 'GET',
             url: `/profile/${testUser.username}`,
@@ -78,3 +78,10 @@ Cypress.Commands.add('fixCypressSpec', (filename) => {
         relative
     }
 })
+
+Cypress.Commands.add("typeCkEditor", (content) => {
+    cy.window()
+        .then(win => {
+            win.CKEDITOR.instances[Object.keys(win.CKEDITOR.instances)[0]].insertText(content);
+        });
+});

@@ -7,5 +7,14 @@
         "popularTabLabel": "Beliebt",
         "searchKeyword": "Hesse",
         "totalMembersRegexp": "Gesamtzahl der Mitglieder: ([0-9]+)"
+    },
+    "manual": {
+        "title": "Handbuch zum Mitgliederbereich"
+    },
+    "appointments": {
+        "title": "Alle bevorstehenden Events",
+        "paged": {
+            "noPersonalAppointments": "Es wurden keine Events gefunden."
+        }
     }
 }
