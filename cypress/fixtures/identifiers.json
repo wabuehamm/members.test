@@ -17,5 +17,8 @@
             "noPersonalAppointments": "Es wurden keine Events gefunden."
         },
         "icalExport": "Exportieren in iCal"
+    },
+    "board": {
+        "title": "Diskussionen"
     }
 }

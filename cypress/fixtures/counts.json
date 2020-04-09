@@ -17,5 +17,9 @@
         "agenda": {
             "minPages": 4
         }
+    },
+    "board": {
+        "minEntries": 10,
+        "minPages": 5
     }
 }
