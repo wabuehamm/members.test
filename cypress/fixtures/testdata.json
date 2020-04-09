@@ -44,6 +44,13 @@
             "region": "Workshop",
             "long_description": "Testdescription"
         },
+        "addVerification": [
+            "Wann: 12:00 - 13:00, 1 Jan 2020",
+            "Ort: Testort",
+            "Art: Workshop",
+            "Testdescription",
+            "Testevent"
+        ],
         "edit": {
             "title": "Testevent2",
             "venue": "Testort2",
@@ -55,6 +62,13 @@
             "end_time_minute": "0",
             "region": "Arbeitseinsatz",
             "long_description": "Testdescription2"
-        }
+        },
+        "editVerification": [
+            "Wann: 13:00 - 14:00, 1 Jan 2020",
+            "Ort: Testort2",
+            "Art: Arbeitseinsatz",
+            "Testdescription2",
+            "Testevent2"
+        ]
     }
 }

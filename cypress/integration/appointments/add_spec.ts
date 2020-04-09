@@ -5,6 +5,20 @@ describe('Adding an event to the appointments feature', () => {
     cy.visit('/event_calendar/add')
   })
 
+  it('should have a valid entry form', function () {
+    cy.document().toMatchImageSnapshot({
+      name: 'appointments_add',
+      blackout: [
+        '[name=start_date]',
+        '[name=end_date]',
+        '[name=start_time_hour]',
+        '[name=start_time_minute]',
+        '[name=end_time_hour]',
+        '[name=end_time_minute]'
+      ]
+    })
+  })
+
   it('should work', function () {
     cy.visit(`/event_calendar/list/${this.testdata.appointments.add['start_date']}?format=agenda`)
     cy.contains(this.testdata.appointments.add.title).should('not.exist')
@@ -30,6 +44,10 @@ describe('Adding an event to the appointments feature', () => {
 
     cy.visit(`/event_calendar/list/${this.testdata.appointments.add['start_date']}?format=agenda`)
     cy.contains(this.testdata.appointments.add.title).click()
+
+    for (const testString of this.testdata.appointments.addVerification) {
+      cy.contains(testString)
+    }
   })
 
 })

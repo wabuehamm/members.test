@@ -22,13 +22,17 @@ import 'cypress-plugin-snapshots/commands'
 
 beforeEach(() => {
     if (Cypress.env('viewtype') === 'mobile') {
+        cy.log('Setting mobile view')
         cy.viewport('samsung-s10')
     } else {
+        cy.log('Setting desktop view')
         cy.viewport(1400, 768)
     }
 })
 
 before(function () {
+    cy.log('Loading fixtures')
+
     cy.fixture('identifiers').as('identifiers')
     cy.fixture('counts').as('counts')
     cy.fixture('testdata').as('testdata')
