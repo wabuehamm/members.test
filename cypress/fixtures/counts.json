@@ -13,6 +13,9 @@
         "minEntries": 5,
         "paged": {
             "minPages": 5
+        },
+        "agenda": {
+            "minPages": 4
         }
     }
 }
