@@ -108,3 +108,28 @@ Cypress.Commands.add("typeCkEditor", (content) => {
             editorInstance.updateElement()
         });
 });
+
+/**
+ * Attach a file to an input
+ *
+ * @param input The input element
+ * @param fileName The name of the file to upload in the fixtures
+ * @param fileType The type of the file to upload
+ */
+Cypress.Commands.add(
+    'attachFile',
+    {
+        prevSubject: 'element',
+    },
+    (input, fileName, fileType) => {
+        cy.fixture(fileName)
+            .then(blob => {
+                const testFile = new File([blob], fileName)
+                const dataTransfer = new DataTransfer()
+
+                dataTransfer.items.add(testFile)
+                input[0].files = dataTransfer.files
+                return input
+            })
+    }
+)

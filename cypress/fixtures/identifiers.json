@@ -15,6 +15,7 @@
         "title": "Alle bevorstehenden Events",
         "paged": {
             "noPersonalAppointments": "Es wurden keine Events gefunden."
-        }
+        },
+        "icalExport": "Exportieren in iCal"
     }
 }

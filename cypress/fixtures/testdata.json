@@ -69,6 +69,17 @@
             "Art: Arbeitseinsatz",
             "Testdescription2",
             "Testevent2"
-        ]
+        ],
+        "export": {
+            "container_guid": "0",
+            "filter": "all",
+            "region": "-",
+            "start_date": "2020-01-01",
+            "end_date": "2020-01-01"
+        },
+        "import": {
+            "date": "2020-01-01",
+            "title": "Testevent"
+        }
     }
 }

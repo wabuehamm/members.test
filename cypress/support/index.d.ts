@@ -6,5 +6,6 @@ declare namespace Cypress {
     prepare(): void
     fixCypressSpec(filename: string): void
     typeCkEditor(content: string): Chainable
+    attachFile(fileName: string, fileType: string): Chainable
   }
 }
