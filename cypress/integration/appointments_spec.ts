@@ -19,6 +19,9 @@ describe('The appointments feature', () => {
   })
 
   it('should have appointments', function () {
-    cy.get('.event-calendar-paged-title').should('have.length.of.at.least', this.counts.appointments.minEntries)
+    cy.get('.event_calendar_paged_title').should('have.length.of.at.least', this.counts.appointments.minEntries)
   })
+
+  it('should have a working ical export')
+  it('should have a working ical import')
 })

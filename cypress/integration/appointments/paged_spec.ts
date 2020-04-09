@@ -2,9 +2,19 @@ describe('The paged view of the appointments feature', () => {
   beforeEach(() => {
     cy.fixCypressSpec('/cypress/integration/appointments/paged_spec.ts')
     cy.login()
-    cy.visit('/event_calendar/list/?format=paged')
+    cy.visit('/event_calendar/list/2020-01-01?format=paged')
   })
 
+  it('should have a valid ui', function () {
+    cy.document().toMatchImageSnapshot({
+      name: 'appointments_paged',
+      blackout: [
+        '.elgg-module-aside:last'
+      ]
+    })
+  })
+
+  // noinspection DuplicatedCode
   it('should have pages of appointments', function () {
     cy.get('.elgg-pagination:first li').should('have.length.of.at.least', this.counts.appointments.paged.minPages)
   })

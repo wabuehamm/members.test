@@ -14,6 +14,7 @@ describe('The agenda view of the appointments feature', () => {
     })
   })
 
+  // noinspection DuplicatedCode
   it('should have pages of appointments', function () {
     cy.get('.elgg-pagination:first li').should('have.length.of.at.least', this.counts.appointments.agenda.minPages)
   })
