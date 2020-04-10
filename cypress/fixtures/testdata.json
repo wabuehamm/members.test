@@ -81,5 +81,29 @@
             "date": "2020-01-01",
             "title": "Testevent"
         }
+    },
+    "board": {
+        "boardId": "45105",
+        "add": {
+            "title": "Testdiscussion",
+            "description": "Testdescription",
+            "status": "open",
+            "access_id": "1",
+            "container_guid": "45105"
+        },
+        "addVerification": [
+            "Testdiscussion",
+            "Testdescription"
+        ],
+        "edit": {
+            "title": "Testdiscussion2",
+            "description": "Testdescription2",
+            "status": "open",
+            "access_id": "1"
+        },
+        "editVerification": [
+            "Testdiscussion2",
+            "Testdescription2"
+        ]
     }
 }

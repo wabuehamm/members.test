@@ -1,8 +1,8 @@
 describe('The board feature', () => {
-  beforeEach(() => {
+  beforeEach(function () {
     cy.fixCypressSpec('/cypress/integration/board_spec.ts')
     cy.login()
-    cy.visit('/discussion/group/45105')
+    cy.visit(`/discussion/group/${this.testdata.board.boardId}`)
   })
 
   it('is reachable', function () {
