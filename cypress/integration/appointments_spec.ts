@@ -43,7 +43,7 @@ describe('The appointments feature', () => {
         }
       )
   })
-  it.only('should have a working ical import', function () {
+  it('should have a working ical import', function () {
     cy.visit(`/event_calendar/list/${this.testdata.appointments.import.date}?format=agenda`)
     cy.contains(this.testdata.appointments.import.title).should('not.exist')
     cy.visit('/event_calendar/list/')

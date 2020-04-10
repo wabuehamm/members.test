@@ -123,6 +123,13 @@ Cypress.Commands.add(
     },
     (input, fileName, fileType) => {
         cy.fixture(fileName)
+            .then(content => {
+                if (fileType.startsWith('text')) {
+                    return content
+                } else {
+                    return Cypress.Blob.base64StringToBlob(content, fileType)
+                }
+            })
             .then(blob => {
                 const testFile = new File([blob], fileName)
                 const dataTransfer = new DataTransfer()
