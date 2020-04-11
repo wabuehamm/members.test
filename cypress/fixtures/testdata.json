@@ -104,6 +104,10 @@
         "editVerification": [
             "Testdiscussion2",
             "Testdescription2"
-        ]
+        ],
+        "comments": {
+            "add": "Testcomment",
+            "edit": "Testcomment2"
+        }
     }
 }

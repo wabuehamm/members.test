@@ -5,7 +5,8 @@ declare namespace Cypress {
     login(username?: string, password?: string): void
     prepare(): void
     fixCypressSpec(filename: string): void
-    typeCkEditor(content: string): Chainable
+    clearNotifications(token: string): void
+    typeCkEditor(content: string, instanceID?: string): Chainable
     attachFile(fileName: string, fileType: string): Chainable
   }
 }

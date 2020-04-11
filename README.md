@@ -17,6 +17,8 @@ from `vendor/elgg/elgg/engine/classes/Elgg/ActionsService.php`:
 
 (_line numbers taken from Elgg 3.2.2_)
 
+Also, the file transport plugin version 0.1.0 or higher needs to be installed and activated.
+
 ## Usage
 
 To run the test suite you have to set the following 

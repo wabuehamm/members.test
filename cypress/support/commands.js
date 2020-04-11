@@ -100,14 +100,21 @@ Cypress.Commands.add('fixCypressSpec', (filename) => {
  * Workaround to type into CKEditor instance using Cypress. Courtesy of
  * https://medium.com/@nickdenardis/getting-cypress-js-to-interact-with-ckeditor-f46eec01132f
  */
-Cypress.Commands.add("typeCkEditor", (content) => {
+Cypress.Commands.add('typeCkEditor', (content, instanceID = null) => {
+    cy.get('iframe')
     cy.window()
         .then(win => {
-            let editorInstance = win.CKEDITOR.instances[Object.keys(win.CKEDITOR.instances)[0]]
+            let editorInstance
+            if (instanceID) {
+                editorInstance = win.CKEDITOR.instances[instanceID]
+            } else {
+                editorInstance = win.CKEDITOR.instances[Object.keys(win.CKEDITOR.instances)[0]]
+            }
+
             editorInstance.setData(content)
             editorInstance.updateElement()
-        });
-});
+        })
+})
 
 /**
  * Attach a file to an input
@@ -138,5 +145,30 @@ Cypress.Commands.add(
                 input[0].files = dataTransfer.files
                 return input
             })
+    }
+)
+
+Cypress.Commands.add(
+    'clearNotifications',
+    (token) => {
+        cy.log('Triggering notifications')
+        cy.request({
+            url: `/services/api/rest/json/?method=filetransport.notifications.send&auth_token=${token}`,
+            method: 'POST'
+        })
+            .then(
+                resp => {
+                    expect(resp.body.status).to.eq(0)
+                    cy.log('Flushing notifications')
+                    cy.request({
+                        url: `/services/api/rest/json/?method=filetransport.notifications.flush&auth_token=${token}`,
+                        method: 'POST'
+                    })
+                        .then(resp => {
+                            expect(resp.body.status).to.eq(0)
+                        })
+                }
+            )
+
     }
 )
