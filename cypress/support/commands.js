@@ -172,3 +172,13 @@ Cypress.Commands.add(
 
     }
 )
+
+/**
+ * Quickly stub a test as to be done
+ */
+Cypress.Commands.add(
+    'todo',
+    () => {
+        expect(false, 'Test has yet to be written').to.be.true
+    }
+)

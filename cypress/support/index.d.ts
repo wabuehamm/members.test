@@ -8,5 +8,6 @@ declare namespace Cypress {
     clearNotifications(token: string): void
     typeCkEditor(content: string, instanceID?: string): Chainable
     attachFile(fileName: string, fileType: string): Chainable
+    todo(): void
   }
 }
