@@ -23,5 +23,13 @@
         "minPages": 5,
         "minNotifications": 100,
         "maxSubscriberNotifications": 6
+    },
+    "search": {
+        "minResults": {
+            "[data-menu-item='item:object:comment'] span.elgg-badge": "12",
+            "[data-menu-item='item:object:discussion'] span.elgg-badge": "33",
+            "[data-menu-item='item:object:event_calendar'] span.elgg-badge": "8",
+            "[data-menu-item='item:user:user'] span.elgg-badge": "2"
+        }
     }
 }

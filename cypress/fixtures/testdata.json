@@ -109,5 +109,8 @@
             "add": "Testcomment",
             "edit": "Testcomment2"
         }
+    },
+    "search": {
+        "term": "hesse"
     }
 }
