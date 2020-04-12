@@ -182,3 +182,16 @@ Cypress.Commands.add(
         expect(false, 'Test has yet to be written').to.be.true
     }
 )
+
+/**
+ * Logout of the members area
+ */
+Cypress.Commands.add(
+    'logout',
+    () => {
+        cy.get('[data-menu-item=account] ul').invoke('show').should('be.visible')
+        cy.get('[data-menu-item=logout').click()
+        cy.clearCookies()
+        cy.get('[data-menu-item=account]').should('not.be.visible')
+    }
+)

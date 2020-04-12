@@ -9,5 +9,6 @@ declare namespace Cypress {
     typeCkEditor(content: string, instanceID?: string): Chainable
     attachFile(fileName: string, fileType: string): Chainable
     todo(): void
+    logout(): void
   }
 }
