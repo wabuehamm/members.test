@@ -115,5 +115,16 @@
     },
     "settings": {
         "changedPassword": "secretsecret2"
+    },
+    "messages": {
+        "send": {
+            "recipients": "test.user2",
+            "subject": "testsubject",
+            "body": "testbody"
+        },
+        "reply": {
+            "subject": "testsubject2",
+            "body": "testbody2"
+        }
     }
 }

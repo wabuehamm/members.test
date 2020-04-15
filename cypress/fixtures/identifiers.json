@@ -20,5 +20,8 @@
     },
     "board": {
         "title": "Diskussionen"
+    },
+    "messages": {
+        "messageSent": "Deine Nachricht wurde gesendet"
     }
 }
