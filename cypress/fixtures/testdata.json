@@ -126,5 +126,37 @@
             "subject": "testsubject2",
             "body": "testbody2"
         }
+    },
+    "profile": {
+        "allFields": [
+            "username",
+            "name",
+            "email",
+            "custom_profile_fields[birthday]",
+            "custom_profile_fields[telephone]",
+            "custom_profile_fields[street]",
+            "custom_profile_fields[zip]",
+            "custom_profile_fields[city]",
+            "custom_profile_fields[no_mail]",
+            "custom_profile_fields[member_since]"
+        ],
+        "hiddenFields": [
+            "custom_profile_fields[birthday]",
+            "custom_profile_fields[street]",
+            "custom_profile_fields[zip]",
+            "custom_profile_fields[city]"
+        ],
+        "editedProfile": {
+            "name": "Test User 2",
+            "birthday": "2018-08-12",
+            "telephone": "+492381123457",
+            "street": "Musterstraße 26",
+            "zip": "59074",
+            "city": "Hamm2"
+        },
+        "disabled": [
+            "custom_profile_fields[member_since]",
+            "custom_profile_fields[away_years]"
+        ]
     }
 }
