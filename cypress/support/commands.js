@@ -76,6 +76,8 @@ Cypress.Commands.add('prepare', function () {
                 }
             )
     }
+
+    cy.clearCookies()
 })
 
 /**

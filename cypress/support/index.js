@@ -28,6 +28,7 @@ beforeEach(() => {
         cy.log('Setting desktop view')
         cy.viewport(1400, 768)
     }
+    cy.prepare()
 })
 
 before(function () {
@@ -37,8 +38,6 @@ before(function () {
     cy.fixture('counts').as('counts')
     cy.fixture('testdata').as('testdata')
     cy.fixture('errors').as('errors')
-
-    cy.prepare()
 })
 
 Cypress.on('uncaught:exception', function (err, runnable) {

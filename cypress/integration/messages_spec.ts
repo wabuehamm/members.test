@@ -1,7 +1,4 @@
 describe('The private message feature', function () {
-  beforeEach(function () {
-    cy.prepare()
-  })
   it('should have a known UI', function () {
     cy.login()
     cy.visit(`/messages/inbox/${this.testdata.users[ 0 ].username}`)

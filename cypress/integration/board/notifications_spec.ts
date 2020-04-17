@@ -1,7 +1,6 @@
 describe('The board feature', () => {
   let token = ''
   beforeEach(function () {
-    cy.prepare()
     cy.log('Fetching web service token')
     cy.request({
       url: `/services/api/rest/json/?method=auth.gettoken&username=${Cypress.env('admin_username')}&password=${Cypress.env(

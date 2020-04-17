@@ -23,5 +23,16 @@
     },
     "messages": {
         "messageSent": "Deine Nachricht wurde gesendet"
+    },
+    "loginredirector": {
+        "default": "Diskussionen",
+        "redirects": {
+            "homepage": "Alle Aktivitäten",
+            "profile": "Test User 1",
+            "custom_redirect": "Diskussionen",
+            "https://web:8443/activity": "Alle Aktivitäten",
+            "https://web:8443/event_calendar/list/": "Alle bevorstehenden Events",
+            "https://web:8443/discussion/group/45105": "Diskussionen"
+        }
     }
 }
