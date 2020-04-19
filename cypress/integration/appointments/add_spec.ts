@@ -7,7 +7,7 @@ describe('Adding an event to the appointments feature', () => {
 
   it('should have a valid entry form', function () {
     cy.document().toMatchImageSnapshot({
-      name: 'appointments_add',
+      name: `appointments_add.${Cypress.env('viewtype')}`,
       blackout: [
         '[name=start_date]',
         '[name=end_date]',

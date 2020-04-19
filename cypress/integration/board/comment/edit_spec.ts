@@ -21,7 +21,7 @@ describe('Editing a comment on the board', () => {
 
   it('should have a valid form', function () {
     cy.document().toMatchImageSnapshot({
-      name: 'board_comment_edit'
+      name: `board_comment_edit.${Cypress.env('viewtype')}`
     })
   })
 

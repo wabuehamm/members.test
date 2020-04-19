@@ -7,7 +7,7 @@ describe('The paged view of the appointments feature', () => {
 
   it('should have a valid ui', function () {
     cy.document().toMatchImageSnapshot({
-      name: 'appointments_paged',
+      name: `appointments_paged.${Cypress.env('viewtype')}`,
       blackout: [
         '.elgg-module-aside:last'
       ]

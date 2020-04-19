@@ -9,7 +9,7 @@ describe('The board feature', () => {
     cy.contains(this.identifiers.board.title)
 
     cy.document().toMatchImageSnapshot({
-      name: 'board',
+      name: `board.${Cypress.env('viewtype')}`,
       blackout: [
         '.elgg-body'
       ]

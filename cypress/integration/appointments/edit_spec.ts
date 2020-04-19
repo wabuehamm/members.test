@@ -17,7 +17,7 @@ describe('Editing an event in the appointments feature', () => {
 
   it('should have a valid edit form', function () {
     cy.document().toMatchImageSnapshot({
-      name: 'appointments_edit',
+      name: `appointments_edit.${Cypress.env('viewtype')}`,
     })
   })
 

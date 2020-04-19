@@ -31,7 +31,7 @@ describe('The user profile feature', function () {
     cy.visit('/profile')
     cy.get('[data-menu-item=edit_profile]').click()
     cy.document().toMatchImageSnapshot({
-      name: 'profile'
+      name: `profile.${Cypress.env('viewtype')}`
     })
     for (const key in this.testdata.profile.editedProfile) {
       if (this.testdata.profile.editedProfile.hasOwnProperty(key)) {

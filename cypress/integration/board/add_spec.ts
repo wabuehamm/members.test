@@ -7,7 +7,7 @@ describe('Adding a discusson to the board', () => {
 
   it('should have a valid entry form', function () {
     cy.document().toMatchImageSnapshot({
-      name: 'board_add'
+      name: `board_add.${Cypress.env('viewtype')}`
     })
   })
 

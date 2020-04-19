@@ -17,7 +17,7 @@ describe('Editing a discusson to the board', () => {
 
   it('should have a valid edit form', function () {
     cy.document().toMatchImageSnapshot({
-      name: 'board_edit'
+      name: `board_edit.${Cypress.env('viewtype')}`
     })
   })
 

@@ -6,7 +6,7 @@ describe('The user settings', function () {
   })
   it('has a valid form', function () {
     cy.document().toMatchImageSnapshot({
-      name: 'settings',
+      name: `settings.${Cypress.env('viewtype')}`,
       blackout: [
         '[name=language]'
       ]

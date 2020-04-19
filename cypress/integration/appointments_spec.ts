@@ -9,7 +9,7 @@ describe('The appointments feature', () => {
     cy.contains(this.identifiers.appointments.title)
 
     cy.document().toMatchImageSnapshot({
-      name: 'appointments',
+      name: `appointments.${Cypress.env('viewtype')}`,
       blackout: [
         '.elgg-pagination',
         '.event_calendar_paged',

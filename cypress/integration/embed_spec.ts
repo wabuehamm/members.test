@@ -9,7 +9,7 @@ describe('The embed feature', function () {
     cy.get('[data-menu-item=embed]').click()
     cy.get('#cboxLoadingOverlay').should('not.be.visible')
     cy.get('#cboxContent').toMatchImageSnapshot({
-      name: 'embed',
+      name: `embed.${Cypress.env('viewtype')}`,
       blackout: [
         '#cboxContent .elgg-list'
       ]
@@ -18,7 +18,7 @@ describe('The embed feature', function () {
     cy.get('#cboxLoadingOverlay').should('not.be.visible')
     cy.get('#cboxContent iframe')
     cy.get('#cboxContent').toMatchImageSnapshot({
-      name: 'embed_upload'
+      name: `embed_upload.${Cypress.env('viewtype')}`
     })
   })
   it.only('should allow to embed files into the editor', function () {

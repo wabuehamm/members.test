@@ -27,6 +27,7 @@ beforeEach(() => {
     } else {
         cy.log('Setting desktop view')
         cy.viewport(1400, 768)
+        Cypress.env('viewtype', 'desktop')
     }
     cy.prepare()
 })

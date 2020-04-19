@@ -3,6 +3,7 @@
 screenshots
 videos
 **/__image_snapshots__
+mochawesome-report
 
 ### Node template
 # Logs

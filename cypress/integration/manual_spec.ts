@@ -9,7 +9,7 @@ describe('The manual', () => {
     cy.contains(this.identifiers.manual.title)
 
     cy.document().toMatchImageSnapshot({
-      name: 'manual',
+      name: `manual.${Cypress.env('viewtype')}`,
       blackout: [
         '.elgg-listing-full-header',
         '.elgg-listing-full-responses'

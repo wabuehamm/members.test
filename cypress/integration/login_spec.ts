@@ -8,7 +8,7 @@ describe('When logging in into the membership area', () => {
     cy.get('input[name=username]').should('be.visible')
     cy.get('input[name=password]').should('be.visible')
     cy.document().toMatchImageSnapshot({
-      name: 'login'
+      name: `login.${Cypress.env('viewtype')}`
     })
   })
   it('a login is possible', () => {

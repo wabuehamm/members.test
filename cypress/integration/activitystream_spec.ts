@@ -8,7 +8,7 @@ describe('The activity stream', function () {
   it('is reachable', function() {
     cy.contains(this.identifiers.activityStream.title)
     cy.document().toMatchImageSnapshot({
-      name: 'activityStream',
+      name: `activityStream.${Cypress.env('viewtype')}`,
       blackout: [
         '.elgg-list'
       ]

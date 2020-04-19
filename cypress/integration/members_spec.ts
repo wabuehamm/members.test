@@ -9,7 +9,7 @@ describe('The list of members', function () {
     cy.contains(this.identifiers.members.title)
     // make screenshot, but blackout member list, pagination and count of members (in the search form footer)
     cy.document().toMatchImageSnapshot({
-      name: 'members',
+      name: `members.${Cypress.env('viewtype')}`,
       blackout: [
         '.elgg-list',
         '.elgg-form-footer',

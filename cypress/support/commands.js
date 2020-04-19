@@ -34,8 +34,13 @@ Cypress.Commands.add('login', function (username, password) {
  */
 Cypress.Commands.add('prepare', function () {
     cy.log('Checking admin credentials')
-    expect(Cypress.env('admin_username'), 'No CYPRESSS_admin_username environment variable found').to.not.be.undefined
-    expect(Cypress.env('admin_password'), 'No CYPRESSS_admin_password environment variable found').to.not.be.undefined
+    if (!Cypress.env('admin_username')) {
+        expect(false, 'No CYPRESSS_admin_username environment variable found').to.be.true
+    }
+
+    if (!Cypress.env('admin_password')) {
+        expect(false, 'No CYPRESSS_admin_password environment variable found').to.be.true
+    }
 
     cy.log('Logging in as admin user')
     cy.login(Cypress.env('admin_username'), Cypress.env('admin_password'))

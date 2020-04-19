@@ -11,7 +11,7 @@ describe('The membership area', () => {
     cy.get('[data-menu-item=account]').should('be.visible')
 
     cy.document().toMatchImageSnapshot({
-      name: 'basic',
+      name: `basic.${Cypress.env('viewtype')}`,
       blackout: [
         '.elgg-page-body'
       ]

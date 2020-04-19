@@ -7,7 +7,7 @@ describe('The agenda view of the appointments feature', () => {
 
   it('should have a valid ui', function () {
     cy.document().toMatchImageSnapshot({
-      name: 'appointments_full',
+      name: `appointments_full.${Cypress.env('viewtype')}`,
       blackout: [
         '.elgg-module-aside:last'
       ]

@@ -1,15 +1,21 @@
 {
-    "baseUrl": "https://web:8443",
-    "ignoreTestFiles": [
-        "**/__snapshots__/*",
-        "**/__image_snapshots__/*"
-    ],
-    "env": {
-        "cypress-plugin-snapshots": {
-            "autoCleanUp": true,
-            "imageConfig": {
-                "threshold": 0.01
-            }
-        }
+  "baseUrl": "https://web:8443",
+  "ignoreTestFiles": [
+    "**/__snapshots__/*",
+    "**/__image_snapshots__/*"
+  ],
+  "env": {
+    "cypress-plugin-snapshots": {
+      "autoCleanUp": true,
+      "imageConfig": {
+        "threshold": 0.01
+      }
     }
+  },
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "overwrite": false,
+    "html": false,
+    "json": true
+  }
 }
