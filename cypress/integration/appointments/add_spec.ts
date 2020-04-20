@@ -3,6 +3,7 @@ describe('Adding an event to the appointments feature', () => {
     cy.fixCypressSpec('/cypress/integration/appointments/add_spec.ts')
     cy.login()
     cy.visit('/event_calendar/add')
+    cy.get('iframe')
   })
 
   it('should have a valid entry form', function () {

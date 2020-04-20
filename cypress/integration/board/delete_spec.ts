@@ -5,9 +5,7 @@ describe('Deleting a discusson to the board', () => {
     cy.log('Adding test discussion')
     cy.request({
       method: 'POST',
-      form: true,
-      body: this.testdata.board.add,
-      url: '/action/discussion/save'
+      url: `/services/api/rest/json/?method=wabue.discussion.add&auth_token=${this.token}&discussion=${encodeURIComponent(JSON.stringify(this.testdata.board.add))}`
     })
   })
 

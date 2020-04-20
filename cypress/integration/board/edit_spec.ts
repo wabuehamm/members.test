@@ -5,14 +5,13 @@ describe('Editing a discusson to the board', () => {
     cy.log('Adding test discussion')
     cy.request({
       method: 'POST',
-      form: true,
-      body: this.testdata.board.add,
-      url: '/action/discussion/save'
+      url: `/services/api/rest/json/?method=wabue.discussion.add&auth_token=${this.token}&discussion=${encodeURIComponent(JSON.stringify(this.testdata.board.add))}`
     })
     cy.visit(`/discussion/group/${this.testdata.board.boardId}`)
     cy.contains(this.testdata.board.add.title).click()
     cy.get('[data-menu-item=entity-menu-toggle]').click()
     cy.get('[data-menu-item=edit').click()
+    cy.get('iframe')
   })
 
   it('should have a valid edit form', function () {

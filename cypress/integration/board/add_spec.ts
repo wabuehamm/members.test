@@ -3,6 +3,7 @@ describe('Adding a discusson to the board', () => {
     cy.fixCypressSpec('/cypress/integration/board/add_spec.ts')
     cy.login()
     cy.visit(`/discussion/add/${this.testdata.board.boardId}`)
+    cy.get('iframe')
   })
 
   it('should have a valid entry form', function () {

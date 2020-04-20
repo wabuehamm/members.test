@@ -27,9 +27,7 @@ describe('The appointments feature', () => {
     cy.contains(this.identifiers.appointments.icalExport)
     cy.request({
       method: 'POST',
-      form: true,
-      body: this.testdata.appointments.add,
-      url: '/action/event_calendar/edit'
+      url: `/services/api/rest/json/?method=wabue.event.add&auth_token=${this.token}&event=${encodeURIComponent(JSON.stringify(this.testdata.appointments.add))}`
     })
     cy.request({
       method: 'POST',

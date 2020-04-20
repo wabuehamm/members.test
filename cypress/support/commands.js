@@ -48,30 +48,19 @@ Cypress.Commands.add('prepare', function () {
     for (const testUser of this.testdata.users) {
         cy.log(`(Re-)creating user ${testUser.username}`)
         cy.request({
-            method: 'GET',
-            url: `/profile/${testUser.username}`,
-            failOnStatusCode: false
+            url: `/services/api/rest/json/?method=auth.gettoken&username=${Cypress.env('admin_username')}&password=${Cypress.env(
+                'admin_password')}`,
+            method: 'POST'
         })
             .then(
                 resp => {
-                    if (resp.status !== 404) {
-                        const matches = resp.body.match('data-page-owner-guid="([^"]+)')
-                        if (matches) {
-                            const guid = matches[1]
-                            cy.request({
-                                url: `/action/admin/user/delete?guid=${guid}`
-                            })
-                        }
-                    }
-                }
-            )
-            .then(
-                () => {
+                    expect(resp.body.status).to.eq(0)
+                    const token = resp.body.result
+                    this.token = token
+                    const user = encodeURIComponent(JSON.stringify(testUser))
                     cy.request({
                         method: 'POST',
-                        url: '/action/useradd',
-                        form: true,
-                        body: testUser
+                        url: `/services/api/rest/json/?method=wabue.users.add&auth_token=${token}&user=${user}`
                     })
                         .then(
                             (resp) => {

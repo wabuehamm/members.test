@@ -5,9 +5,7 @@ describe('Editing an event in the appointments feature', () => {
     cy.log('Adding test appointment')
     cy.request({
       method: 'POST',
-      form: true,
-      body: this.testdata.appointments.add,
-      url: '/action/event_calendar/edit'
+      url: `/services/api/rest/json/?method=wabue.event.add&auth_token=${this.token}&event=${encodeURIComponent(JSON.stringify(this.testdata.appointments.add))}`
     })
     cy.visit(`/event_calendar/list/${this.testdata.appointments.add['start_date']}?format=agenda`)
     cy.contains(this.testdata.appointments.add.title).click()

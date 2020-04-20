@@ -1,33 +1,19 @@
-describe('The board feature', () => {
-  let token = ''
+describe('The board feature', function () {
   beforeEach(function () {
-    cy.log('Fetching web service token')
-    cy.request({
-      url: `/services/api/rest/json/?method=auth.gettoken&username=${Cypress.env('admin_username')}&password=${Cypress.env(
-        'admin_password')}`,
-      method: 'POST'
-    })
-      .then(
-        resp => {
-          expect(resp.body.status).to.eq(0)
-          token = resp.body.result
-          cy.clearNotifications(token)
-          cy.login()
-          cy.log('Adding test discussion')
-          cy.request({
-            method: 'POST',
-            form: true,
-            body: this.testdata.board.add,
-            url: '/action/discussion/save'
-          })
-        }
-      )
-  })
+      cy.clearNotifications(this.token)
+      cy.login()
+      cy.log('Adding test discussion')
+      cy.request({
+        method: 'POST',
+        url: `/services/api/rest/json/?method=wabue.discussion.add&auth_token=${this.token}&discussion=${encodeURIComponent(JSON.stringify(this.testdata.board.add))}`
+      })
+    }
+  )
 
   it('should send a notification to everybody when creating a discussion', function () {
     cy.log('Triggering notifications')
     cy.request({
-      url: `/services/api/rest/json/?method=filetransport.notifications.send&auth_token=${token}`,
+      url: `/services/api/rest/json/?method=filetransport.notifications.send&auth_token=${this.token}`,
       method: 'POST'
     })
       .then(
@@ -36,7 +22,7 @@ describe('The board feature', () => {
         }
       )
     cy.request({
-      url: `/services/api/rest/json/?method=filetransport.notifications.get&auth_token=${token}`,
+      url: `/services/api/rest/json/?method=filetransport.notifications.get&auth_token=${this.token}`,
       method: 'GET'
     })
       .then(
@@ -60,14 +46,14 @@ describe('The board feature', () => {
   })
 
   const subscribingMethods = {
-    'liked': testdata => {
+    'liked': (testdata, token) => {
       cy.login(testdata.users[ 1 ].username, testdata.users[ 1 ].password)
       cy.visit(`/discussion/group/${testdata.board.boardId}`)
       cy.contains(testdata.board.add.title).click()
       cy.get('[data-menu-item=likes]:first').click()
       cy.clearNotifications(token)
     },
-    'commented': testdata => {
+    'commented': (testdata, token) => {
       cy.login(testdata.users[ 1 ].username, testdata.users[ 1 ].password)
       cy.visit(`/discussion/group/${testdata.board.boardId}`)
       cy.contains(testdata.board.add.title).click()
@@ -76,7 +62,7 @@ describe('The board feature', () => {
       cy.get('.elgg-spinner').should('not.be.visible')
       cy.clearNotifications(token)
     },
-    'subscribed': testdata => {
+    'subscribed': (testdata, token) => {
       cy.login(testdata.users[ 1 ].username, testdata.users[ 1 ].password)
       cy.visit(`/discussion/group/${testdata.board.boardId}`)
       cy.contains(testdata.board.add.title).click()
@@ -89,9 +75,9 @@ describe('The board feature', () => {
     if (subscribingMethods.hasOwnProperty(method)) {
       it(`should send a notification to everybody when creating a discussion, but only to people who ${method} the post on commenting`,
         function () {
-          cy.clearNotifications(token)
+          cy.clearNotifications(this.token)
 
-          subscribingMethods[ method ](this.testdata)
+          subscribingMethods[ method ](this.testdata, this.token)
 
           cy.login()
           cy.visit(`/discussion/group/${this.testdata.board.boardId}`)
@@ -112,11 +98,11 @@ describe('The board feature', () => {
                 cy.get('.elgg-spinner').should('not.be.visible')
                 cy.log('Triggering notifications')
                 cy.request({
-                  url: `/services/api/rest/json/?method=filetransport.notifications.send&auth_token=${token}`,
+                  url: `/services/api/rest/json/?method=filetransport.notifications.send&auth_token=${this.token}`,
                   method: 'POST'
                 })
                 cy.request({
-                  url: `/services/api/rest/json/?method=filetransport.notifications.get&auth_token=${token}`,
+                  url: `/services/api/rest/json/?method=filetransport.notifications.get&auth_token=${this.token}`,
                   method: 'GET'
                 })
                   .then(

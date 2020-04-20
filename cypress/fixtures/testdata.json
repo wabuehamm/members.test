@@ -42,7 +42,8 @@
             "end_time_hour": "13",
             "end_time_minute": "0",
             "region": "Workshop",
-            "long_description": "Testdescription"
+            "long_description": "Testdescription",
+            "owner_username": "test.user1"
         },
         "addVerification": [
             "Wann: 12:00 - 13:00, 1 Jan 2020",
@@ -89,7 +90,8 @@
             "description": "Testdescription",
             "status": "open",
             "access_id": "1",
-            "container_guid": "45105"
+            "container_guid": "45105",
+            "owner_username": "test.user1"
         },
         "addVerification": [
             "Testdiscussion",
