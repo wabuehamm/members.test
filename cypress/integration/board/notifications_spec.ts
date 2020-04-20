@@ -10,7 +10,7 @@ describe('The board feature', function () {
     }
   )
 
-  it('should send a notification to everybody when creating a discussion', function () {
+  it.only('should send a notification to everybody when creating a discussion', function () {
     cy.log('Triggering notifications')
     cy.request({
       url: `/services/api/rest/json/?method=filetransport.notifications.send&auth_token=${this.token}`,
@@ -32,7 +32,9 @@ describe('The board feature', function () {
           let foundMyself = false
           let foundOtherTestuser = false
           for (const notification of resp.body.result) {
-            if (notification[ 'to' ].includes(this.testdata.users[ 0 ].email)) {
+            // The user used for the notification is the admin user and not the created owner
+            // because of this https://github.com/Elgg/Elgg/issues/13185
+            if (notification[ 'to' ].includes(Cypress.env('admin_username'))) {
               foundMyself = true
             }
             if (notification[ 'to' ].includes(this.testdata.users[ 1 ].email)) {
