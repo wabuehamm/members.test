@@ -7,6 +7,9 @@ describe('The membership area', () => {
 
   it('displays the required items', () => {
     cy.get('div.elgg-nav-logo').should('be.visible')
+    if (Cypress.env('viewtype') == 'mobile') {
+      cy.get('.elgg-nav-button').should('be.visible').click()
+    }
     cy.get('div.elgg-nav-search').should('be.visible')
     cy.get('[data-menu-item=account]').should('be.visible')
 
@@ -19,7 +22,11 @@ describe('The membership area', () => {
   })
 
   it('contains all required menu items in the account menu', () => {
-    cy.get('[data-menu-item=account] ul').invoke('show').should('be.visible')
+    if (Cypress.env('viewtype') == 'mobile') {
+      cy.get('.elgg-nav-button').should('be.visible').click()
+    } else {
+      cy.get('[data-menu-item=account] ul').invoke('show').should('be.visible')
+    }
     cy.get('[data-menu-item=profile').should('be.visible')
     cy.get('[data-menu-item=usersettings').should('be.visible')
     cy.get('[data-menu-item=friends').should('be.visible')

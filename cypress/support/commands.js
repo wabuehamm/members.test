@@ -185,7 +185,11 @@ Cypress.Commands.add(
 Cypress.Commands.add(
     'logout',
     () => {
-        cy.get('[data-menu-item=account] ul').invoke('show').should('be.visible')
+        if (Cypress.env('viewtype') == 'mobile') {
+            cy.get('.elgg-nav-button').should('be.visible').click()
+        } else {
+            cy.get('[data-menu-item=account] ul').invoke('show').should('be.visible')
+        }
         cy.get('[data-menu-item=logout').click()
         cy.clearCookies()
         cy.get('[data-menu-item=account]').should('not.be.visible')
