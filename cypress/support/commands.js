@@ -13,14 +13,28 @@ Cypress.Commands.add('login', function (username, password) {
     }
 
     cy.request({
-        method: 'POST',
-        url: '/action/login',
-        form: true,
-        body: {
-            username: username,
-            password: password
-        }
+        url: '/'
     })
+        .then(
+            response => {
+                const matches = response.body.match(/name="__elgg_token" value="([^"]+)".*name="__elgg_ts" value="([^"]+)"/)
+                expect(matches).to.not.be.null
+                const token = matches[1]
+                const ts = matches[2]
+
+                cy.request({
+                    method: 'POST',
+                    url: '/action/login',
+                    form: true,
+                    body: {
+                        username: username,
+                        password: password,
+                        '__elgg_token': token,
+                        '__elgg_ts': ts
+                    }
+                })
+            }
+        )
         .then(
             resp => {
                 expect(resp.status).to.eq(200)
