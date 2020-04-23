@@ -21,7 +21,7 @@ describe('The embed feature', function () {
       name: `embed_upload.${Cypress.env('viewtype')}`
     })
   })
-  it.only('should allow to embed files into the editor', function () {
+  it('should allow to embed files into the editor', function () {
     cy.get('[data-menu-item=embed]').click()
     cy.get('#cboxLoadingOverlay').should('not.be.visible')
     cy.get('[data-menu-item=tab-1]').click()

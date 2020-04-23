@@ -29,9 +29,9 @@
         "redirects": {
             "homepage": "Alle Aktivitäten",
             "profile": "Test User 1",
-            "https://web:8443/activity": "Alle Aktivitäten",
-            "https://web:8443/event_calendar/list/": "Alle bevorstehenden Events",
-            "https://web:8443/discussion/group/45105": "Diskussionen"
+            "%baseUrl%/activity": "Alle Aktivitäten",
+            "%baseUrl%/event_calendar/list/": "Alle bevorstehenden Events",
+            "%baseUrl%/discussion/group/45105": "Diskussionen"
         }
     }
 }

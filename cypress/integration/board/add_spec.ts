@@ -24,7 +24,7 @@ describe('Adding a discusson to the board', () => {
     }
 
     cy.typeCkEditor(this.testdata.board.add['description'])
-    cy.get('.elgg-form-discussion-save .elgg-button-submit').click()
+    cy.get('.elgg-form-discussion-save').submit()
 
     cy.visit(`/discussion/group/${this.testdata.board.boardId}`)
     cy.contains(this.testdata.board.add.title).click()

@@ -27,14 +27,35 @@ describe('The appointments feature', () => {
     cy.contains(this.identifiers.appointments.icalExport)
     cy.request({
       method: 'POST',
-      url: `/services/api/rest/json/?method=wabue.event.add&auth_token=${this.token}&event=${encodeURIComponent(JSON.stringify(this.testdata.appointments.add))}`
+      url: `/services/api/rest/json/?method=wabue.event.add&auth_token=${this.token}&event=${encodeURIComponent(JSON.stringify(
+        this.testdata.appointments.add))}`
     })
-    cy.request({
-      method: 'POST',
-      url: '/action/event_calendar/export',
-      form: true,
-      body: this.testdata.appointments.export
-    })
+    let token
+    let ts
+    cy.get('[name="__elgg_token"]')
+      .then(
+        elem => {
+          token = elem.val()
+          cy.get('[name="__elgg_ts')
+        }
+      )
+      .then(
+        elem => {
+          ts = elem.val()
+          cy.request({
+            method: 'POST',
+            url: '/action/event_calendar/export',
+            form: true,
+            body: {
+              ...this.testdata.appointments.export,
+              ...{
+                '__elgg_token': token,
+                '__elgg_ts': ts,
+              }
+            }
+          })
+        }
+      )
       .then(
         resp => {
           expect(resp.body).to.contain(`SUMMARY:${this.testdata.appointments.add.title}`)

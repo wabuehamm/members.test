@@ -10,6 +10,7 @@ describe('The login redirector plugin', function () {
   const runTest = function (testdata, key, value) {
     cy.login()
     cy.visit(`/settings/plugins/${testdata.users[ 0 ].username}/login_redirector`)
+    key = key.replace('%baseUrl%', Cypress.config('baseUrl'))
     cy.get('[name="params[redirectpage]"]').select(key)
     cy.get('.elgg-form-plugins-usersettings-save').submit()
     cy.logout()

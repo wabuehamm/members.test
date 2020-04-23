@@ -29,7 +29,7 @@ describe('The private message feature', function () {
     cy.contains(this.testdata.messages.send.subject)
     cy.contains(this.testdata.messages.send.body)
   })
-  it.only('should allow to reply to a message', function () {
+  it('should allow to reply to a message', function () {
     sendMessage(this.testdata, this.identifiers)
     cy.login(this.testdata.users[ 1 ].username, this.testdata.users[ 1 ].password)
     cy.visit(`/messages/inbox/${this.testdata.users[ 1 ].username}`)

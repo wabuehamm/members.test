@@ -10,7 +10,7 @@ describe('The board feature', function () {
     }
   )
 
-  it.only('should send a notification to everybody when creating a discussion', function () {
+  it('should send a notification to everybody when creating a discussion', function () {
     cy.log('Triggering notifications')
     cy.request({
       url: `/services/api/rest/json/?method=filetransport.notifications.send&auth_token=${this.token}`,
