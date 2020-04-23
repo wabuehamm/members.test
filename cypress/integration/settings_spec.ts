@@ -12,11 +12,12 @@ describe('The user settings', function () {
       ]
     })
   })
-  it('should allow changing the password', function () {
+  it.only('should allow changing the password', function () {
     cy.get('[name=current_password]').type(this.testdata.users[0].password)
     cy.get('[name=password]').type(this.testdata.settings.changedPassword)
     cy.get('[name=password2]').type(this.testdata.settings.changedPassword)
     cy.get('.elgg-form-usersettings-save .elgg-button-submit').click()
+    cy.get('.elgg-spinner').should('not.be.visible')
     cy.logout()
     cy.login(this.testdata.users[0].username, this.testdata.settings.changedPassword)
   })

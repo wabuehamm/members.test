@@ -111,7 +111,7 @@ Cypress.Commands.add('fixCypressSpec', (filename) => {
  * https://medium.com/@nickdenardis/getting-cypress-js-to-interact-with-ckeditor-f46eec01132f
  */
 Cypress.Commands.add('typeCkEditor', (content, instanceID = null) => {
-    cy.get('iframe')
+    cy.get('iframe:visible')
     cy.window()
         .then(win => {
             let editorInstance
