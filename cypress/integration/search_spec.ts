@@ -6,7 +6,7 @@ describe('The search feature', () => {
   it('should return a minimum set of results', function () {
     cy.wrap(Object.keys(this.counts.search.minResults))
       .each(
-        (selector, index, collection) => {
+        (selector: string) => {
           cy.get(selector).
             then(
               elem => {

@@ -42,7 +42,7 @@ describe('The appointments feature', () => {
       .then(
         elem => {
           ts = elem.val()
-          cy.request({
+          return cy.request({
             method: 'POST',
             url: '/action/event_calendar/export',
             form: true,

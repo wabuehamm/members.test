@@ -1,10 +1,12 @@
 {
     "compilerOptions": {
-        "strict": true,
-        "baseUrl": "../node_modules",
-        "target": "es5",
-        "lib": ["es5", "dom"],
-        "types": ["cypress", "cypress-plugin-snapshots"]
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "noEmitOnError": true,
+        "target": "es6",
+        "declaration": true,
+        "types": ["cypress", "cypress-plugin-snapshots", "node", "ckeditor"]
     },
     "include": [
         "**/*.ts"
