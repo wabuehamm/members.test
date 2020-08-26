@@ -127,6 +127,9 @@
         "reply": {
             "subject": "testsubject2",
             "body": "testbody2"
+        },
+        "delete": {
+            "message": "testsubject wurde gelöscht."
         }
     },
     "profile": {

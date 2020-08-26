@@ -51,7 +51,7 @@ describe('The private message feature', function () {
     cy.visit(`/messages/inbox/${this.testdata.users[ 1 ].username}`)
     cy.get('[data-menu-item=entity-menu-toggle]:first').click()
     cy.get('[data-menu-item=delete]').click()
-    cy.get('.elgg-message').click()
+    cy.contains(this.testdata.messages.delete.message).click()
     cy.contains(this.testdata.messages.send.subject).should('not.exist')
   })
 })
