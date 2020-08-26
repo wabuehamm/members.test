@@ -4,7 +4,7 @@ describe('The login redirector plugin', function () {
     cy.get('input[name=username]').type(this.testdata.users[ 0 ].username)
     cy.get('input[name=password]').type(this.testdata.users[ 0 ].password)
     cy.get('.elgg-form-login').submit()
-    cy.contains(this.identifiers.loginredirector.default)
+    cy.get(this.identifiers.loginredirector.default)
   })
 
   const runTest = function (testdata, key, value) {

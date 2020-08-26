@@ -25,7 +25,7 @@
         "messageSent": "Deine Nachricht wurde gesendet"
     },
     "loginredirector": {
-        "default": "Diskussionen",
+        "default": "h2.elgg-heading-main:contains('Diskussionen')",
         "redirects": {
             "homepage": "Alle Aktivitäten",
             "profile": "Test User 1",
