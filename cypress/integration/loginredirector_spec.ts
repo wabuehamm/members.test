@@ -19,7 +19,7 @@ describe('The login redirector plugin', function () {
     cy.get('input[name=password]').type(testdata.users[ 0 ].password)
     cy.get('.elgg-form-login').submit()
     cy.get('.elgg-spinner').should('not.be.visible')
-    cy.get('.elgg-heading-main').contains(value)
+    cy.contains(value)
   }
 
   it('should correctly redirect to the selected settings', function () {
