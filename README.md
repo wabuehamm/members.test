@@ -6,26 +6,24 @@ This repository contains a test suite for the Wabue membership area based on Elg
 
 ## Prerequisites
 
-Turn off CSRF protection for the site by removing these two lines 
-from `vendor/elgg/elgg/engine/classes/Elgg/ActionsService.php`:
+Required modules:
 
-```php
-96      if (!in_array($action, self::$bypass_csrf)) {
-97        $middleware[] = CsrfFirewall::class;
-98      }
-```
+* [File Transport](https://packagist.org/packages/wabuehamm/filetransport)
+* [Wabue Hamm Plugin](https://github.com/wabuehamm/elgg-plugin-wabue)
 
-(_line numbers taken from Elgg 3.2.2_)
+Activate test mode after installing and activating both modules:
 
-Also, the file transport plugin version 0.1.0 or higher needs to be installed and activated.
+     php vendor/bin/elgg-cli wabue:testmode -t on
 
 ## Usage
 
 To run the test suite you have to set the following 
 [environment variables](https://docs.cypress.io/guides/guides/environment-variables.html):
 
-* admin_username: The username of a membership admin
-* admin_password: THe password of a membership admin
+* CYPRESS_baseurl: The URL to the Elgg instance
+* CYPRESS_admin_username: The username of a membership admin
+* CYPRESS_admin_password: The password of a membership admin
+* CYPRESS_viewtype: Either desktop or mobile for desktop or mobile tests
 
 ```
 npx cypress run
