@@ -68,7 +68,8 @@ describe('The board feature', function () {
       cy.login(testdata.users[ 1 ].username, testdata.users[ 1 ].password)
       cy.visit(`/discussion/group/${testdata.board.boardId}`)
       cy.contains(testdata.board.add.title).click()
-      cy.get('[data-menu-item=entity-menu-toggle]').click()
+      cy.get('iframe')
+      cy.get('[data-menu-item=entity-menu-toggle] > a').click()
       cy.get('[data-menu-item=content_subscription_subscribe').click()
     }
   }
@@ -85,6 +86,7 @@ describe('The board feature', function () {
           cy.visit(`/discussion/group/${this.testdata.board.boardId}`)
           cy.contains(this.testdata.board.add.title).click()
 
+          cy.get('iframe')
           cy.get('body')
             .then(
               elem => {

@@ -1,5 +1,6 @@
 {
   "baseUrl": "https://web:8443",
+  "defaultCommandTimeout": 10000,
   "ignoreTestFiles": [
     "**/__snapshots__/*",
     "**/__image_snapshots__/*"
@@ -17,5 +18,6 @@
     "overwrite": false,
     "html": false,
     "json": true
-  }
+  },
+  "watchForFileChanges": false
 }

@@ -206,6 +206,6 @@ Cypress.Commands.add(
         }
         cy.get('[data-menu-item=logout').click()
         cy.clearCookies()
-        cy.get('[data-menu-item=account]').should('not.be.visible')
+        cy.get('[data-menu-item=account]').should('not.exist')
     }
 )

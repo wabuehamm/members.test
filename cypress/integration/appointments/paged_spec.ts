@@ -39,10 +39,12 @@ describe('The paged view of the appointments feature', () => {
       .then(
         firstAppointmentTitle => {
           cy.get('.event_calendar_paged_calendar:first input').check()
+          cy.contains(this.identifiers.appointments.paged.appointmentAddedToPersonalCalendar)
           cy.get('[data-menu-item=mine]').click()
           cy.contains(this.identifiers.appointments.paged.noPersonalAppointments).should('not.exist')
           cy.get('.event_calendar_paged_title:first a').should('contain', firstAppointmentTitle)
           cy.get('.event_calendar_paged_calendar:first input').uncheck()
+          cy.contains(this.identifiers.appointments.paged.appointmentRemovedFromPersonalCalendar)
           cy.get('[data-menu-item=mine]').click()
           cy.contains(this.identifiers.appointments.paged.noPersonalAppointments)
         }
