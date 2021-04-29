@@ -9,9 +9,9 @@ describe('Editing an event in the appointments feature', () => {
     })
     cy.visit(`/event_calendar/list/${this.testdata.appointments.add['start_date']}?format=agenda`)
     cy.contains(this.testdata.appointments.add.title).click()
+    cy.get('iframe')
     cy.get('[data-menu-item=entity-menu-toggle]').click()
     cy.get('[data-menu-item=edit').click()
-    cy.get('iframe')
   })
 
   it('should have a valid edit form', function () {

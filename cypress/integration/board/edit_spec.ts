@@ -9,9 +9,9 @@ describe('Editing a discusson to the board', () => {
     })
     cy.visit(`/discussion/group/${this.testdata.board.boardId}`)
     cy.contains(this.testdata.board.add.title).click()
+    cy.get('iframe')
     cy.get('[data-menu-item=entity-menu-toggle]').click()
     cy.get('[data-menu-item=edit').click()
-    cy.get('iframe')
   })
 
   it('should have a valid edit form', function () {

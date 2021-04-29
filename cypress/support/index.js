@@ -38,12 +38,18 @@ before(function () {
     cy.fixture('identifiers').as('identifiers')
     cy.fixture('counts').as('counts')
     cy.fixture('testdata').as('testdata')
-    cy.fixture('errors').as('errors')
 })
 
+const KNOWN_ERRORS=[
+    /The resource name "filetools" is already registered./,
+    /undefined is not iterable \(cannot read property Symbol/,
+    /Cannot read property 'compatMode' of undefined/
+]
+
+
 Cypress.on('uncaught:exception', function (err, runnable) {
-    for (const errorMessage of this.knownErrors) {
-        if (err.message.match(new RegExp(errorMessage))) {
+    for (const errorMessage of KNOWN_ERRORS) {
+        if (err.message.match(errorMessage)) {
             return false
         }
     }

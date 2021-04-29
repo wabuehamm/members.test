@@ -16,6 +16,7 @@ describe('Deleting a comment on the board', () => {
   })
 
   it('should work', function () {
+    cy.get('iframe')
     cy.get('.comments-list .elgg-item:first [data-menu-item=entity-menu-toggle]').click()
     cy.get('.elgg-entity-dropdown-menu:visible [data-menu-item=delete]').click()
   })

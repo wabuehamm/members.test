@@ -5,7 +5,8 @@ describe('The board feature', function () {
       cy.log('Adding test discussion')
       cy.request({
         method: 'POST',
-        url: `/services/api/rest/json/?method=wabue.discussion.add&auth_token=${this.token}&discussion=${encodeURIComponent(JSON.stringify(this.testdata.board.add))}`
+        url: `/services/api/rest/json/?method=wabue.discussion.add&auth_token=${this.token}&discussion=${encodeURIComponent(
+          JSON.stringify(this.testdata.board.add))}`
       })
     }
   )
@@ -48,14 +49,16 @@ describe('The board feature', function () {
   })
 
   const subscribingMethods = {
-    'liked': (testdata, token) => {
+    'liked': (testdata: any, token: string) => {
       cy.login(testdata.users[ 1 ].username, testdata.users[ 1 ].password)
       cy.visit(`/discussion/group/${testdata.board.boardId}`)
       cy.contains(testdata.board.add.title).click()
-      cy.get('[data-menu-item=likes]:first').click()
+      cy.get('iframe')
+      cy.get('[data-menu-item=likes]:first > a').click()
+      cy.get('.elgg-spinner').should('not.be.visible')
       cy.clearNotifications(token)
     },
-    'commented': (testdata, token) => {
+    'commented': (testdata: any, token: string) => {
       cy.login(testdata.users[ 1 ].username, testdata.users[ 1 ].password)
       cy.visit(`/discussion/group/${testdata.board.boardId}`)
       cy.contains(testdata.board.add.title).click()
@@ -64,7 +67,7 @@ describe('The board feature', function () {
       cy.get('.elgg-spinner').should('not.be.visible')
       cy.clearNotifications(token)
     },
-    'subscribed': (testdata, token) => {
+    'subscribed': (testdata: any, token: string) => {
       cy.login(testdata.users[ 1 ].username, testdata.users[ 1 ].password)
       cy.visit(`/discussion/group/${testdata.board.boardId}`)
       cy.contains(testdata.board.add.title).click()
@@ -80,7 +83,9 @@ describe('The board feature', function () {
         function () {
           cy.clearNotifications(this.token)
 
-          subscribingMethods[ method ](this.testdata, this.token)
+          ;(
+            subscribingMethods as any
+          )[ method ](this.testdata, this.token)
 
           cy.login()
           cy.visit(`/discussion/group/${this.testdata.board.boardId}`)
@@ -124,7 +129,6 @@ describe('The board feature', function () {
                   )
               }
             )
-
         })
     }
   }

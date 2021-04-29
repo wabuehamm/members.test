@@ -17,7 +17,8 @@ Cypress.Commands.add('login', function (username, password) {
     })
         .then(
             response => {
-                const matches = response.body.match(/name="__elgg_token" value="([^"]+)".*name="__elgg_ts" value="([^"]+)"/)
+                const matches = response.body.match(
+                    /name="__elgg_token" value="([^"]+)".*name="__elgg_ts" value="([^"]+)"/)
                 expect(matches).to.not.be.null
                 const token = matches[1]
                 const ts = matches[2]
@@ -111,7 +112,7 @@ Cypress.Commands.add('fixCypressSpec', (filename) => {
  * https://medium.com/@nickdenardis/getting-cypress-js-to-interact-with-ckeditor-f46eec01132f
  */
 Cypress.Commands.add('typeCkEditor', (content, instanceID = null) => {
-    cy.get('iframe:visible')
+    cy.get('iframe')
     cy.window()
         .then(win => {
             let editorInstance
