@@ -13,9 +13,9 @@ describe('Editing a comment on the board', () => {
     cy.get('.elgg-form-comment-save .elgg-button-submit').click()
     cy.visit(`/discussion/group/${this.testdata.board.boardId}`)
     cy.contains(this.testdata.board.add.title).click()
+    cy.get('iframe')
     cy.get('.comments-list .elgg-item:first [data-menu-item=entity-menu-toggle]').click()
     cy.get('.elgg-entity-dropdown-menu:visible [data-menu-item=edit]').click()
-    cy.get('iframe')
   })
 
   it('should have a valid form', function () {
@@ -28,6 +28,7 @@ describe('Editing a comment on the board', () => {
     cy.get('.elgg-form-comment-save:visible [name=generic_comment]')
       .then(
         textArea => {
+          cy.get('iframe')
           cy.typeCkEditor(this.testdata.board.comments.edit, textArea.attr('id'))
           cy.get('.elgg-form-comment-save:visible .elgg-button-submit').click()
           cy.get('.elgg-spinner').should('not.be.visible')
