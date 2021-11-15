@@ -12,6 +12,7 @@ describe('Editing an event in the appointments feature', () => {
   })
 
   it('should work', function () {
+    cy.get('iframe')
     cy.get('[data-menu-item=entity-menu-toggle]').click()
     cy.get('[data-menu-item=delete').click()
     cy.visit(`/event_calendar/list/${this.testdata.appointments.add['start_date']}?format=agenda`)

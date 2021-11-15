@@ -43,7 +43,8 @@ before(function () {
 const KNOWN_ERRORS=[
     /The resource name "filetools" is already registered./,
     /undefined is not iterable \(cannot read property Symbol/,
-    /Cannot read property 'compatMode' of undefined/
+    /Cannot read property 'compatMode' of undefined/,
+    /Cannot read properties of undefined \(reading 'compatMode'\)/
 ]
 
 

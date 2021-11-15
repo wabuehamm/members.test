@@ -12,6 +12,7 @@ describe('Deleting a discusson to the board', () => {
   it('should work', function () {
     cy.visit(`/discussion/group/${this.testdata.board.boardId}`)
     cy.contains(this.testdata.board.add.title).click()
+    cy.get('iframe')
     cy.get('[data-menu-item=entity-menu-toggle]').click()
     cy.get('[data-menu-item=delete').click()
     cy.visit(`/discussion/group/${this.testdata.board.boardId}`)
