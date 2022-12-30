@@ -11,7 +11,7 @@
     "cypress": "^9.0.0",
     "cypress-plugin-snapshots": "^1.4.4",
     "fs-extra": "^9.0.0",
-    "mocha": "^7.1.1",
+    "mocha": "^10.2.0",
     "mochawesome": "^6.1.0",
     "mochawesome-merge": "^4.0.3",
     "mochawesome-report-generator": "^5.1.0",
